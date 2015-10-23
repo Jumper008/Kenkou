@@ -17,6 +17,8 @@
 		15C96CED1BD3155500B636B2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CEC1BD3155500B636B2 /* MainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		15C96CF01BD3186200B636B2 /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CEF1BD3186200B636B2 /* FoodViewController.m */; settings = {ASSET_TAGS = (); }; };
 		15C96CF31BD3187900B636B2 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CF21BD3187900B636B2 /* ExerciseViewController.m */; settings = {ASSET_TAGS = (); }; };
+		15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		15CFAFDE1BD9C4350050A1D8 /* BTSpiderPlotterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFDD1BD9C4350050A1D8 /* BTSpiderPlotterView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,11 @@
 		15C96CEF1BD3186200B636B2 /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
 		15C96CF11BD3187900B636B2 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
 		15C96CF21BD3187900B636B2 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
+		15CFAFD71BD9C2AB0050A1D8 /* BTSpiderPlotterViewExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BTSpiderPlotterViewExample-Prefix.pch"; sourceTree = "<group>"; };
+		15CFAFD81BD9C3190050A1D8 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
+		15CFAFDC1BD9C4350050A1D8 /* BTSpiderPlotterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTSpiderPlotterView.h; sourceTree = "<group>"; };
+		15CFAFDD1BD9C4350050A1D8 /* BTSpiderPlotterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTSpiderPlotterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +94,7 @@
 		15C96CAC1BD2FB3E00B636B2 = {
 			isa = PBXGroup;
 			children = (
+				15CFAFDB1BD9C41D0050A1D8 /* BTSpiderPlotterView */,
 				15C96CB71BD2FB3E00B636B2 /* Kenkou */,
 				15C96CD11BD2FB3E00B636B2 /* KenkouTests */,
 				15C96CDC1BD2FB3E00B636B2 /* KenkouUITests */,
@@ -110,6 +118,8 @@
 				15C96CBB1BD2FB3E00B636B2 /* AppDelegate.h */,
 				15C96CBC1BD2FB3E00B636B2 /* AppDelegate.m */,
 				15C96CC11BD2FB3E00B636B2 /* Main.storyboard */,
+				15CFAFD81BD9C3190050A1D8 /* ResultsViewController.h */,
+				15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */,
 				15C96CEE1BD3186200B636B2 /* FoodViewController.h */,
 				15C96CEF1BD3186200B636B2 /* FoodViewController.m */,
 				15C96CF11BD3187900B636B2 /* ExerciseViewController.h */,
@@ -127,6 +137,7 @@
 		15C96CB81BD2FB3E00B636B2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				15CFAFD71BD9C2AB0050A1D8 /* BTSpiderPlotterViewExample-Prefix.pch */,
 				15C96CB91BD2FB3E00B636B2 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -148,6 +159,15 @@
 				15C96CDF1BD2FB3E00B636B2 /* Info.plist */,
 			);
 			path = KenkouUITests;
+			sourceTree = "<group>";
+		};
+		15CFAFDB1BD9C41D0050A1D8 /* BTSpiderPlotterView */ = {
+			isa = PBXGroup;
+			children = (
+				15CFAFDC1BD9C4350050A1D8 /* BTSpiderPlotterView.h */,
+				15CFAFDD1BD9C4350050A1D8 /* BTSpiderPlotterView.m */,
+			);
+			name = BTSpiderPlotterView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,9 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15CFAFDE1BD9C4350050A1D8 /* BTSpiderPlotterView.m in Sources */,
 				15C96CBD1BD2FB3E00B636B2 /* AppDelegate.m in Sources */,
 				15C96CBA1BD2FB3E00B636B2 /* main.m in Sources */,
 				15C96CF31BD3187900B636B2 /* ExerciseViewController.m in Sources */,
+				15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */,
 				15C96CF01BD3186200B636B2 /* FoodViewController.m in Sources */,
 				15C96CED1BD3155500B636B2 /* MainViewController.m in Sources */,
 			);
@@ -511,6 +533,7 @@
 				15C96CE41BD2FB3E00B636B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15C96CE51BD2FB3E00B636B2 /* Build configuration list for PBXNativeTarget "KenkouTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +542,7 @@
 				15C96CE71BD2FB3E00B636B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15C96CE81BD2FB3E00B636B2 /* Build configuration list for PBXNativeTarget "KenkouUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +551,7 @@
 				15C96CEA1BD2FB3E00B636B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
