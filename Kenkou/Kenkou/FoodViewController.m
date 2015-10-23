@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.navigationController setNavigationBarHidden:NO];
+    [self setTitle:@"Registro de Datos"];
 }
 
 - (void)didReceiveMemoryWarning {

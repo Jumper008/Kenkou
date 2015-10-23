@@ -222,6 +222,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XUI-X8-FOB" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dfq-JC-IGz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

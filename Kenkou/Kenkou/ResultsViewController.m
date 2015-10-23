@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.navigationController setNavigationBarHidden:NO];
+    [self setTitle:@"Resultados"];
     
     // Populate a utility dictionary.
     // Data represents the ranking of a person's health.
