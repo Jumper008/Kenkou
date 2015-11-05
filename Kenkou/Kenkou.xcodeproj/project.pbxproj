@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1527252D1BE82C3E00741647 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1527252C1BE82C3E00741647 /* SettingsTableViewController.m */; };
 		152725301BE868B600741647 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1527252F1BE868B600741647 /* SettingsViewController.m */; };
+		152725751BEBE1F200741647 /* Kenkou.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 152725731BEBE1F200741647 /* Kenkou.xcdatamodeld */; };
 		15C96CBA1BD2FB3E00B636B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CB91BD2FB3E00B636B2 /* main.m */; };
 		15C96CBD1BD2FB3E00B636B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CBC1BD2FB3E00B636B2 /* AppDelegate.m */; };
 		15C96CC31BD2FB3E00B636B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C96CC11BD2FB3E00B636B2 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		1527252C1BE82C3E00741647 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		1527252E1BE868B600741647 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1527252F1BE868B600741647 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		152725741BEBE1F200741647 /* Kenkou.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Kenkou.xcdatamodel; sourceTree = "<group>"; };
 		15C96CB51BD2FB3E00B636B2 /* Kenkou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kenkou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C96CB91BD2FB3E00B636B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15C96CBB1BD2FB3E00B636B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				15C96CBB1BD2FB3E00B636B2 /* AppDelegate.h */,
+				152725731BEBE1F200741647 /* Kenkou.xcdatamodeld */,
 				15C96CBC1BD2FB3E00B636B2 /* AppDelegate.m */,
 				15C96CC11BD2FB3E00B636B2 /* Main.storyboard */,
 				1527252E1BE868B600741647 /* SettingsViewController.h */,
@@ -315,6 +318,7 @@
 			files = (
 				15CFAFDE1BD9C4350050A1D8 /* BTSpiderPlotterView.m in Sources */,
 				15C96CBD1BD2FB3E00B636B2 /* AppDelegate.m in Sources */,
+				152725751BEBE1F200741647 /* Kenkou.xcdatamodeld in Sources */,
 				15C96CBA1BD2FB3E00B636B2 /* main.m in Sources */,
 				152725301BE868B600741647 /* SettingsViewController.m in Sources */,
 				1527252D1BE82C3E00741647 /* SettingsTableViewController.m in Sources */,
@@ -566,6 +570,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		152725731BEBE1F200741647 /* Kenkou.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				152725741BEBE1F200741647 /* Kenkou.xcdatamodel */,
+			);
+			currentVersion = 152725741BEBE1F200741647 /* Kenkou.xcdatamodel */;
+			path = Kenkou.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 15C96CAD1BD2FB3E00B636B2 /* Project object */;
 }
