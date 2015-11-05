@@ -17,8 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self setTitle:@"Registro de Datos"];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1527252D1BE82C3E00741647 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1527252C1BE82C3E00741647 /* SettingsTableViewController.m */; };
+		152725301BE868B600741647 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1527252F1BE868B600741647 /* SettingsViewController.m */; };
 		15C96CBA1BD2FB3E00B636B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CB91BD2FB3E00B636B2 /* main.m */; };
 		15C96CBD1BD2FB3E00B636B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CBC1BD2FB3E00B636B2 /* AppDelegate.m */; };
 		15C96CC31BD2FB3E00B636B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C96CC11BD2FB3E00B636B2 /* Main.storyboard */; };
@@ -14,11 +16,11 @@
 		15C96CC81BD2FB3E00B636B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C96CC61BD2FB3E00B636B2 /* LaunchScreen.storyboard */; };
 		15C96CD31BD2FB3E00B636B2 /* KenkouTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CD21BD2FB3E00B636B2 /* KenkouTests.m */; };
 		15C96CDE1BD2FB3E00B636B2 /* KenkouUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CDD1BD2FB3E00B636B2 /* KenkouUITests.m */; };
-		15C96CED1BD3155500B636B2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CEC1BD3155500B636B2 /* MainViewController.m */; settings = {ASSET_TAGS = (); }; };
-		15C96CF01BD3186200B636B2 /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CEF1BD3186200B636B2 /* FoodViewController.m */; settings = {ASSET_TAGS = (); }; };
-		15C96CF31BD3187900B636B2 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CF21BD3187900B636B2 /* ExerciseViewController.m */; settings = {ASSET_TAGS = (); }; };
-		15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */; settings = {ASSET_TAGS = (); }; };
-		15CFAFDE1BD9C4350050A1D8 /* BTSpiderPlotterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFDD1BD9C4350050A1D8 /* BTSpiderPlotterView.m */; settings = {ASSET_TAGS = (); }; };
+		15C96CED1BD3155500B636B2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CEC1BD3155500B636B2 /* MainViewController.m */; };
+		15C96CF01BD3186200B636B2 /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CEF1BD3186200B636B2 /* FoodViewController.m */; };
+		15C96CF31BD3187900B636B2 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CF21BD3187900B636B2 /* ExerciseViewController.m */; };
+		15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */; };
+		15CFAFDE1BD9C4350050A1D8 /* BTSpiderPlotterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFDD1BD9C4350050A1D8 /* BTSpiderPlotterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1527252B1BE82C3E00741647 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		1527252C1BE82C3E00741647 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		1527252E1BE868B600741647 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		1527252F1BE868B600741647 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		15C96CB51BD2FB3E00B636B2 /* Kenkou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kenkou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C96CB91BD2FB3E00B636B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15C96CBB1BD2FB3E00B636B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,6 +124,10 @@
 				15C96CBB1BD2FB3E00B636B2 /* AppDelegate.h */,
 				15C96CBC1BD2FB3E00B636B2 /* AppDelegate.m */,
 				15C96CC11BD2FB3E00B636B2 /* Main.storyboard */,
+				1527252E1BE868B600741647 /* SettingsViewController.h */,
+				1527252F1BE868B600741647 /* SettingsViewController.m */,
+				1527252B1BE82C3E00741647 /* SettingsTableViewController.h */,
+				1527252C1BE82C3E00741647 /* SettingsTableViewController.m */,
 				15CFAFD81BD9C3190050A1D8 /* ResultsViewController.h */,
 				15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */,
 				15C96CEE1BD3186200B636B2 /* FoodViewController.h */,
@@ -306,6 +316,8 @@
 				15CFAFDE1BD9C4350050A1D8 /* BTSpiderPlotterView.m in Sources */,
 				15C96CBD1BD2FB3E00B636B2 /* AppDelegate.m in Sources */,
 				15C96CBA1BD2FB3E00B636B2 /* main.m in Sources */,
+				152725301BE868B600741647 /* SettingsViewController.m in Sources */,
+				1527252D1BE82C3E00741647 /* SettingsTableViewController.m in Sources */,
 				15C96CF31BD3187900B636B2 /* ExerciseViewController.m in Sources */,
 				15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */,
 				15C96CF01BD3186200B636B2 /* FoodViewController.m in Sources */,
