@@ -28,5 +28,6 @@
 @property CGFloat flWeight;
 
 // Action methods
+- (IBAction)saveSettings:(id)sender;
 
 @end

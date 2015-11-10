@@ -405,6 +405,9 @@
                     <navigationItem key="navigationItem" title="Title" id="QTS-Qg-6BB">
                         <barButtonItem key="rightBarButtonItem" title="Guardar" style="done" id="7p6-l0-z4z">
                             <color key="tintColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="saveSettings:" destination="boc-HD-2JM" id="lVx-1V-CTv"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -563,7 +566,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ldK-m6-2ZV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XUI-X8-FOB" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Main" automaticallyAdjustsScrollViewInsets="NO" id="XUI-X8-FOB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dfq-JC-IGz">
@@ -578,7 +581,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="auK-H0-m7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-431" y="-468"/>
+            <point key="canvasLocation" x="-407" y="-415"/>
         </scene>
     </scenes>
     <resources>

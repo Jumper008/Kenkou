@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Onboard.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Kenkou.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-KenkouTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-KenkouUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>12AC879C9251CE1567D99D93D23C766E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1C7E60FAE257112C3838520D8C6F4B3E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>28515092D4E7C11614590D58CBE012CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>597F56C54F2050BEE2BF6BC5DE49D44C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8E5C3F6483AF683C5D320FD64DA4B124</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

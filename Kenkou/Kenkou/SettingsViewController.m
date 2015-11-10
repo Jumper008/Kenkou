@@ -25,6 +25,10 @@
     self.uitextviewDataField.keyboardType = self.keyboardType;
     
     self.uitextviewDataField.contentInset = UIEdgeInsetsMake(self.uitextviewDataField.frame.size.height /-2.5,0.0,0,0.0);
+    
+    UITapGestureRecognizer *OffKeyboardtap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeKeyboard)];
+    [self.view addGestureRecognizer:OffKeyboardtap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,8 +48,90 @@
 
 - (IBAction)saveFieldData:(id)sender
 {
-    
-    [self.delegate saveFieldWithData:self.uitextviewDataField.text withIdentifier:self.nsintIdentifier];
-    [self.delegate removeViewController];
+    /*CASE*/
+    if (
+        // Is the field birthyear?
+        self.nsintIdentifier == 3
+        )
+    {
+        if (
+            ([self.uitextviewDataField.text integerValue] > 2000) ||
+            ([self.uitextviewDataField.text integerValue] < 1985)
+            )
+        {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Año inválido"
+                                                                           message:@"Por favor modifique el valor."
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else
+        {
+            [self.delegate saveFieldWithData:self.uitextviewDataField.text withIdentifier:self.nsintIdentifier];
+            [self.delegate removeViewController];
+        }
+    }
+    else if (
+        // Is the field height?
+        self.nsintIdentifier == 4
+        )
+    {
+        if (
+            ([self.uitextviewDataField.text floatValue] > 2.15) ||
+            ([self.uitextviewDataField.text floatValue] < 1.00)
+            )
+        {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Altura inválida"
+                                                                           message:@"Por favor modifique el valor."
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else
+        {
+            [self.delegate saveFieldWithData:self.uitextviewDataField.text withIdentifier:self.nsintIdentifier];
+            [self.delegate removeViewController];
+        }
+    }
+    else if (
+        // Is the field weight?
+        self.nsintIdentifier == 5
+        )
+    {
+        if (
+            ([self.uitextviewDataField.text floatValue] > 150) ||
+            ([self.uitextviewDataField.text floatValue] < 20)
+            )
+        {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Peso inválido"
+                                                                           message:@"Por favor modifique el valor."
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else
+        {
+            [self.delegate saveFieldWithData:self.uitextviewDataField.text withIdentifier:self.nsintIdentifier];
+            [self.delegate removeViewController];
+        }
+    }
+    /*END-CASE*/
+}
+
+- (void) removeKeyboard
+{
+    [self.view endEditing:YES];
 }
 @end

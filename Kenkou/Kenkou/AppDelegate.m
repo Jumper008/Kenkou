@@ -21,6 +21,8 @@
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:1.0f green:0.44313725f blue:0.37647059f alpha:1]];
     //[[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.10196078f green:0.10196078f blue:0.10196078f alpha:1]];
     
+    [self setStoryboard];
+    
     return YES;
 }
 
@@ -46,6 +48,47 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+#pragma mark - App initialization methods
+
+// Chooses and displays the correct storyboard
+- (void)setStoryboard
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    [self setInitialScreen:storyboard];
+}
+
+// Sets the initial screen for the chosen storyboard
+- (void)setInitialScreen:(UIStoryboard *)storyboard
+{
+    UIViewController *initViewController;
+    
+    if (
+        [self isUserNew]
+        )
+    {
+        initViewController = [storyboard instantiateViewControllerWithIdentifier: @"Main"];
+    }
+    else
+    {
+        initViewController = [storyboard instantiateViewControllerWithIdentifier: @"Main"];
+    }
+    
+    self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = initViewController;
+    [self.window makeKeyAndVisible];
+}
+
+// Verifies if it is the first time the user has opened the application
+- (BOOL)isUserNew
+{
+    NSString *pathList = [[NSBundle mainBundle] pathForResource:@"AppConfigurationFile" ofType:@"plist"];
+    NSDictionary *nsDictionaryAppConfigurations = [[NSDictionary alloc] initWithContentsOfFile:pathList];
+    
+    BOOL boolIsUserNew = [[nsDictionaryAppConfigurations valueForKey:@"IsUserNew"] boolValue];
+    return boolIsUserNew;
 }
 
 #pragma mark - Core Data stack

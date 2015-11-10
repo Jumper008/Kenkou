@@ -7,6 +7,7 @@
 //
 
 #import "SettingsTableViewController.h"
+#import "AppDelegate.h"
 
 @interface SettingsTableViewController ()
 
@@ -14,10 +15,13 @@
 
 @implementation SettingsTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     [self setTitle:@"Configuración"];
+    
+    [self loadSettings];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -26,18 +30,21 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return 7;
 }
 
@@ -88,7 +95,8 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
@@ -195,6 +203,121 @@
         self.lblWeight.text = [[NSString alloc] initWithFormat:@"%0.2f kg", self.flWeight];
     }
     /*END-CASE*/
+}
+
+#pragma mark - CoreData methods
+
+- (void) loadSettings
+{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
+    NSEntityDescription *nsEntityDescription =
+                            [NSEntityDescription entityForName:@"User"  inManagedObjectContext:nsManagedObjectContext];
+    
+    // A request is created
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // The entity for the request is specified
+    [request setEntity: nsEntityDescription];
+    
+    NSError *error;
+    
+    // The request is executed
+    NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
+    
+    if (
+        // No matched objects were found. The user isn't registered.
+        nsArrayMatchedObject.count == 0
+        )
+    {
+        // Assigns default values to TableViewController's labels, switch and segmented control
+        self.lblFirstName.text = @"Nombre";
+        self.lblLastName.text = @"Apellido";
+        self.lblBirthYear.text = @"1994";
+        self.lblHeight.text = @"1.70 m";
+        self.lblWeight.text = @"75 kg";
+        self.uisegmentedcontrolSex.selectedSegmentIndex = 0;
+        self.uiswitchExercise.on = YES;
+    }
+    else
+    {
+        // Obtains user information
+        NSManagedObject *nsManagedObjectUser = nsArrayMatchedObject[0];
+        
+        // Updates TableViewController's labels, switch and segmented control
+        self.lblFirstName.text = [nsManagedObjectUser valueForKey:@"firstName"];
+        self.lblLastName.text = [nsManagedObjectUser valueForKey:@"lastName"];
+        self.lblBirthYear.text = [[nsManagedObjectUser valueForKey:@"birthYear"] stringValue];
+        self.lblHeight.text = [[nsManagedObjectUser valueForKey:@"height"] stringValue];
+        self.lblWeight.text = [[nsManagedObjectUser valueForKey:@"weight"] stringValue];
+        self.uisegmentedcontrolSex.selectedSegmentIndex = [[nsManagedObjectUser valueForKey:@"sex"] integerValue];
+        self.uiswitchExercise.on = [nsManagedObjectUser valueForKey:@"exercise"];
+    }
+}
+
+- (IBAction)saveSettings:(id)sender
+{
+    BOOL boolIsFieldDataCorrect = true;
+    NSString *strAlertTitle;
+    NSString *strAlertMessage = @"Por favor modifique el valor.";
+    
+    /*CASE*/
+    if (
+        [self.lblFirstName.text isEqualToString:@""]
+        )
+    {
+        boolIsFieldDataCorrect = false;
+        strAlertTitle = @"Nombre inválido";
+    }
+    else if (
+        [self.lblLastName.text isEqualToString:@""]
+        )
+    {
+        boolIsFieldDataCorrect = false;
+        strAlertTitle = @"Apellido inválido";
+    }
+    else if (
+        [self.lblBirthYear.text isEqualToString:@""]
+        )
+    {
+        boolIsFieldDataCorrect = false;
+        strAlertTitle = @"Año de nacimiento inválido";
+    }
+    else if (
+        [self.lblHeight.text isEqualToString:@""]
+        )
+    {
+        boolIsFieldDataCorrect = false;
+        strAlertTitle = @"Altura inválido";
+    }
+    else if (
+        [self.lblWeight.text isEqualToString:@""]
+        )
+    {
+        boolIsFieldDataCorrect = false;
+        strAlertTitle = @"Peso inválido";
+    }
+    /*END-CASE*/
+    
+    if (
+        !boolIsFieldDataCorrect
+        )
+    {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:strAlertTitle
+                                                                       message:strAlertMessage
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else
+    {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
+    }
 }
 
 - (void) removeViewController
