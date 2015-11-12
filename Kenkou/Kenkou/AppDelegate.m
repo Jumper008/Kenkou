@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "OnboardingViewController.h"
+#import "OnboardingContentViewController.h"
 
 @interface AppDelegate ()
 
@@ -66,10 +68,11 @@
     UIViewController *initViewController;
     
     if (
+        // Is this the first time the user has opened the application?
         [self isUserNew]
         )
     {
-        initViewController = [storyboard instantiateViewControllerWithIdentifier: @"Main"];
+        initViewController = [self generateOnboardingViewControllerWithStoryboard:storyboard];
     }
     else
     {
@@ -89,6 +92,69 @@
     
     BOOL boolIsUserNew = [[nsDictionaryAppConfigurations valueForKey:@"IsUserNew"] boolValue];
     return boolIsUserNew;
+}
+
+#pragma mark - Onboarding methods
+
+// Generates the onboarding ViewController
+- (OnboardingViewController *)generateOnboardingViewControllerWithStoryboard:(UIStoryboard *)storyboard
+{
+    OnboardingContentViewController *onboardingContentViewControllerFirstPage = [OnboardingContentViewController
+    contentWithTitle:@"Registra"
+    body:@"Registra diariamente tus datos dentro de cuatro categorías: Alimentación, Ejercicio, Sueño y Alcohol"
+    image:nil
+    buttonText:nil
+    action:nil];
+    
+    OnboardingContentViewController *onboardingContentViewControllerSecondPage = [OnboardingContentViewController
+    contentWithTitle:@"Observa"
+    body:@"Observa tu estado actual dentro de las cuatro categorías"
+    image:nil
+    buttonText:nil
+    action:nil];
+    
+    OnboardingContentViewController *onboardingContentViewControllerThirdPage = [OnboardingContentViewController
+    contentWithTitle:@"Analiza"
+    body:@"Analiza tu progreso a través del tiempo de diferentes maneras"
+    image:nil
+    buttonText:@"Continuar"
+    action:^{[self handleOnboardingCompletionWithStoryboard:storyboard];}];
+    
+    OnboardingViewController *onboardingViewController = [OnboardingViewController
+    onboardWithBackgroundImage:[UIImage imageNamed:@"OnboardingBackground"]
+    contents:@[onboardingContentViewControllerFirstPage,
+               onboardingContentViewControllerSecondPage,
+               onboardingContentViewControllerThirdPage]];
+    
+    // Onboarding ViewController customization
+    onboardingViewController.shouldFadeTransitions = YES;
+    onboardingViewController.fadePageControlOnLastPage = YES;
+    onboardingViewController.fadeSkipButtonOnLastPage = YES;
+    onboardingViewController.shouldMaskBackground = NO;
+    onboardingViewController.shouldBlurBackground = YES;
+    onboardingViewController.titleFontSize = 50;
+    onboardingViewController.underTitlePadding = 40;
+    onboardingViewController.titleFontName = @"AppleSDGothicNeo-Bold";
+    
+    return onboardingViewController;
+}
+
+- (void)setMainViewControllerAsRootViewControllerWithStoryboard:(UIStoryboard *)storyboard
+{
+    // create whatever your root view controller is going to be, in this case just a simple view controller
+    // wrapped in a navigation controller
+    
+    self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier: @"Main"];
+}
+
+- (void)handleOnboardingCompletionWithStoryboard:(UIStoryboard *)storyboard
+{
+    // set that we have completed onboarding so we only do it once... for demo
+    // purposes we don't want to have to set this every time so I'll just leave
+    // this here...
+    
+    // transition to the main application
+    [self setMainViewControllerAsRootViewControllerWithStoryboard:storyboard];
 }
 
 #pragma mark - Core Data stack
