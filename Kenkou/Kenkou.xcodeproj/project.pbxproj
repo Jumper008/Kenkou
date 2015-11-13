@@ -22,6 +22,8 @@
 		15C96CF31BD3187900B636B2 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CF21BD3187900B636B2 /* ExerciseViewController.m */; };
 		15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */; };
 		15CFAFDE1BD9C4350050A1D8 /* BTSpiderPlotterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFDD1BD9C4350050A1D8 /* BTSpiderPlotterView.m */; };
+		15D61CE71BF5820E005BB2F8 /* OnboardingSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D61CE61BF5820E005BB2F8 /* OnboardingSettingsTableViewController.m */; };
+		15D61CEA1BF5AF9E005BB2F8 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D61CE91BF5AF9E005BB2F8 /* MainTableViewController.m */; };
 		15D650A61BF12EE800C18BA0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D650A51BF12EE800C18BA0 /* CoreData.framework */; };
 		5886C43BAB58B1AEBCB349B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96954FE2F149687639DD9BE9 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -75,6 +77,10 @@
 		15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		15CFAFDC1BD9C4350050A1D8 /* BTSpiderPlotterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTSpiderPlotterView.h; sourceTree = "<group>"; };
 		15CFAFDD1BD9C4350050A1D8 /* BTSpiderPlotterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTSpiderPlotterView.m; sourceTree = "<group>"; };
+		15D61CE51BF5820E005BB2F8 /* OnboardingSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnboardingSettingsTableViewController.h; sourceTree = "<group>"; };
+		15D61CE61BF5820E005BB2F8 /* OnboardingSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnboardingSettingsTableViewController.m; sourceTree = "<group>"; };
+		15D61CE81BF5AF9E005BB2F8 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		15D61CE91BF5AF9E005BB2F8 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		15D650A51BF12EE800C18BA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3078E2519E48D5E33AEA697C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		96954FE2F149687639DD9BE9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +153,10 @@
 				152725731BEBE1F200741647 /* Kenkou.xcdatamodeld */,
 				15C96CBC1BD2FB3E00B636B2 /* AppDelegate.m */,
 				15C96CC11BD2FB3E00B636B2 /* Main.storyboard */,
+				15D61CE81BF5AF9E005BB2F8 /* MainTableViewController.h */,
+				15D61CE91BF5AF9E005BB2F8 /* MainTableViewController.m */,
+				15D61CE51BF5820E005BB2F8 /* OnboardingSettingsTableViewController.h */,
+				15D61CE61BF5820E005BB2F8 /* OnboardingSettingsTableViewController.m */,
 				1527252E1BE868B600741647 /* SettingsViewController.h */,
 				1527252F1BE868B600741647 /* SettingsViewController.m */,
 				1527252B1BE82C3E00741647 /* SettingsTableViewController.h */,
@@ -397,11 +407,13 @@
 			files = (
 				15CFAFDE1BD9C4350050A1D8 /* BTSpiderPlotterView.m in Sources */,
 				15C96CBD1BD2FB3E00B636B2 /* AppDelegate.m in Sources */,
+				15D61CE71BF5820E005BB2F8 /* OnboardingSettingsTableViewController.m in Sources */,
 				152725751BEBE1F200741647 /* Kenkou.xcdatamodeld in Sources */,
 				15C96CBA1BD2FB3E00B636B2 /* main.m in Sources */,
 				152725301BE868B600741647 /* SettingsViewController.m in Sources */,
 				1527252D1BE82C3E00741647 /* SettingsTableViewController.m in Sources */,
 				15C96CF31BD3187900B636B2 /* ExerciseViewController.m in Sources */,
+				15D61CEA1BF5AF9E005BB2F8 /* MainTableViewController.m in Sources */,
 				15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */,
 				15C96CF01BD3186200B636B2 /* FoodViewController.m in Sources */,
 				15C96CED1BD3155500B636B2 /* MainViewController.m in Sources */,

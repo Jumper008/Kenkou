@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UITapGestureRecognizer *OffKeyboardtap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeKeyboard)];
+    [self.view addGestureRecognizer:OffKeyboardtap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +37,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void) removeKeyboard
+{
+    [self.view endEditing:YES];
+}
 
 @end

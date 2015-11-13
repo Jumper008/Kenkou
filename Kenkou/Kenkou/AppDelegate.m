@@ -143,7 +143,7 @@ static NSString * const STR_HAS_USER_ONBOARDER_KEY = @"user_has_onboarded";
     // create whatever your root view controller is going to be, in this case just a simple view controller
     // wrapped in a navigation controller
     
-    self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier: @"Main"];
+    self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier: @"OnboardingSettings"];
 }
 
 - (void)handleOnboardingCompletionWithStoryboard:(UIStoryboard *)storyboard
