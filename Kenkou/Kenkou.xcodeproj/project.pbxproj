@@ -23,7 +23,6 @@
 		15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */; };
 		15CFAFDE1BD9C4350050A1D8 /* BTSpiderPlotterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFDD1BD9C4350050A1D8 /* BTSpiderPlotterView.m */; };
 		15D650A61BF12EE800C18BA0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D650A51BF12EE800C18BA0 /* CoreData.framework */; };
-		15D650A81BF264AE00C18BA0 /* AppConfigurationFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15D650A71BF264AE00C18BA0 /* AppConfigurationFile.plist */; };
 		5886C43BAB58B1AEBCB349B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96954FE2F149687639DD9BE9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -77,7 +76,6 @@
 		15CFAFDC1BD9C4350050A1D8 /* BTSpiderPlotterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTSpiderPlotterView.h; sourceTree = "<group>"; };
 		15CFAFDD1BD9C4350050A1D8 /* BTSpiderPlotterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTSpiderPlotterView.m; sourceTree = "<group>"; };
 		15D650A51BF12EE800C18BA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		15D650A71BF264AE00C18BA0 /* AppConfigurationFile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppConfigurationFile.plist; sourceTree = "<group>"; };
 		3078E2519E48D5E33AEA697C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		96954FE2F149687639DD9BE9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -153,7 +151,6 @@
 				1527252F1BE868B600741647 /* SettingsViewController.m */,
 				1527252B1BE82C3E00741647 /* SettingsTableViewController.h */,
 				1527252C1BE82C3E00741647 /* SettingsTableViewController.m */,
-				15D650A71BF264AE00C18BA0 /* AppConfigurationFile.plist */,
 				15CFAFD81BD9C3190050A1D8 /* ResultsViewController.h */,
 				15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */,
 				15C96CEE1BD3186200B636B2 /* FoodViewController.h */,
@@ -324,7 +321,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C96CC81BD2FB3E00B636B2 /* LaunchScreen.storyboard in Resources */,
-				15D650A81BF264AE00C18BA0 /* AppConfigurationFile.plist in Resources */,
 				15C96CC51BD2FB3E00B636B2 /* Assets.xcassets in Resources */,
 				15C96CC31BD2FB3E00B636B2 /* Main.storyboard in Resources */,
 			);

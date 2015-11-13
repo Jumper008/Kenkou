@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     
     [self.navigationController setNavigationBarHidden:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 - (void)didReceiveMemoryWarning {

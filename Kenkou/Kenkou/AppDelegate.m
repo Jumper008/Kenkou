@@ -14,6 +14,8 @@
 
 @end
 
+static NSString * const STR_HAS_USER_ONBOARDER_KEY = @"user_has_onboarded";
+
 @implementation AppDelegate
 
 
@@ -22,6 +24,9 @@
     
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:1.0f green:0.44313725f blue:0.37647059f alpha:1]];
     //[[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.10196078f green:0.10196078f blue:0.10196078f alpha:1]];
+    
+    // Print the "user_has_onboarded" key value for debugging
+    NSLog(@"%d", [[NSUserDefaults standardUserDefaults] boolForKey:STR_HAS_USER_ONBOARDER_KEY]);
     
     [self setStoryboard];
     
@@ -68,30 +73,22 @@
     UIViewController *initViewController;
     
     if (
-        // Is this the first time the user has opened the application?
-        [self isUserNew]
+        // Has the user onboarded?
+        [[NSUserDefaults standardUserDefaults] objectForKey:STR_HAS_USER_ONBOARDER_KEY]
         )
     {
-        initViewController = [self generateOnboardingViewControllerWithStoryboard:storyboard];
+        initViewController = [storyboard instantiateViewControllerWithIdentifier: @"Main"];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     }
     else
     {
-        initViewController = [storyboard instantiateViewControllerWithIdentifier: @"Main"];
+        initViewController = [self generateOnboardingViewControllerWithStoryboard:storyboard];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }
     
     self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     self.window.rootViewController = initViewController;
     [self.window makeKeyAndVisible];
-}
-
-// Verifies if it is the first time the user has opened the application
-- (BOOL)isUserNew
-{
-    NSString *pathList = [[NSBundle mainBundle] pathForResource:@"AppConfigurationFile" ofType:@"plist"];
-    NSDictionary *nsDictionaryAppConfigurations = [[NSDictionary alloc] initWithContentsOfFile:pathList];
-    
-    BOOL boolIsUserNew = [[nsDictionaryAppConfigurations valueForKey:@"IsUserNew"] boolValue];
-    return boolIsUserNew;
 }
 
 #pragma mark - Onboarding methods
@@ -102,21 +99,21 @@
     OnboardingContentViewController *onboardingContentViewControllerFirstPage = [OnboardingContentViewController
     contentWithTitle:@"Registra"
     body:@"Registra diariamente tus datos dentro de cuatro categorías: Alimentación, Ejercicio, Sueño y Alcohol"
-    image:nil
+    image:[UIImage imageNamed:@"Edit Row-100"]
     buttonText:nil
     action:nil];
     
     OnboardingContentViewController *onboardingContentViewControllerSecondPage = [OnboardingContentViewController
     contentWithTitle:@"Observa"
-    body:@"Observa tu estado actual dentro de las cuatro categorías"
-    image:nil
+    body:@"Observa tu estado actual de salud general dentro de las cuatro categorías"
+    image:[UIImage imageNamed:@"Radar Plot-100"]
     buttonText:nil
     action:nil];
     
     OnboardingContentViewController *onboardingContentViewControllerThirdPage = [OnboardingContentViewController
     contentWithTitle:@"Analiza"
     body:@"Analiza tu progreso a través del tiempo de diferentes maneras"
-    image:nil
+    image:[UIImage imageNamed:@"Bar Chart-100"]
     buttonText:@"Continuar"
     action:^{[self handleOnboardingCompletionWithStoryboard:storyboard];}];
     
@@ -134,6 +131,8 @@
     onboardingViewController.shouldBlurBackground = YES;
     onboardingViewController.titleFontSize = 50;
     onboardingViewController.underTitlePadding = 40;
+    onboardingViewController.underIconPadding = 70;
+    onboardingViewController.topPadding = 120;
     onboardingViewController.titleFontName = @"AppleSDGothicNeo-Bold";
     
     return onboardingViewController;
@@ -149,11 +148,11 @@
 
 - (void)handleOnboardingCompletionWithStoryboard:(UIStoryboard *)storyboard
 {
-    // set that we have completed onboarding so we only do it once... for demo
-    // purposes we don't want to have to set this every time so I'll just leave
-    // this here...
+    // Once the user has onboarder, change the value so it only happens once
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STR_HAS_USER_ONBOARDER_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
-    // transition to the main application
+    // Transition to the main view controller
     [self setMainViewControllerAsRootViewControllerWithStoryboard:storyboard];
 }
 
