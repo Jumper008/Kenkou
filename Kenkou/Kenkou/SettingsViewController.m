@@ -48,8 +48,24 @@
 
 - (IBAction)saveFieldData:(id)sender
 {
+    BOOL boolIsTextViewDataCorrect;
+    
     /*CASE*/
     if (
+        // Is the field first name?
+        self.nsintIdentifier == 1
+        )
+    {
+        boolIsTextViewDataCorrect = YES;
+    }
+    else if (
+        // Is the field last name?
+        self.nsintIdentifier == 2
+        )
+    {
+        boolIsTextViewDataCorrect = YES;
+    }
+    else if (
         // Is the field birthyear?
         self.nsintIdentifier == 3
         )
@@ -68,11 +84,12 @@
             
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
+            
+            boolIsTextViewDataCorrect = NO;
         }
         else
         {
-            [self.delegate saveFieldWithData:self.uitextviewDataField.text withIdentifier:self.nsintIdentifier];
-            [self.delegate removeViewController];
+            boolIsTextViewDataCorrect = YES;
         }
     }
     else if (
@@ -94,11 +111,12 @@
             
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
+            
+            boolIsTextViewDataCorrect = NO;
         }
         else
         {
-            [self.delegate saveFieldWithData:self.uitextviewDataField.text withIdentifier:self.nsintIdentifier];
-            [self.delegate removeViewController];
+            boolIsTextViewDataCorrect = YES;
         }
     }
     else if (
@@ -120,14 +138,27 @@
             
             [alert addAction:defaultAction];
             [self presentViewController:alert animated:YES completion:nil];
+            
+            boolIsTextViewDataCorrect = NO;
         }
         else
         {
-            [self.delegate saveFieldWithData:self.uitextviewDataField.text withIdentifier:self.nsintIdentifier];
-            [self.delegate removeViewController];
+            boolIsTextViewDataCorrect = YES;
         }
     }
     /*END-CASE*/
+    
+    if (
+        boolIsTextViewDataCorrect
+        )
+    {
+        [self.delegate saveFieldWithData:self.uitextviewDataField.text withIdentifier:self.nsintIdentifier];
+        [self.delegate removeViewController];
+    }
+    else
+    {
+        // Does nothing
+    }
 }
 
 - (void) removeKeyboard

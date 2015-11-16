@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
 
+@protocol saveSettings <NSObject>
+
+- (void) removeViewController;
+
+@end
+
 @interface SettingsTableViewController : UITableViewController <saveSettingFieldData>
 
 // Outlets
@@ -26,6 +32,7 @@
 @property NSInteger nsintBirthYear;
 @property CGFloat flHeight;
 @property CGFloat flWeight;
+@property (nonatomic, strong) id <saveSettings> delegate;
 
 // Action methods
 - (IBAction)saveSettings:(id)sender;

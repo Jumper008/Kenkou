@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsTableViewController.h"
 
-@interface MainTableViewController : UITableViewController
+@interface MainTableViewController : UITableViewController <saveSettings>
 
 // Outlets
 @property (weak, nonatomic) IBOutlet UIButton *uibuttonRegister;

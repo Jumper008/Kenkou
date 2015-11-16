@@ -26,7 +26,7 @@
     //Cambia el color del back.
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
-    // Modifies the bar style to light content
+    // Modifies the status bar style to light content
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     self.uibuttonRegister.layer.cornerRadius = 20.0f;
@@ -100,15 +100,21 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if (
+        [[segue identifier] isEqualToString:@"Settings"]
+        )
+    {
+        SettingsTableViewController *destinationViewController = [segue destinationViewController];
+        destinationViewController.delegate = self;
+    }
 }
-*/
 
 // Converts a string to UIColor
 -(UIColor*)colorWithHexString:(NSString*)hex
@@ -145,6 +151,21 @@
                            green:((float) g / 255.0f)
                             blue:((float) b / 255.0f)
                            alpha:1.0f];
+}
+
+- (void) removeViewController
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Configuraciones guardas"
+                                                                   message:@""
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

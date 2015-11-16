@@ -21,6 +21,13 @@
     
     [self setTitle:@"Configuración"];
     
+    // Modifies navigation bar back button
+    UIBarButtonItem *uibarbuttonitemBackButton =
+                    [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationController.navigationItem.backBarButtonItem = uibarbuttonitemBackButton;
+    self.navigationController.navigationBar.backIndicatorImage = [UIImage imageNamed:@"Back-100"];
+    self.navigationController.navigationBar.backIndicatorTransitionMaskImage = [UIImage imageNamed:@"Back-100"];
+    
     [self loadSettings];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -108,7 +115,7 @@
         )
     {
         settingsViewController.strViewControllerTitle = @"Nombre";
-        settingsViewController.strTextViewPlaceholder = @"Juan";
+        settingsViewController.strTextViewPlaceholder = self.lblFirstName.text;
         settingsViewController.keyboardType = UIKeyboardTypeAlphabet;
         settingsViewController.nsintIdentifier = 1;
     }
@@ -117,7 +124,7 @@
              )
     {
         settingsViewController.strViewControllerTitle = @"Apellido";
-        settingsViewController.strTextViewPlaceholder = @"Camaney";
+        settingsViewController.strTextViewPlaceholder = self.lblLastName.text;
         settingsViewController.keyboardType = UIKeyboardTypeAlphabet;
         settingsViewController.nsintIdentifier = 2;
     }
@@ -126,7 +133,7 @@
              )
     {
         settingsViewController.strViewControllerTitle = @"Año de Nacimiento";
-        settingsViewController.strTextViewPlaceholder = @"1994";
+        settingsViewController.strTextViewPlaceholder = self.lblBirthYear.text;
         settingsViewController.keyboardType = UIKeyboardTypeNumberPad;
         settingsViewController.nsintIdentifier = 3;
     }
@@ -135,14 +142,14 @@
              )
     {
         settingsViewController.strViewControllerTitle = @"Altura";
-        settingsViewController.strTextViewPlaceholder = @"1.75";
+        settingsViewController.strTextViewPlaceholder = [[NSString alloc] initWithFormat:@"%0.2f", self.flHeight];
         settingsViewController.keyboardType = UIKeyboardTypeDecimalPad;
         settingsViewController.nsintIdentifier = 4;
     }
     else
     {
         settingsViewController.strViewControllerTitle = @"Peso";
-        settingsViewController.strTextViewPlaceholder = @"85.5";
+        settingsViewController.strTextViewPlaceholder = [[NSString alloc] initWithFormat:@"%0.2f", self.flWeight];
         settingsViewController.keyboardType = UIKeyboardTypeDecimalPad;
         settingsViewController.nsintIdentifier = 5;
     }
@@ -212,7 +219,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
     NSEntityDescription *nsEntityDescription =
-                            [NSEntityDescription entityForName:@"User"  inManagedObjectContext:nsManagedObjectContext];
+                            [NSEntityDescription entityForName:@"User" inManagedObjectContext:nsManagedObjectContext];
     
     // A request is created
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -225,22 +232,14 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
+    NSLog(@"%li", nsArrayMatchedObject.count);
+    
     if (
-        // No matched objects were found. The user isn't registered.
-        nsArrayMatchedObject.count == 0
+        error == nil
         )
     {
-        // Assigns default values to TableViewController's labels, switch and segmented control
-        self.lblFirstName.text = @"Nombre";
-        self.lblLastName.text = @"Apellido";
-        self.lblBirthYear.text = @"1994";
-        self.lblHeight.text = @"1.70 m";
-        self.lblWeight.text = @"75 kg";
-        self.uisegmentedcontrolSex.selectedSegmentIndex = 0;
-        self.uiswitchExercise.on = YES;
-    }
-    else
-    {
+        NSLog(@"Settings loaded successfully!");
+        
         // Obtains user information
         NSManagedObject *nsManagedObjectUser = nsArrayMatchedObject[0];
         
@@ -249,15 +248,23 @@
         self.lblLastName.text = [nsManagedObjectUser valueForKey:@"lastName"];
         self.lblBirthYear.text = [[nsManagedObjectUser valueForKey:@"birthYear"] stringValue];
         self.lblHeight.text = [[nsManagedObjectUser valueForKey:@"height"] stringValue];
+        self.lblHeight.text = [self.lblHeight.text stringByAppendingString:@" m"];
+        self.flHeight = [[nsManagedObjectUser valueForKey:@"height"] floatValue];
         self.lblWeight.text = [[nsManagedObjectUser valueForKey:@"weight"] stringValue];
+        self.lblWeight.text = [self.lblWeight.text stringByAppendingString:@" kg"];
+        self.flWeight = [[nsManagedObjectUser valueForKey:@"weight"] floatValue];
         self.uisegmentedcontrolSex.selectedSegmentIndex = [[nsManagedObjectUser valueForKey:@"sex"] integerValue];
-        self.uiswitchExercise.on = [nsManagedObjectUser valueForKey:@"exercise"];
+        self.uiswitchExercise.on = [[nsManagedObjectUser valueForKey:@"exercise"] boolValue];
+    }
+    else
+    {
+        NSLog(@"Can't load! %@ %@", error, [error localizedDescription]);
     }
 }
 
 - (IBAction)saveSettings:(id)sender
 {
-    BOOL boolIsFieldDataCorrect = true;
+    BOOL boolIsFieldDataCorrect = YES;
     NSString *strAlertTitle;
     NSString *strAlertMessage = @"Por favor modifique el valor.";
     
@@ -266,42 +273,100 @@
         [self.lblFirstName.text isEqualToString:@""]
         )
     {
-        boolIsFieldDataCorrect = false;
+        boolIsFieldDataCorrect = NO;
         strAlertTitle = @"Nombre inválido";
     }
     else if (
         [self.lblLastName.text isEqualToString:@""]
         )
     {
-        boolIsFieldDataCorrect = false;
+        boolIsFieldDataCorrect = NO;
         strAlertTitle = @"Apellido inválido";
     }
     else if (
         [self.lblBirthYear.text isEqualToString:@""]
         )
     {
-        boolIsFieldDataCorrect = false;
+        boolIsFieldDataCorrect = NO;
         strAlertTitle = @"Año de nacimiento inválido";
     }
     else if (
         [self.lblHeight.text isEqualToString:@""]
         )
     {
-        boolIsFieldDataCorrect = false;
+        boolIsFieldDataCorrect = NO;
         strAlertTitle = @"Altura inválido";
     }
     else if (
         [self.lblWeight.text isEqualToString:@""]
         )
     {
-        boolIsFieldDataCorrect = false;
+        boolIsFieldDataCorrect = NO;
         strAlertTitle = @"Peso inválido";
     }
     /*END-CASE*/
     
     if (
-        !boolIsFieldDataCorrect
+        boolIsFieldDataCorrect
         )
+    {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
+        NSEntityDescription *nsEntityDescription =
+                            [NSEntityDescription entityForName:@"User" inManagedObjectContext:nsManagedObjectContext];
+        
+        // A request is created
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        // The entity for the request is specified
+        [request setEntity: nsEntityDescription];
+        
+        NSError *fetchRequestError;
+        
+        // The request is executed
+        NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&fetchRequestError];
+        
+        if (
+            fetchRequestError == nil
+            )
+        {
+            NSManagedObject *nsmanagedobjectUser = nsArrayMatchedObject[0];
+            
+            // Assigns the values to the managed object
+            [nsmanagedobjectUser setValue:self.lblFirstName.text forKey:@"firstName"];
+            [nsmanagedobjectUser setValue:self.lblLastName.text forKey:@"lastName"];
+            NSInteger nsintBirthYear = [self.lblBirthYear.text integerValue];
+            [nsmanagedobjectUser setValue:[NSNumber numberWithInteger:nsintBirthYear] forKey:@"birthYear"];
+            [nsmanagedobjectUser setValue:[NSNumber numberWithFloat:self.flHeight] forKey:@"height"];
+            [nsmanagedobjectUser setValue:[NSNumber numberWithFloat:self.flWeight] forKey:@"weight"];
+            NSInteger nsintSex = self.uisegmentedcontrolSex.selectedSegmentIndex;
+            [nsmanagedobjectUser setValue:[NSNumber numberWithInteger:nsintSex] forKey:@"sex"];
+            [nsmanagedobjectUser setValue:[NSNumber numberWithBool:self.uiswitchExercise.on] forKey:@"exercise"];
+            
+            // Tries to save the context to the database
+            NSError *saveError;
+            [nsManagedObjectContext save: &saveError];
+            
+            if (
+                saveError == nil
+                )
+            {
+                NSLog(@"User saved successfully!");
+                
+                [self.delegate removeViewController];
+            }
+            else
+            {
+                NSLog(@"Can't save! %@ %@", saveError, [saveError localizedDescription]);
+            }
+        }
+        else
+        {
+            NSLog(@"Can't load! %@ %@", fetchRequestError, [fetchRequestError localizedDescription]);
+        }
+        
+    }
+    else
     {
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:strAlertTitle
                                                                        message:strAlertMessage
@@ -312,11 +377,6 @@
         
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
-    }
-    else
-    {
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
     }
 }
 

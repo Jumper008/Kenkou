@@ -156,7 +156,7 @@
     }
     else
     {
-        NSLog(@"%@", error);
+        NSLog(@"Can't save! %@ %@", error, [error localizedDescription]);
     }
 }
 
