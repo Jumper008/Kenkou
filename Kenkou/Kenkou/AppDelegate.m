@@ -78,7 +78,6 @@ static NSString * const STR_HAS_USER_ONBOARDER_KEY = @"user_has_onboarded";
         )
     {
         initViewController = [storyboard instantiateViewControllerWithIdentifier: @"Main"];
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     }
     else
     {

@@ -11,9 +11,21 @@
 @interface OnboardingSettingsTableViewController : UITableViewController
 
 // Outlets
+@property (weak, nonatomic) IBOutlet UITextField *uitextfieldFirstName;
+@property (weak, nonatomic) IBOutlet UITextField *uitextfieldLastName;
+@property (weak, nonatomic) IBOutlet UITextField *uitextfieldBirthYear;
+@property (weak, nonatomic) IBOutlet UITextField *uitextfieldHeight;
+@property (weak, nonatomic) IBOutlet UITextField *uitextfieldWeight;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *uisegmentedcontrolSex;
+@property (weak, nonatomic) IBOutlet UISwitch *uiswitchExercise;
 @property (weak, nonatomic) IBOutlet UIButton *uibuttonSave;
 
 // Properties
+@property (nonatomic, strong) NSString *strFirstName;
+@property (nonatomic, strong) NSString *strLastName;
+@property NSInteger nsintBirthYear;
+@property CGFloat flHeight;
+@property CGFloat flWeight;
 
 // Action methods
 

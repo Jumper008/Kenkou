@@ -13,11 +13,9 @@
 		15C96CBA1BD2FB3E00B636B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CB91BD2FB3E00B636B2 /* main.m */; };
 		15C96CBD1BD2FB3E00B636B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CBC1BD2FB3E00B636B2 /* AppDelegate.m */; };
 		15C96CC31BD2FB3E00B636B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C96CC11BD2FB3E00B636B2 /* Main.storyboard */; };
-		15C96CC51BD2FB3E00B636B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15C96CC41BD2FB3E00B636B2 /* Assets.xcassets */; };
 		15C96CC81BD2FB3E00B636B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C96CC61BD2FB3E00B636B2 /* LaunchScreen.storyboard */; };
 		15C96CD31BD2FB3E00B636B2 /* KenkouTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CD21BD2FB3E00B636B2 /* KenkouTests.m */; };
 		15C96CDE1BD2FB3E00B636B2 /* KenkouUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CDD1BD2FB3E00B636B2 /* KenkouUITests.m */; };
-		15C96CED1BD3155500B636B2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CEC1BD3155500B636B2 /* MainViewController.m */; };
 		15C96CF01BD3186200B636B2 /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CEF1BD3186200B636B2 /* FoodViewController.m */; };
 		15C96CF31BD3187900B636B2 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CF21BD3187900B636B2 /* ExerciseViewController.m */; };
 		15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */; };
@@ -57,7 +55,6 @@
 		15C96CBB1BD2FB3E00B636B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		15C96CBC1BD2FB3E00B636B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		15C96CC21BD2FB3E00B636B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		15C96CC41BD2FB3E00B636B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15C96CC71BD2FB3E00B636B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15C96CC91BD2FB3E00B636B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15C96CCE1BD2FB3E00B636B2 /* KenkouTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KenkouTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,8 +63,6 @@
 		15C96CD91BD2FB3E00B636B2 /* KenkouUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KenkouUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C96CDD1BD2FB3E00B636B2 /* KenkouUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KenkouUITests.m; sourceTree = "<group>"; };
 		15C96CDF1BD2FB3E00B636B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15C96CEB1BD3155500B636B2 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		15C96CEC1BD3155500B636B2 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		15C96CEE1BD3186200B636B2 /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
 		15C96CEF1BD3186200B636B2 /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
 		15C96CF11BD3187900B636B2 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
@@ -167,9 +162,6 @@
 				15C96CEF1BD3186200B636B2 /* FoodViewController.m */,
 				15C96CF11BD3187900B636B2 /* ExerciseViewController.h */,
 				15C96CF21BD3187900B636B2 /* ExerciseViewController.m */,
-				15C96CEB1BD3155500B636B2 /* MainViewController.h */,
-				15C96CEC1BD3155500B636B2 /* MainViewController.m */,
-				15C96CC41BD2FB3E00B636B2 /* Assets.xcassets */,
 				15C96CC61BD2FB3E00B636B2 /* LaunchScreen.storyboard */,
 				15C96CC91BD2FB3E00B636B2 /* Info.plist */,
 				15C96CB81BD2FB3E00B636B2 /* Supporting Files */,
@@ -331,7 +323,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C96CC81BD2FB3E00B636B2 /* LaunchScreen.storyboard in Resources */,
-				15C96CC51BD2FB3E00B636B2 /* Assets.xcassets in Resources */,
 				15C96CC31BD2FB3E00B636B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,7 +407,6 @@
 				15D61CEA1BF5AF9E005BB2F8 /* MainTableViewController.m in Sources */,
 				15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */,
 				15C96CF01BD3186200B636B2 /* FoodViewController.m in Sources */,
-				15C96CED1BD3155500B636B2 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
