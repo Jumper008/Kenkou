@@ -5,26 +5,623 @@
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
-        <!--Ejercicio-->
-        <scene sceneID="0gi-px-2Ih">
+        <!--Alimentos-->
+        <scene sceneID="Dem-ZT-RBS">
             <objects>
-                <viewController id="MT6-j1-00O" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xvo-zI-hCl"/>
-                        <viewControllerLayoutGuide type="bottom" id="1xX-G2-Dsq"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jrw-HK-k9i">
+                <tableViewController id="mdW-LW-hKG" customClass="FoodTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bMA-gT-QXD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection id="DsA-ew-dds">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="90" id="15o-L1-qgw">
+                                        <rect key="frame" x="0.0" y="99" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="15o-L1-qgw" id="1kR-CN-ASd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upV-Kt-XRP">
+                                                    <rect key="frame" x="19" y="15" width="60" height="60"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Fruits and Vegetables"/>
+                                                    <connections>
+                                                        <action selector="helpFruitsAndVegetables:" destination="mdW-LW-hKG" eventType="touchUpInside" id="cHf-9b-uoU"/>
+                                                    </connections>
+                                                </button>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lKo-5e-su1">
+                                                    <rect key="frame" x="99" y="44" width="293" height="29"/>
+                                                    <animations/>
+                                                    <segments>
+                                                        <segment title="1"/>
+                                                        <segment title="2"/>
+                                                        <segment title="3"/>
+                                                        <segment title="4"/>
+                                                        <segment title="5"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Frutas y Verduras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMh-Nb-juu">
+                                                    <rect key="frame" x="99" y="15" width="135" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.51793300653594765" green="0.51793300653594765" blue="0.51793300653594765" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="90" id="E3b-vg-hDU">
+                                        <rect key="frame" x="0.0" y="189" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E3b-vg-hDU" id="ovN-nt-fz4">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rD8-VR-Dpf">
+                                                    <rect key="frame" x="19" y="15" width="60" height="60"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Cereals"/>
+                                                    <connections>
+                                                        <action selector="helpCereals:" destination="mdW-LW-hKG" eventType="touchUpInside" id="YxO-iG-hJe"/>
+                                                    </connections>
+                                                </button>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iSq-o1-QoY">
+                                                    <rect key="frame" x="99" y="44" width="293" height="29"/>
+                                                    <animations/>
+                                                    <segments>
+                                                        <segment title="1"/>
+                                                        <segment title="2"/>
+                                                        <segment title="3"/>
+                                                        <segment title="4"/>
+                                                        <segment title="5"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cereales Integrales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWb-MU-wpo">
+                                                    <rect key="frame" x="99" y="15" width="147" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.51793300649999996" green="0.51793300649999996" blue="0.51793300649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="90" id="xUf-Vi-42F">
+                                        <rect key="frame" x="0.0" y="279" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xUf-Vi-42F" id="uzb-JX-tuS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhg-PC-PDH">
+                                                    <rect key="frame" x="19" y="15" width="60" height="60"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Sugars"/>
+                                                    <connections>
+                                                        <action selector="helpSugars:" destination="mdW-LW-hKG" eventType="touchUpInside" id="NfB-XC-Nvt"/>
+                                                    </connections>
+                                                </button>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m9n-PA-ofY">
+                                                    <rect key="frame" x="99" y="44" width="293" height="29"/>
+                                                    <animations/>
+                                                    <segments>
+                                                        <segment title="1"/>
+                                                        <segment title="2"/>
+                                                        <segment title="3"/>
+                                                        <segment title="4"/>
+                                                        <segment title="5"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cereales y Azúcares" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gai-Yc-vBB">
+                                                    <rect key="frame" x="99" y="15" width="156" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.51793300649999996" green="0.51793300649999996" blue="0.51793300649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="90" id="Jby-aj-eLj">
+                                        <rect key="frame" x="0.0" y="369" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jby-aj-eLj" id="PaY-qV-4L3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHC-Cn-1K4">
+                                                    <rect key="frame" x="19" y="15" width="60" height="60"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Fats"/>
+                                                    <connections>
+                                                        <action selector="helpFats:" destination="mdW-LW-hKG" eventType="touchUpInside" id="ZRc-5u-bO9"/>
+                                                    </connections>
+                                                </button>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="W9m-K0-hKk">
+                                                    <rect key="frame" x="99" y="44" width="293" height="29"/>
+                                                    <animations/>
+                                                    <segments>
+                                                        <segment title="1"/>
+                                                        <segment title="2"/>
+                                                        <segment title="3"/>
+                                                        <segment title="4"/>
+                                                        <segment title="5"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Grasas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UI1-iK-pMJ">
+                                                    <rect key="frame" x="99" y="15" width="54" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.51793300649999996" green="0.51793300649999996" blue="0.51793300649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="90" id="EVX-Qz-NeQ">
+                                        <rect key="frame" x="0.0" y="459" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EVX-Qz-NeQ" id="mHs-ho-pJe">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geJ-zF-IGA">
+                                                    <rect key="frame" x="19" y="15" width="60" height="60"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Calcium"/>
+                                                    <connections>
+                                                        <action selector="helpCalcium:" destination="mdW-LW-hKG" eventType="touchUpInside" id="2cr-an-E5z"/>
+                                                    </connections>
+                                                </button>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NX7-jU-qkF">
+                                                    <rect key="frame" x="99" y="44" width="293" height="29"/>
+                                                    <animations/>
+                                                    <segments>
+                                                        <segment title="1"/>
+                                                        <segment title="2"/>
+                                                        <segment title="3"/>
+                                                        <segment title="4"/>
+                                                        <segment title="5"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calcio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThY-jN-EfO">
+                                                    <rect key="frame" x="99" y="15" width="48" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.51793300649999996" green="0.51793300649999996" blue="0.51793300649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="90" id="8fT-kT-Abe">
+                                        <rect key="frame" x="0.0" y="549" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8fT-kT-Abe" id="cZ7-6P-UWd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bM-k9-HRN">
+                                                    <rect key="frame" x="19" y="15" width="60" height="60"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Salt"/>
+                                                    <connections>
+                                                        <action selector="helpSalts:" destination="mdW-LW-hKG" eventType="touchUpInside" id="rnd-1V-blf"/>
+                                                    </connections>
+                                                </button>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ufd-jr-bAs">
+                                                    <rect key="frame" x="99" y="44" width="293" height="29"/>
+                                                    <animations/>
+                                                    <segments>
+                                                        <segment title="1"/>
+                                                        <segment title="2"/>
+                                                        <segment title="3"/>
+                                                        <segment title="4"/>
+                                                        <segment title="5"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Poca Sal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YL-dy-Obo">
+                                                    <rect key="frame" x="99" y="15" width="66" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.51793300649999996" green="0.51793300649999996" blue="0.51793300649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="90" id="JLp-fT-fju">
+                                        <rect key="frame" x="0.0" y="639" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JLp-fT-fju" id="Tln-Kd-TS6">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g8-Op-rkv">
+                                                    <rect key="frame" x="19" y="15" width="60" height="60"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Water"/>
+                                                    <connections>
+                                                        <action selector="helpWater:" destination="mdW-LW-hKG" eventType="touchUpInside" id="t4H-SX-AJ0"/>
+                                                    </connections>
+                                                </button>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xQG-hE-m1L">
+                                                    <rect key="frame" x="99" y="44" width="293" height="29"/>
+                                                    <animations/>
+                                                    <segments>
+                                                        <segment title="1"/>
+                                                        <segment title="2"/>
+                                                        <segment title="3"/>
+                                                        <segment title="4"/>
+                                                        <segment title="5"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Agua Natural" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLc-H9-bdM">
+                                                    <rect key="frame" x="99" y="15" width="99" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.51793300649999996" green="0.51793300649999996" blue="0.51793300649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="90" id="0B2-qj-3Bg">
+                                        <rect key="frame" x="0.0" y="729" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0B2-qj-3Bg" id="ZCv-y9-EOn">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxq-xq-Qtg">
+                                                    <rect key="frame" x="19" y="15" width="60" height="60"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Eating Responsibly 1"/>
+                                                    <connections>
+                                                        <action selector="helpEatingResponsibly1:" destination="mdW-LW-hKG" eventType="touchUpInside" id="gid-mB-oFk"/>
+                                                    </connections>
+                                                </button>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Gi4-AA-Gf5">
+                                                    <rect key="frame" x="99" y="44" width="293" height="29"/>
+                                                    <animations/>
+                                                    <segments>
+                                                        <segment title="1"/>
+                                                        <segment title="2"/>
+                                                        <segment title="3"/>
+                                                        <segment title="4"/>
+                                                        <segment title="5"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comer con Responsabilidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRg-zs-DNd">
+                                                    <rect key="frame" x="99" y="15" width="214" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.51793300649999996" green="0.51793300649999996" blue="0.51793300649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="90" id="7Kt-Nw-0Od">
+                                        <rect key="frame" x="0.0" y="819" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Kt-Nw-0Od" id="mKt-Gj-4Sp">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZN-kz-EFN">
+                                                    <rect key="frame" x="19" y="15" width="60" height="60"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Eating Responsibly 2"/>
+                                                    <connections>
+                                                        <action selector="helpEatingResponsibly2:" destination="mdW-LW-hKG" eventType="touchUpInside" id="dmb-jW-qbr"/>
+                                                    </connections>
+                                                </button>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IIq-aT-SDw">
+                                                    <rect key="frame" x="99" y="44" width="293" height="29"/>
+                                                    <animations/>
+                                                    <segments>
+                                                        <segment title="1"/>
+                                                        <segment title="2"/>
+                                                        <segment title="3"/>
+                                                        <segment title="4"/>
+                                                        <segment title="5"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comer a Conciencia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vga-ih-p00">
+                                                    <rect key="frame" x="99" y="15" width="154" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.51793300649999996" green="0.51793300649999996" blue="0.51793300649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="90" id="mk9-Dz-sk7">
+                                        <rect key="frame" x="0.0" y="909" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mk9-Dz-sk7" id="sBb-MN-VBU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmj-57-Kmf">
+                                                    <rect key="frame" x="19" y="15" width="60" height="60"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Eating Responsibly 3"/>
+                                                    <connections>
+                                                        <action selector="helpEatingResponsibly3:" destination="mdW-LW-hKG" eventType="touchUpInside" id="doq-4i-zjt"/>
+                                                    </connections>
+                                                </button>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bLy-iy-qp1">
+                                                    <rect key="frame" x="99" y="44" width="293" height="29"/>
+                                                    <animations/>
+                                                    <segments>
+                                                        <segment title="1"/>
+                                                        <segment title="2"/>
+                                                        <segment title="3"/>
+                                                        <segment title="4"/>
+                                                        <segment title="5"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tener Horarios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLu-XL-GV3">
+                                                    <rect key="frame" x="99" y="15" width="113" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.51793300649999996" green="0.51793300649999996" blue="0.51793300649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="FtY-In-x67">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Afv-sm-pKH">
+                                        <rect key="frame" x="0.0" y="1035" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Afv-sm-pKH" id="8j3-Vu-Nb1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-cg-4g8">
+                                                    <rect key="frame" x="39" y="0.0" width="337" height="43.5"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                    <state key="normal" title="Guardar">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="30" id="dp9-cO-N9r">
+                                        <rect key="frame" x="0.0" y="1079" width="414" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dp9-cO-N9r" id="unr-kU-Bsp">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="29.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="mdW-LW-hKG" id="GGJ-9i-2Z5"/>
+                            <outlet property="delegate" destination="mdW-LW-hKG" id="FrD-df-ZkO"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Alimentos" image="Sushi-25" selectedImage="Sushi Filled-25" id="AEq-ge-MWw"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="1200"/>
+                    <connections>
+                        <outlet property="uibuttonSave" destination="Ibr-cg-4g8" id="QAp-A0-fu7"/>
+                        <outlet property="uisegmentedcontrolCalcium" destination="NX7-jU-qkF" id="6D2-eD-x3c"/>
+                        <outlet property="uisegmentedcontrolCereals" destination="iSq-o1-QoY" id="HH6-Gq-m5N"/>
+                        <outlet property="uisegmentedcontrolEatingResponsibly1" destination="Gi4-AA-Gf5" id="vUg-cd-USv"/>
+                        <outlet property="uisegmentedcontrolEatingResponsibly2" destination="IIq-aT-SDw" id="aR8-dN-Mce"/>
+                        <outlet property="uisegmentedcontrolEatingResponsibly3" destination="bLy-iy-qp1" id="9JU-zv-1gt"/>
+                        <outlet property="uisegmentedcontrolFats" destination="W9m-K0-hKk" id="5hh-bh-WyP"/>
+                        <outlet property="uisegmentedcontrolFruitsAndVegetables" destination="lKo-5e-su1" id="69D-uf-D9n"/>
+                        <outlet property="uisegmentedcontrolSalts" destination="ufd-jr-bAs" id="16U-bA-41E"/>
+                        <outlet property="uisegmentedcontrolSugars" destination="m9n-PA-ofY" id="ZO0-vX-UJr"/>
+                        <outlet property="uisegmentedcontrolWater" destination="xQG-hE-m1L" id="xB2-eO-TrJ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hQH-WT-NJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1670" y="-1205"/>
+        </scene>
+        <!--Ejercicio-->
+        <scene sceneID="x2g-Fi-J0I">
+            <objects>
+                <tableViewController id="B7J-OQ-0ow" customClass="ExerciseTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bma-6I-LK0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Ejercicio" image="Weight" selectedImage="Weight" id="T4F-5d-srH"/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection id="jO6-Jn-M9g">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="160" id="o1G-2i-aoY">
+                                        <rect key="frame" x="0.0" y="99" width="414" height="160"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o1G-2i-aoY" id="csH-fJ-HYL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="159.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Regular Biking Filled-100" translatesAutoresizingMaskIntoConstraints="NO" id="ncP-cv-ofi">
+                                                    <rect key="frame" x="21" y="20" width="120" height="118"/>
+                                                    <animations/>
+                                                </imageView>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sph-dW-waI">
+                                                    <rect key="frame" x="172" y="87" width="83" height="30"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="min." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njn-64-E5f">
+                                                    <rect key="frame" x="265" y="87" width="47" height="30"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGp-CZ-s61">
+                                                    <rect key="frame" x="342" y="29" width="50" height="50"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Plus-100"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aeróbico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZh-kc-ChN">
+                                                    <rect key="frame" x="172" y="43" width="111" height="30"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                    <color key="textColor" red="0.51793300649999996" green="0.51793300649999996" blue="0.51793300649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdy-NP-A0Y">
+                                                    <rect key="frame" x="342" y="88" width="50" height="50"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Minus-100"/>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="160" id="2zv-pj-iyB">
+                                        <rect key="frame" x="0.0" y="259" width="414" height="160"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2zv-pj-iyB" id="3tI-RN-tSC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="159.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Weightlifting-100" translatesAutoresizingMaskIntoConstraints="NO" id="TFZ-za-qRH">
+                                                    <rect key="frame" x="21" y="20" width="120" height="118"/>
+                                                    <animations/>
+                                                </imageView>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zef-a1-cIW">
+                                                    <rect key="frame" x="172" y="87" width="83" height="30"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="min." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTi-Rq-vUY">
+                                                    <rect key="frame" x="265" y="87" width="47" height="30"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ned-XG-FnI">
+                                                    <rect key="frame" x="342" y="29" width="50" height="50"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Plus-100"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Anaeróbico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2d-Av-8yo">
+                                                    <rect key="frame" x="172" y="43" width="150" height="33"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                    <color key="textColor" red="0.51793300649999996" green="0.51793300649999996" blue="0.51793300649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgU-YD-evo">
+                                                    <rect key="frame" x="342" y="88" width="50" height="50"/>
+                                                    <animations/>
+                                                    <state key="normal" backgroundImage="Minus-100"/>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="N7B-fj-PL6">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="JP7-ZH-f5L">
+                                        <rect key="frame" x="0.0" y="455" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JP7-ZH-f5L" id="vOP-ML-gY5">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AI-7K-shY">
+                                                    <rect key="frame" x="39" y="0.0" width="337" height="43.5"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                    <state key="normal" title="Guardar">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="B7J-OQ-0ow" id="Pfy-HD-rRB"/>
+                            <outlet property="delegate" destination="B7J-OQ-0ow" id="jih-xP-Irb"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Ejercicio" image="Dumbbell-25" selectedImage="Dumbbell Filled-25" id="5Ku-Ya-MoO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sL0-Zb-0el" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="uibuttonSave" destination="7AI-7K-shY" id="LyW-GE-cEt"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BLM-AL-ihB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2070" y="-219"/>
+            <point key="canvasLocation" x="2414" y="-371"/>
         </scene>
         <!--Title-->
         <scene sceneID="ua1-pI-WLB">
@@ -81,7 +678,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lB9-mo-2B4">
                                                     <rect key="frame" x="378" y="9" width="28" height="26"/>
                                                     <animations/>
-                                                    <state key="normal" title="Button" image="Forward-32"/>
+                                                    <state key="normal" title="Button" image="Forward-32-5"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nombre" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bc-Gk-uXA">
                                                     <rect key="frame" x="211" y="11" width="168" height="21"/>
@@ -118,7 +715,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmX-KP-JT6">
                                                     <rect key="frame" x="378" y="9" width="28" height="26"/>
                                                     <animations/>
-                                                    <state key="normal" title="Button" image="Forward-32"/>
+                                                    <state key="normal" title="Button" image="Forward-32-5"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="apellido" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgg-dy-DJL">
                                                     <rect key="frame" x="211" y="11" width="168" height="21"/>
@@ -155,7 +752,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vu-K0-dgi">
                                                     <rect key="frame" x="378" y="9" width="28" height="26"/>
                                                     <animations/>
-                                                    <state key="normal" title="Button" image="Forward-32"/>
+                                                    <state key="normal" title="Button" image="Forward-32-5"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="añodenacimiento" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgv-sS-2JW">
                                                     <rect key="frame" x="211" y="11" width="168" height="21"/>
@@ -192,7 +789,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5x-eh-ZOz">
                                                     <rect key="frame" x="378" y="9" width="28" height="26"/>
                                                     <animations/>
-                                                    <state key="normal" title="Button" image="Forward-32"/>
+                                                    <state key="normal" title="Button" image="Forward-32-5"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="altura" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYY-RP-oTA">
                                                     <rect key="frame" x="211" y="11" width="168" height="21"/>
@@ -229,7 +826,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wau-yb-hz6">
                                                     <rect key="frame" x="378" y="9" width="28" height="26"/>
                                                     <animations/>
-                                                    <state key="normal" title="Button" image="Forward-32"/>
+                                                    <state key="normal" title="Button" image="Forward-32-5"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="peso" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sL-tC-X3y">
                                                     <rect key="frame" x="211" y="11" width="168" height="21"/>
@@ -400,7 +997,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Alcohol" image="Beer" selectedImage="Beer" id="Eel-GN-Vqd"/>
+                    <tabBarItem key="tabBarItem" title="Alcohol" image="Beer-25" selectedImage="Beer Filled-25" id="Eel-GN-Vqd"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAm-Ku-luu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -421,33 +1018,12 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sueño" image="Bed" selectedImage="Bed" id="eKc-Or-Ixq"/>
+                    <tabBarItem key="tabBarItem" title="Sueño" image="Bed-25" selectedImage="Bed Filled-25" id="eKc-Or-Ixq"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PcB-ls-7Qt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1942" y="668"/>
-        </scene>
-        <!--Alimentos-->
-        <scene sceneID="587-Em-8J3">
-            <objects>
-                <viewController id="KxC-i7-D3H" customClass="FoodViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZqR-Wb-ND5"/>
-                        <viewControllerLayoutGuide type="bottom" id="SB0-8H-9nN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KqX-Ru-CNw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Alimentos" image="Sushi" selectedImage="Sushi" id="Ebi-ge-wfk"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="37J-Rb-xAr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1996" y="-1207"/>
         </scene>
         <!--Registro Diario-->
         <scene sceneID="JDe-wh-osS">
@@ -461,8 +1037,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="KxC-i7-D3H" kind="relationship" relationship="viewControllers" id="hPd-ZS-fof"/>
-                        <segue destination="MT6-j1-00O" kind="relationship" relationship="viewControllers" id="hux-HY-ewi"/>
+                        <segue destination="mdW-LW-hKG" kind="relationship" relationship="viewControllers" id="x7j-p5-vd2"/>
+                        <segue destination="B7J-OQ-0ow" kind="relationship" relationship="viewControllers" id="DQB-pk-euU"/>
                         <segue destination="w3O-N7-x9H" kind="relationship" relationship="viewControllers" id="05x-7S-Cqh"/>
                         <segue destination="Zos-c7-uW0" kind="relationship" relationship="viewControllers" id="RwR-4U-fuC"/>
                     </connections>
@@ -850,7 +1426,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Kenkou" id="UCy-Nj-uDQ">
-                        <barButtonItem key="rightBarButtonItem" image="Guest Filled-32" id="g4u-y3-dA6">
+                        <barButtonItem key="rightBarButtonItem" image="Guest Filled-32-2" id="g4u-y3-dA6">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="boc-HD-2JM" kind="show" identifier="Settings" id="jvt-Xw-I0o"/>
@@ -891,15 +1467,33 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bed" width="25" height="25"/>
-        <image name="Beer" width="25" height="25"/>
+        <image name="Bed Filled-25" width="25" height="25"/>
+        <image name="Bed-25" width="25" height="25"/>
+        <image name="Beer Filled-25" width="25" height="25"/>
+        <image name="Beer-25" width="25" height="25"/>
         <image name="Businessman-32" width="32" height="32"/>
         <image name="Businesswoman-32" width="32" height="32"/>
+        <image name="Calcium" width="100" height="100"/>
+        <image name="Cereals" width="100" height="100"/>
+        <image name="Dumbbell Filled-25" width="25" height="25"/>
+        <image name="Dumbbell-25" width="25" height="25"/>
+        <image name="Eating Responsibly 1" width="100" height="100"/>
+        <image name="Eating Responsibly 2" width="100" height="100"/>
+        <image name="Eating Responsibly 3" width="100" height="100"/>
         <image name="Facebook-32" width="32" height="32"/>
-        <image name="Forward-32" width="32" height="32"/>
-        <image name="Guest Filled-32" width="32" height="32"/>
-        <image name="Sushi" width="25" height="25"/>
-        <image name="Weight" width="25" height="25"/>
+        <image name="Fats" width="100" height="100"/>
+        <image name="Forward-32-5" width="32" height="32"/>
+        <image name="Fruits and Vegetables" width="100" height="100"/>
+        <image name="Guest Filled-32-2" width="32" height="32"/>
+        <image name="Minus-100" width="100" height="100"/>
+        <image name="Plus-100" width="100" height="100"/>
+        <image name="Regular Biking Filled-100" width="100" height="100"/>
+        <image name="Salt" width="100" height="100"/>
+        <image name="Sugars" width="100" height="100"/>
+        <image name="Sushi Filled-25" width="25" height="25"/>
+        <image name="Sushi-25" width="25" height="25"/>
+        <image name="Water" width="100" height="100"/>
+        <image name="Weightlifting-100" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eA8-uR-hl7"/>

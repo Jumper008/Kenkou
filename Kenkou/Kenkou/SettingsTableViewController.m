@@ -21,14 +21,12 @@
     
     [self setTitle:@"Configuración"];
     
+    [self loadSettings];
+    
     // Modifies navigation bar back button
     UIBarButtonItem *uibarbuttonitemBackButton =
-                    [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationController.navigationItem.backBarButtonItem = uibarbuttonitemBackButton;
-    self.navigationController.navigationBar.backIndicatorImage = [UIImage imageNamed:@"Back-100"];
-    self.navigationController.navigationBar.backIndicatorTransitionMaskImage = [UIImage imageNamed:@"Back-100"];
-    
-    [self loadSettings];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

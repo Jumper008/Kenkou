@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		152556F21BFAB592006CB414 /* ExerciseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 152556F11BFAB592006CB414 /* ExerciseTableViewController.m */; };
 		1527252D1BE82C3E00741647 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1527252C1BE82C3E00741647 /* SettingsTableViewController.m */; };
 		152725301BE868B600741647 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1527252F1BE868B600741647 /* SettingsViewController.m */; };
 		152725751BEBE1F200741647 /* Kenkou.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 152725731BEBE1F200741647 /* Kenkou.xcdatamodeld */; };
+		15BF3F9B1BFA69E200BE6B9C /* PopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15BF3F991BFA69E200BE6B9C /* PopUpViewController.m */; };
+		15BF3F9C1BFA69E200BE6B9C /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15BF3F9A1BFA69E200BE6B9C /* PopUpViewController.xib */; };
+		15BF3F9F1BFA777500BE6B9C /* FoodTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15BF3F9E1BFA777500BE6B9C /* FoodTableViewController.m */; };
+		15BF3FA11BFA89EC00BE6B9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15BF3FA01BFA89EC00BE6B9C /* Images.xcassets */; };
 		15C96CBA1BD2FB3E00B636B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CB91BD2FB3E00B636B2 /* main.m */; };
 		15C96CBD1BD2FB3E00B636B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CBC1BD2FB3E00B636B2 /* AppDelegate.m */; };
 		15C96CC31BD2FB3E00B636B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C96CC11BD2FB3E00B636B2 /* Main.storyboard */; };
 		15C96CC81BD2FB3E00B636B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C96CC61BD2FB3E00B636B2 /* LaunchScreen.storyboard */; };
 		15C96CD31BD2FB3E00B636B2 /* KenkouTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CD21BD2FB3E00B636B2 /* KenkouTests.m */; };
 		15C96CDE1BD2FB3E00B636B2 /* KenkouUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CDD1BD2FB3E00B636B2 /* KenkouUITests.m */; };
-		15C96CF01BD3186200B636B2 /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CEF1BD3186200B636B2 /* FoodViewController.m */; };
 		15C96CF31BD3187900B636B2 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C96CF21BD3187900B636B2 /* ExerciseViewController.m */; };
 		15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */; };
 		15CFAFDE1BD9C4350050A1D8 /* BTSpiderPlotterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAFDD1BD9C4350050A1D8 /* BTSpiderPlotterView.m */; };
@@ -45,11 +49,19 @@
 
 /* Begin PBXFileReference section */
 		02C4F61FBC5E046FF0009259 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		152556F01BFAB592006CB414 /* ExerciseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTableViewController.h; sourceTree = "<group>"; };
+		152556F11BFAB592006CB414 /* ExerciseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTableViewController.m; sourceTree = "<group>"; };
 		1527252B1BE82C3E00741647 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		1527252C1BE82C3E00741647 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		1527252E1BE868B600741647 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1527252F1BE868B600741647 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		152725741BEBE1F200741647 /* Kenkou.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Kenkou.xcdatamodel; sourceTree = "<group>"; };
+		15BF3F981BFA69E200BE6B9C /* PopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpViewController.h; sourceTree = "<group>"; };
+		15BF3F991BFA69E200BE6B9C /* PopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpViewController.m; sourceTree = "<group>"; };
+		15BF3F9A1BFA69E200BE6B9C /* PopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
+		15BF3F9D1BFA777500BE6B9C /* FoodTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTableViewController.h; sourceTree = "<group>"; };
+		15BF3F9E1BFA777500BE6B9C /* FoodTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTableViewController.m; sourceTree = "<group>"; };
+		15BF3FA01BFA89EC00BE6B9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		15C96CB51BD2FB3E00B636B2 /* Kenkou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kenkou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C96CB91BD2FB3E00B636B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15C96CBB1BD2FB3E00B636B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,8 +75,6 @@
 		15C96CD91BD2FB3E00B636B2 /* KenkouUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KenkouUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C96CDD1BD2FB3E00B636B2 /* KenkouUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KenkouUITests.m; sourceTree = "<group>"; };
 		15C96CDF1BD2FB3E00B636B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15C96CEE1BD3186200B636B2 /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
-		15C96CEF1BD3186200B636B2 /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
 		15C96CF11BD3187900B636B2 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
 		15C96CF21BD3187900B636B2 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
 		15CFAFD71BD9C2AB0050A1D8 /* BTSpiderPlotterViewExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BTSpiderPlotterViewExample-Prefix.pch"; sourceTree = "<group>"; };
@@ -117,6 +127,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		15BF3F971BFA698400BE6B9C /* PopUps */ = {
+			isa = PBXGroup;
+			children = (
+				15BF3F981BFA69E200BE6B9C /* PopUpViewController.h */,
+				15BF3F991BFA69E200BE6B9C /* PopUpViewController.m */,
+				15BF3F9A1BFA69E200BE6B9C /* PopUpViewController.xib */,
+			);
+			name = PopUps;
+			sourceTree = "<group>";
+		};
 		15C96CAC1BD2FB3E00B636B2 = {
 			isa = PBXGroup;
 			children = (
@@ -144,10 +164,15 @@
 		15C96CB71BD2FB3E00B636B2 /* Kenkou */ = {
 			isa = PBXGroup;
 			children = (
+				15BF3F971BFA698400BE6B9C /* PopUps */,
 				15C96CBB1BD2FB3E00B636B2 /* AppDelegate.h */,
 				152725731BEBE1F200741647 /* Kenkou.xcdatamodeld */,
 				15C96CBC1BD2FB3E00B636B2 /* AppDelegate.m */,
 				15C96CC11BD2FB3E00B636B2 /* Main.storyboard */,
+				152556F01BFAB592006CB414 /* ExerciseTableViewController.h */,
+				152556F11BFAB592006CB414 /* ExerciseTableViewController.m */,
+				15BF3F9D1BFA777500BE6B9C /* FoodTableViewController.h */,
+				15BF3F9E1BFA777500BE6B9C /* FoodTableViewController.m */,
 				15D61CE81BF5AF9E005BB2F8 /* MainTableViewController.h */,
 				15D61CE91BF5AF9E005BB2F8 /* MainTableViewController.m */,
 				15D61CE51BF5820E005BB2F8 /* OnboardingSettingsTableViewController.h */,
@@ -158,13 +183,12 @@
 				1527252C1BE82C3E00741647 /* SettingsTableViewController.m */,
 				15CFAFD81BD9C3190050A1D8 /* ResultsViewController.h */,
 				15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */,
-				15C96CEE1BD3186200B636B2 /* FoodViewController.h */,
-				15C96CEF1BD3186200B636B2 /* FoodViewController.m */,
 				15C96CF11BD3187900B636B2 /* ExerciseViewController.h */,
 				15C96CF21BD3187900B636B2 /* ExerciseViewController.m */,
 				15C96CC61BD2FB3E00B636B2 /* LaunchScreen.storyboard */,
 				15C96CC91BD2FB3E00B636B2 /* Info.plist */,
 				15C96CB81BD2FB3E00B636B2 /* Supporting Files */,
+				15BF3FA01BFA89EC00BE6B9C /* Images.xcassets */,
 			);
 			path = Kenkou;
 			sourceTree = "<group>";
@@ -323,7 +347,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C96CC81BD2FB3E00B636B2 /* LaunchScreen.storyboard in Resources */,
+				15BF3FA11BFA89EC00BE6B9C /* Images.xcassets in Resources */,
 				15C96CC31BD2FB3E00B636B2 /* Main.storyboard in Resources */,
+				15BF3F9C1BFA69E200BE6B9C /* PopUpViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,12 +427,14 @@
 				15D61CE71BF5820E005BB2F8 /* OnboardingSettingsTableViewController.m in Sources */,
 				152725751BEBE1F200741647 /* Kenkou.xcdatamodeld in Sources */,
 				15C96CBA1BD2FB3E00B636B2 /* main.m in Sources */,
+				152556F21BFAB592006CB414 /* ExerciseTableViewController.m in Sources */,
 				152725301BE868B600741647 /* SettingsViewController.m in Sources */,
+				15BF3F9F1BFA777500BE6B9C /* FoodTableViewController.m in Sources */,
 				1527252D1BE82C3E00741647 /* SettingsTableViewController.m in Sources */,
 				15C96CF31BD3187900B636B2 /* ExerciseViewController.m in Sources */,
 				15D61CEA1BF5AF9E005BB2F8 /* MainTableViewController.m in Sources */,
 				15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */,
-				15C96CF01BD3186200B636B2 /* FoodViewController.m in Sources */,
+				15BF3F9B1BFA69E200BE6B9C /* PopUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
