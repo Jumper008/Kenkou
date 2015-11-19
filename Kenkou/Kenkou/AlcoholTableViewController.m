@@ -1,30 +1,21 @@
 //
-//  ExerciseTableViewController.m
+//  AlcoholTableViewController.m
 //  Kenkou
 //
-//  Created by Alejandro Zamudio Guajardo on 11/16/15.
+//  Created by Alejandro Zamudio Guajardo on 11/19/15.
 //  Copyright © 2015 Lazuli Labs. All rights reserved.
 //
 
-#import "ExerciseTableViewController.h"
+#import "AlcoholTableViewController.h"
 
-@interface ExerciseTableViewController ()
+@interface AlcoholTableViewController ()
 
 @end
 
-@implementation ExerciseTableViewController
+@implementation AlcoholTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Initialize aerobic and anaerobic minute counters and text fields
-    self.nsintAerobicMinutes = 0;
-    self.nsintAnaerobicMinutes = 0;
-    
-    self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAerobicMinutes];
-    self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAnaerobicMinutes];
-    
-    self.uibuttonSave.layer.cornerRadius = 20.0f;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -41,23 +32,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger nsintNumberOfRows;
-    if (
-        section == 0
-        )
-    {
-        nsintNumberOfRows = 2;
-    }
-    else
-    {
-        nsintNumberOfRows = 1;
-    }
-    
-    return nsintNumberOfRows;
+    return 0;
 }
 
 /*
@@ -114,53 +93,4 @@
 }
 */
 
-- (IBAction)addMinutes:(UIButton *)sender
-{
-    if (
-        sender == self.uibuttonAddAerobicMinutes
-        )
-    {
-        self.nsintAerobicMinutes = self.nsintAerobicMinutes + 5;
-        self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAerobicMinutes];
-    }
-    else
-    {
-        self.nsintAnaerobicMinutes = self.nsintAnaerobicMinutes + 5;
-        self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAnaerobicMinutes];
-    }
-}
-
-- (IBAction)substractMinutes:(UIButton *)sender
-{
-    if (
-        sender == self.uibuttonSubstractAerobicMinutes
-        )
-    {
-        if (
-            self.nsintAerobicMinutes > 0
-            )
-        {
-            self.nsintAerobicMinutes = self.nsintAerobicMinutes - 5;
-            self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAerobicMinutes];
-        }
-        else
-        {
-            // Does nothing
-        }
-    }
-    else
-    {
-        if (
-            self.nsintAnaerobicMinutes > 0
-            )
-        {
-            self.nsintAnaerobicMinutes = self.nsintAnaerobicMinutes - 5;
-            self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAnaerobicMinutes];
-        }
-        else
-        {
-            // Does nothing
-        }
-    }
-}
 @end
