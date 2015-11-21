@@ -25,12 +25,21 @@
 @property (weak, nonatomic) IBOutlet UILabel *uilabelBody;
 @property (weak, nonatomic) IBOutlet UIButton *uibuttonClosePopUp;
 
+@property (weak, nonatomic) IBOutlet UIView *uiviewPopUpViewHelpFood;
+@property (weak, nonatomic) IBOutlet UIButton *uibuttonClosePopUpHelpFood;
+
+@property (weak, nonatomic) IBOutlet UIView *uiviewPopUpViewHelpSleep;
+@property (weak, nonatomic) IBOutlet UIButton *uibuttonClosePopUpHelpSleep;
+
+
 // Properties
 @property (nonatomic, strong) id <enableScrolling> delegate;
 
 // Action methods
 - (IBAction)closePopUpView:(id)sender;
 - (void)showInView:(UIView *)View image:(UIImage *)image title:(NSString *)title message:(NSString *)message animated:(BOOL)animated;
+- (void)showHelpFoodInView:(UIView *)View animated:(BOOL)animated;
+- (void)showHelpSleepInView:(UIView *)View animated:(BOOL)animated;
 - (void)assignDelegate:(id)delegate;
 - (void)placePopUpInY:(CGFloat)yPosition;
 

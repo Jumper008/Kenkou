@@ -235,9 +235,8 @@
     self.popUpHelp.title = @"Tener Horarios";
     NSString *strTitle = @"Establecer horarios de comida";
     NSString *strBody = @"Tener un horario establecido de comidas, evitar el ayuno o saltar tiempos de comida. Designar un lugar y tiempo especifico para ello.";
-    
+     
     [self.popUpHelp showInView:self.view image:sender.currentBackgroundImage title:strTitle message:strBody animated:YES];
-    
     [self.popUpHelp assignDelegate:self];
     
     self.tableView.scrollEnabled = NO;

@@ -10,4 +10,10 @@
 
 @interface RegistryTabBarViewController : UITabBarController
 
+// Outlets
+
+// Action methods
+
+// Properties
+
 @end

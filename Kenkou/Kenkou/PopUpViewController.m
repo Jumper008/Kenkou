@@ -16,14 +16,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Hide views all views (Unhide the one you wish to see)
+    self.uiviewPopUpView.hidden = YES;
+    self.uiviewPopUpViewHelpFood.hidden = YES;
+    self.uiviewPopUpViewHelpSleep.hidden = YES;
     
-    self.uibuttonClosePopUp.layer.cornerRadius = 15.0f;
-    
+    // Make it look like the screen is darkened
     self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.6];
+    
+    // Make the popUpView pretty
+    self.uibuttonClosePopUp.layer.cornerRadius = 15.0f;
     self.uiviewPopUpView.layer.cornerRadius = 5.0f;
     self.uiviewPopUpView.layer.shadowOpacity = 0.8f;
     self.uiviewPopUpView.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    
+    // Make the PopUpViewHelpFood pretty
+    self.uibuttonClosePopUpHelpFood.layer.cornerRadius = 15.0f;
+    self.uiviewPopUpViewHelpFood.layer.cornerRadius = 5.0f;
+    self.uiviewPopUpViewHelpFood.layer.shadowOpacity = 0.8f;
+    self.uiviewPopUpViewHelpFood.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    
+    // Make the PopUpViewHelpSleep pretty
+    self.uibuttonClosePopUpHelpSleep.layer.cornerRadius = 15.0f;
+    self.uiviewPopUpViewHelpSleep.layer.cornerRadius = 5.0f;
+    self.uiviewPopUpViewHelpSleep.layer.shadowOpacity = 0.8f;
+    self.uiviewPopUpViewHelpSleep.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,9 +86,37 @@
 - (void)showInView:(UIView *)View image:(UIImage *)image title:(NSString *)title message:(NSString *)message animated:(BOOL)animated
 {
     [View addSubview:self.view];
+    self.uiviewPopUpView.hidden = NO;
+    
     self.uiimageviewTopImage.image = image;
     self.uilabelTitle.text = title;
     self.uilabelBody.text = message;
+    if (
+        animated
+        )
+    {
+        [self showAnimated];
+    }
+}
+
+- (void)showHelpFoodInView:(UIView *)View animated:(BOOL)animated
+{
+    [View addSubview:self.view];
+    self.uiviewPopUpViewHelpFood.hidden = NO;
+    
+    if (
+        animated
+        )
+    {
+        [self showAnimated];
+    }
+}
+
+- (void)showHelpSleepInView:(UIView *)View animated:(BOOL)animated
+{
+    [View addSubview:self.view];
+    self.uiviewPopUpViewHelpSleep.hidden = NO;
+    
     if (
         animated
         )
@@ -87,6 +132,10 @@
 
 - (IBAction)closePopUpView:(id)sender
 {
+    self.uiviewPopUpView.hidden = YES;
+    self.uiviewPopUpViewHelpFood.hidden = YES;
+    self.uiviewPopUpViewHelpSleep.hidden = YES;
+    
     [self removeAnimated];
     [self.delegate enableScrolling];
 }
