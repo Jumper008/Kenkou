@@ -1,5 +1,5 @@
 //
-//  AlcoholTableViewController.h
+//  RegistryTabBarViewController.h
 //  Kenkou
 //
 //  Created by Alejandro Zamudio Guajardo on 11/19/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlcoholTableViewController : UITableViewController
+@interface RegistryTabBarViewController : UITabBarController
 
 @end

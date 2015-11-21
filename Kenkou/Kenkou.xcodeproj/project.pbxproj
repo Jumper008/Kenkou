@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		152556F21BFAB592006CB414 /* ExerciseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 152556F11BFAB592006CB414 /* ExerciseTableViewController.m */; };
-		1525C4491BFDB7FC00B0A961 /* AlcoholTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1525C4481BFDB7FC00B0A961 /* AlcoholTableViewController.m */; };
+		1525C44C1BFE6BC900B0A961 /* AlcoholicDrinkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1525C44B1BFE6BC900B0A961 /* AlcoholicDrinkTableViewCell.m */; };
+		1525C44F1BFE91D800B0A961 /* AlcoholViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1525C44E1BFE91D800B0A961 /* AlcoholViewController.m */; };
+		1525C4521BFEB94400B0A961 /* RegistryTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1525C4511BFEB94400B0A961 /* RegistryTabBarViewController.m */; };
+		1525C4551BFECB5F00B0A961 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1525C4541BFECB5F00B0A961 /* Timer.m */; };
+		1525C4581BFECC8900B0A961 /* SleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1525C4571BFECC8900B0A961 /* SleepViewController.m */; };
 		1527252D1BE82C3E00741647 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1527252C1BE82C3E00741647 /* SettingsTableViewController.m */; };
 		152725301BE868B600741647 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1527252F1BE868B600741647 /* SettingsViewController.m */; };
 		152725751BEBE1F200741647 /* Kenkou.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 152725731BEBE1F200741647 /* Kenkou.xcdatamodeld */; };
@@ -51,8 +55,16 @@
 		02C4F61FBC5E046FF0009259 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		152556F01BFAB592006CB414 /* ExerciseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTableViewController.h; sourceTree = "<group>"; };
 		152556F11BFAB592006CB414 /* ExerciseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTableViewController.m; sourceTree = "<group>"; };
-		1525C4471BFDB7FC00B0A961 /* AlcoholTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlcoholTableViewController.h; sourceTree = "<group>"; };
-		1525C4481BFDB7FC00B0A961 /* AlcoholTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlcoholTableViewController.m; sourceTree = "<group>"; };
+		1525C44A1BFE6BC900B0A961 /* AlcoholicDrinkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlcoholicDrinkTableViewCell.h; sourceTree = "<group>"; };
+		1525C44B1BFE6BC900B0A961 /* AlcoholicDrinkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlcoholicDrinkTableViewCell.m; sourceTree = "<group>"; };
+		1525C44D1BFE91D800B0A961 /* AlcoholViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlcoholViewController.h; sourceTree = "<group>"; };
+		1525C44E1BFE91D800B0A961 /* AlcoholViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlcoholViewController.m; sourceTree = "<group>"; };
+		1525C4501BFEB94400B0A961 /* RegistryTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistryTabBarViewController.h; sourceTree = "<group>"; };
+		1525C4511BFEB94400B0A961 /* RegistryTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistryTabBarViewController.m; sourceTree = "<group>"; };
+		1525C4531BFECB5F00B0A961 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		1525C4541BFECB5F00B0A961 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
+		1525C4561BFECC8900B0A961 /* SleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepViewController.h; sourceTree = "<group>"; };
+		1525C4571BFECC8900B0A961 /* SleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepViewController.m; sourceTree = "<group>"; };
 		1527252B1BE82C3E00741647 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		1527252C1BE82C3E00741647 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		1527252E1BE868B600741647 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -127,6 +139,74 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		1525C4591BFFE84900B0A961 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				15C96CBB1BD2FB3E00B636B2 /* AppDelegate.h */,
+				15C96CBC1BD2FB3E00B636B2 /* AppDelegate.m */,
+				15D61CE81BF5AF9E005BB2F8 /* MainTableViewController.h */,
+				15D61CE91BF5AF9E005BB2F8 /* MainTableViewController.m */,
+				15C96CC11BD2FB3E00B636B2 /* Main.storyboard */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		1525C45A1BFFE90D00B0A961 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				15C96CB71BD2FB3E00B636B2 /* Kenkou */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		1525C45B1BFFEA7100B0A961 /* Recording */ = {
+			isa = PBXGroup;
+			children = (
+				1525C4561BFECC8900B0A961 /* SleepViewController.h */,
+				1525C4571BFECC8900B0A961 /* SleepViewController.m */,
+				1525C4501BFEB94400B0A961 /* RegistryTabBarViewController.h */,
+				1525C4511BFEB94400B0A961 /* RegistryTabBarViewController.m */,
+				1525C44D1BFE91D800B0A961 /* AlcoholViewController.h */,
+				1525C44E1BFE91D800B0A961 /* AlcoholViewController.m */,
+				1525C44A1BFE6BC900B0A961 /* AlcoholicDrinkTableViewCell.h */,
+				1525C44B1BFE6BC900B0A961 /* AlcoholicDrinkTableViewCell.m */,
+				152556F01BFAB592006CB414 /* ExerciseTableViewController.h */,
+				152556F11BFAB592006CB414 /* ExerciseTableViewController.m */,
+				15BF3F9D1BFA777500BE6B9C /* FoodTableViewController.h */,
+				15BF3F9E1BFA777500BE6B9C /* FoodTableViewController.m */,
+			);
+			name = Recording;
+			sourceTree = "<group>";
+		};
+		1525C45C1BFFEAED00B0A961 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1527252E1BE868B600741647 /* SettingsViewController.h */,
+				1527252F1BE868B600741647 /* SettingsViewController.m */,
+				1527252B1BE82C3E00741647 /* SettingsTableViewController.h */,
+				1527252C1BE82C3E00741647 /* SettingsTableViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		1525C45D1BFFEB2100B0A961 /* Results and Progress */ = {
+			isa = PBXGroup;
+			children = (
+				15CFAFD81BD9C3190050A1D8 /* ResultsViewController.h */,
+				15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */,
+			);
+			name = "Results and Progress";
+			sourceTree = "<group>";
+		};
+		1525C45E1BFFEB3F00B0A961 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				15D61CE51BF5820E005BB2F8 /* OnboardingSettingsTableViewController.h */,
+				15D61CE61BF5820E005BB2F8 /* OnboardingSettingsTableViewController.m */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
 		15BF3F971BFA698400BE6B9C /* PopUps */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,7 +222,7 @@
 			children = (
 				15D650A51BF12EE800C18BA0 /* CoreData.framework */,
 				15CFAFDB1BD9C41D0050A1D8 /* BTSpiderPlotterView */,
-				15C96CB71BD2FB3E00B636B2 /* Kenkou */,
+				1525C45A1BFFE90D00B0A961 /* New Group */,
 				15C96CD11BD2FB3E00B636B2 /* KenkouTests */,
 				15C96CDC1BD2FB3E00B636B2 /* KenkouUITests */,
 				15C96CB61BD2FB3E00B636B2 /* Products */,
@@ -164,31 +244,17 @@
 		15C96CB71BD2FB3E00B636B2 /* Kenkou */ = {
 			isa = PBXGroup;
 			children = (
+				1525C45E1BFFEB3F00B0A961 /* Onboarding */,
+				1525C45D1BFFEB2100B0A961 /* Results and Progress */,
+				1525C45C1BFFEAED00B0A961 /* Settings */,
+				1525C45B1BFFEA7100B0A961 /* Recording */,
+				1525C4591BFFE84900B0A961 /* Main */,
 				15BF3F971BFA698400BE6B9C /* PopUps */,
-				15C96CBB1BD2FB3E00B636B2 /* AppDelegate.h */,
 				152725731BEBE1F200741647 /* Kenkou.xcdatamodeld */,
-				15C96CBC1BD2FB3E00B636B2 /* AppDelegate.m */,
-				15C96CC11BD2FB3E00B636B2 /* Main.storyboard */,
-				152556F01BFAB592006CB414 /* ExerciseTableViewController.h */,
-				152556F11BFAB592006CB414 /* ExerciseTableViewController.m */,
-				15BF3F9D1BFA777500BE6B9C /* FoodTableViewController.h */,
-				15BF3F9E1BFA777500BE6B9C /* FoodTableViewController.m */,
-				15D61CE81BF5AF9E005BB2F8 /* MainTableViewController.h */,
-				15D61CE91BF5AF9E005BB2F8 /* MainTableViewController.m */,
-				15D61CE51BF5820E005BB2F8 /* OnboardingSettingsTableViewController.h */,
-				15D61CE61BF5820E005BB2F8 /* OnboardingSettingsTableViewController.m */,
-				1527252E1BE868B600741647 /* SettingsViewController.h */,
-				1527252F1BE868B600741647 /* SettingsViewController.m */,
-				1527252B1BE82C3E00741647 /* SettingsTableViewController.h */,
-				1527252C1BE82C3E00741647 /* SettingsTableViewController.m */,
-				15CFAFD81BD9C3190050A1D8 /* ResultsViewController.h */,
-				15CFAFD91BD9C3190050A1D8 /* ResultsViewController.m */,
 				15C96CC61BD2FB3E00B636B2 /* LaunchScreen.storyboard */,
 				15C96CC91BD2FB3E00B636B2 /* Info.plist */,
 				15C96CB81BD2FB3E00B636B2 /* Supporting Files */,
 				15BF3FA01BFA89EC00BE6B9C /* Images.xcassets */,
-				1525C4471BFDB7FC00B0A961 /* AlcoholTableViewController.h */,
-				1525C4481BFDB7FC00B0A961 /* AlcoholTableViewController.m */,
 			);
 			path = Kenkou;
 			sourceTree = "<group>";
@@ -196,6 +262,8 @@
 		15C96CB81BD2FB3E00B636B2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1525C4531BFECB5F00B0A961 /* Timer.h */,
+				1525C4541BFECB5F00B0A961 /* Timer.m */,
 				15CFAFD71BD9C2AB0050A1D8 /* BTSpiderPlotterViewExample-Prefix.pch */,
 				15C96CB91BD2FB3E00B636B2 /* main.m */,
 			);
@@ -425,14 +493,18 @@
 				15CFAFDE1BD9C4350050A1D8 /* BTSpiderPlotterView.m in Sources */,
 				15C96CBD1BD2FB3E00B636B2 /* AppDelegate.m in Sources */,
 				15D61CE71BF5820E005BB2F8 /* OnboardingSettingsTableViewController.m in Sources */,
+				1525C44C1BFE6BC900B0A961 /* AlcoholicDrinkTableViewCell.m in Sources */,
 				152725751BEBE1F200741647 /* Kenkou.xcdatamodeld in Sources */,
 				15C96CBA1BD2FB3E00B636B2 /* main.m in Sources */,
+				1525C4581BFECC8900B0A961 /* SleepViewController.m in Sources */,
+				1525C44F1BFE91D800B0A961 /* AlcoholViewController.m in Sources */,
 				152556F21BFAB592006CB414 /* ExerciseTableViewController.m in Sources */,
 				152725301BE868B600741647 /* SettingsViewController.m in Sources */,
-				1525C4491BFDB7FC00B0A961 /* AlcoholTableViewController.m in Sources */,
+				1525C4551BFECB5F00B0A961 /* Timer.m in Sources */,
 				15BF3F9F1BFA777500BE6B9C /* FoodTableViewController.m in Sources */,
 				1527252D1BE82C3E00741647 /* SettingsTableViewController.m in Sources */,
 				15D61CEA1BF5AF9E005BB2F8 /* MainTableViewController.m in Sources */,
+				1525C4521BFEB94400B0A961 /* RegistryTabBarViewController.m in Sources */,
 				15CFAFDA1BD9C3190050A1D8 /* ResultsViewController.m in Sources */,
 				15BF3F9B1BFA69E200BE6B9C /* PopUpViewController.m in Sources */,
 			);

@@ -23,10 +23,10 @@
     
     [self loadSettings];
     
-    // Modifies navigation bar back button
-    UIBarButtonItem *uibarbuttonitemBackButton =
-    [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationController.navigationItem.backBarButtonItem = uibarbuttonitemBackButton;
+//    // Modifies navigation bar back button
+//    UIBarButtonItem *uibarbuttonitemBackButton =
+//    [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+//    self.navigationController.navigationItem.backBarButtonItem = uibarbuttonitemBackButton;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="Drinks" syncable="YES">
+        <attribute name="drinkName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="graduation" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="volume" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Records" syncable="YES">
+        <attribute name="aerobicTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="alcoholGrams" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="anaerobicTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="averageReactionTime" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="calcium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="cereals" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="eatingResponsibly1" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="eatingResponsibly2" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="eatingResponsibly3" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fats" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fruitsAndVegetables" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="salts" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sugars" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="water" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="User" syncable="YES">
         <attribute name="birthYear" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="exercise" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -11,5 +32,7 @@
     </entity>
     <elements>
         <element name="User" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Drinks" positionX="-63" positionY="36" width="128" height="90"/>
+        <element name="Records" positionX="-54" positionY="45" width="128" height="255"/>
     </elements>
 </model>
