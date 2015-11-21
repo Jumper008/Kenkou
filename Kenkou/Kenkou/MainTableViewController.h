@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsTableViewController.h"
+#import "AppDelegate.h"
 
 @interface MainTableViewController : UITableViewController <saveSettings>
 

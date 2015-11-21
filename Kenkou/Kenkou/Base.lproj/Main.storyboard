@@ -1491,7 +1491,7 @@
                                                         <color key="titleColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="v3E-Ir-wc1" kind="show" id="rb6-8H-QO7"/>
+                                                        <segue destination="v3E-Ir-wc1" kind="show" identifier="Recording" id="rb6-8H-QO7"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1520,7 +1520,7 @@
                                                         <color key="titleColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="F7M-ep-lZo" kind="show" id="eA8-uR-hl7">
+                                                        <segue destination="F7M-ep-lZo" kind="show" identifier="Results" id="eA8-uR-hl7">
                                                             <segue key="commit" inheritsFrom="parent" id="DRC-SM-ygt"/>
                                                             <segue key="preview" inheritsFrom="commit" id="fr1-Rt-uzp"/>
                                                         </segue>

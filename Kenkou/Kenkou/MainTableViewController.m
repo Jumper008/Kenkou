@@ -121,6 +121,110 @@
         SettingsTableViewController *destinationViewController = [segue destinationViewController];
         destinationViewController.delegate = self;
     }
+    else if (
+        [[segue identifier] isEqualToString:@"Recording"]
+        )
+    {
+        [self registerDayRecordInCoreData];
+    }
+}
+
+- (void)registerDayRecordInCoreData
+{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
+    NSEntityDescription *nsEntityDescription =
+    [NSEntityDescription entityForName:@"Records" inManagedObjectContext:nsManagedObjectContext];
+    
+    // A request is created
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // The entity for the request is specified
+    [request setEntity: nsEntityDescription];
+    
+    NSError *error;
+    
+    // The request is executed
+    NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
+    
+    if (
+        [self checkForDateExistenceInArray:nsArrayMatchedObject]
+        )
+    {
+        // Does nothing
+    }
+    else
+    {
+        // Creates a new NSManagedObject for the data base
+        NSManagedObject *nsmanagedobjectNewRecord =
+        [NSEntityDescription insertNewObjectForEntityForName:@"Records" inManagedObjectContext:nsManagedObjectContext];
+        
+        // Assigns the values to the new managed object
+        NSInteger nsintDefaultFoodCategoryValue = 1;
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultFoodCategoryValue] forKey:@"fruitsAndVegetables"];
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultFoodCategoryValue] forKey:@"cereals"];
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultFoodCategoryValue] forKey:@"sugars"];
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultFoodCategoryValue] forKey:@"fats"];
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultFoodCategoryValue] forKey:@"calcium"];
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultFoodCategoryValue] forKey:@"salts"];
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultFoodCategoryValue] forKey:@"water"];
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultFoodCategoryValue] forKey:@"eatingResponsibly1"];
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultFoodCategoryValue] forKey:@"eatingResponsibly2"];
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultFoodCategoryValue] forKey:@"eatingResponsibly3"];
+        
+        NSInteger nsintDefaultExerciseValue = 0;
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultExerciseValue] forKey:@"aerobicTime"];
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultExerciseValue] forKey:@"anaerobicTime"];
+        
+        double doubleDefaultReactionTimeValue = 0.0;
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithDouble:doubleDefaultReactionTimeValue] forKey:@"averageReactionTime"];
+        
+        double doubleDefaultAlcoholGramsValue = 0.0;
+        [nsmanagedobjectNewRecord setValue:[NSNumber numberWithDouble:doubleDefaultAlcoholGramsValue] forKey:@"alcoholGrams"];
+        
+        // Tries to save the context to the database
+        NSError *error;
+        [nsManagedObjectContext save: &error];
+        
+        if (
+            error == nil
+            )
+        {
+            NSLog(@"Date recorded successfully!");
+        }
+        else
+        {
+            NSLog(@"Can't save! %@ %@", error, [error localizedDescription]);
+        }
+    }
+}
+
+- (BOOL)checkForDateExistenceInArray:(NSArray *)array
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    NSDate *nsdateCurrentDate = [NSDate date];
+    
+    BOOL boolIsDateAlreadyRecorded = NO;
+    
+    for (int intNSManagedObject = 0; intNSManagedObject < array.count; intNSManagedObject++)
+    {
+        NSManagedObject *nsmanagedobjectDate = array[intNSManagedObject];
+        NSDate *nsdateComparisonDate = [[nsmanagedobjectDate valueForKey:@"date"] date];
+        
+        NSLog(@"%@", [dateFormatter stringFromDate:nsdateCurrentDate]);
+        NSLog(@"%@", [dateFormatter stringFromDate:nsdateComparisonDate]);
+        
+        if (
+            [[dateFormatter stringFromDate:nsdateCurrentDate] isEqualToString:[dateFormatter stringFromDate:nsdateComparisonDate]]
+            )
+        {
+            boolIsDateAlreadyRecorded = YES;
+        }
+    }
+    
+    return boolIsDateAlreadyRecorded;
 }
 
 // Converts a string to UIColor
