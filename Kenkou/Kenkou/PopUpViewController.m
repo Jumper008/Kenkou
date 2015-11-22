@@ -41,6 +41,8 @@
     self.uiviewPopUpViewHelpSleep.layer.cornerRadius = 5.0f;
     self.uiviewPopUpViewHelpSleep.layer.shadowOpacity = 0.8f;
     self.uiviewPopUpViewHelpSleep.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    
+    self.cgrectViewFrame = self.view.frame;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -114,6 +116,8 @@
 
 - (void)showHelpSleepInView:(UIView *)View animated:(BOOL)animated
 {
+    [self.view setFrame:self.cgrectViewFrame];
+    [self placePopUpInY:114.0f];
     [View addSubview:self.view];
     self.uiviewPopUpViewHelpSleep.hidden = NO;
     
@@ -125,19 +129,42 @@
     }
 }
 
-- (void)assignDelegate:(id)delegate
+- (void)assignScrollingDelegate:(id)delegate
 {
-    self.delegate = delegate;
+    self.scrollingDelegate = delegate;
 }
 
-- (IBAction)closePopUpView:(id)sender
+- (void)assignTappingDelegate:(id)delegate
+{
+    self.tappingDelegate = delegate;
+}
+
+- (IBAction)closePopUpView:(UIButton *)sender
 {
     self.uiviewPopUpView.hidden = YES;
     self.uiviewPopUpViewHelpFood.hidden = YES;
     self.uiviewPopUpViewHelpSleep.hidden = YES;
     
     [self removeAnimated];
-    [self.delegate enableScrolling];
+    
+    if (
+        sender == self.uibuttonClosePopUp
+        )
+    {
+        [self.scrollingDelegate enableScrolling];
+    }
+    else if (
+        sender == self.uibuttonClosePopUpHelpFood
+        )
+    {
+        [self.scrollingDelegate enableScrolling];
+    }
+    else if (
+        sender == self.uibuttonClosePopUpHelpSleep
+        )
+    {
+        [self.tappingDelegate enableTapping];
+    }
 }
 
 - (void)placePopUpInY:(CGFloat)yPosition

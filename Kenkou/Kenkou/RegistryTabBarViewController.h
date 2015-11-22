@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FoodTableViewController.h"
 
 @interface RegistryTabBarViewController : UITabBarController
 

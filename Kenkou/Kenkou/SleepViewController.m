@@ -24,20 +24,31 @@
     self.gameState = Start_Screen;
     self.uibuttonSave.enabled = NO;
     self.uibuttonSave.hidden = YES;
+    self.popUpHelp = [[PopUpViewController alloc] init];
     
     self.timerGameTimer = [[Timer alloc] initTimer];
     
     self.nsmutablearrayReactionTimes = [[NSMutableArray alloc] init];
     
     // Adds tap recognizer for user interaction with game
-    UITapGestureRecognizer *uitapgesturerecognizerUserTap =
+    self.uitapgesturerecognizerUserTap = [[UITapGestureRecognizer alloc] init];
+    self.uitapgesturerecognizerUserTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userDidTap)];
-    [self.view addGestureRecognizer:uitapgesturerecognizerUserTap];
+    [self.view addGestureRecognizer:self.uitapgesturerecognizerUserTap];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIBarButtonItem *uibarbuttonitemRightButton =
+    [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"] style:UIBarButtonItemStylePlain target:self action:@selector(showInfoPopUp)];
+    self.tabBarController.navigationItem.rightBarButtonItem = uibarbuttonitemRightButton;
 }
 
 /*
@@ -318,6 +329,19 @@
                            green:((float) g / 255.0f)
                             blue:((float) b / 255.0f)
                            alpha:1.0f];
+}
+
+- (void)showInfoPopUp
+{
+    [self.popUpHelp showHelpSleepInView:self.view animated:YES];
+    [self.popUpHelp showHelpSleepInView:self.view animated:YES]; // Temporary popup fix issue
+    self.uitapgesturerecognizerUserTap.enabled = NO;
+    [self.popUpHelp assignTappingDelegate:self];
+}
+
+- (void)enableTapping
+{
+    self.uitapgesturerecognizerUserTap.enabled = YES;
 }
 
 - (IBAction)saveReactionTime:(id)sender

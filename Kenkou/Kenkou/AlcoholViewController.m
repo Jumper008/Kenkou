@@ -26,6 +26,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIBarButtonItem *uibarbuttonitemRightButton =
+    [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"] style:UIBarButtonItemStylePlain target:self action:nil];
+    self.tabBarController.navigationItem.rightBarButtonItem = uibarbuttonitemRightButton;
+}
+
 /*
 #pragma mark - Navigation
 

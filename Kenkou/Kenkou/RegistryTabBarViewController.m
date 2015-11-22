@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"] style:UIBarButtonItemStylePlain target:self action:nil]];
+//    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"] style:UIBarButtonItemStylePlain target:self action:nil]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,24 +38,24 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    /*CASE*/
-    if (
-        item.tag == 0
-        )
-    {
-        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"] style:UIBarButtonItemStylePlain target:self action:nil]];
-    }
-    else if (
-        item.tag == 2
-        )
-    {
-        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"] style:UIBarButtonItemStylePlain target:self action:nil]];
-    }
-    else
-    {
-        [self.navigationItem setRightBarButtonItem:nil];
-    }
-    /*END-CASE*/
+//    /*CASE*/
+//    if (
+//        item.tag == 0
+//        )
+//    {
+//        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"] style:UIBarButtonItemStylePlain target:self action:nil]];
+//    }
+//    else if (
+//        item.tag == 2
+//        )
+//    {
+//        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"] style:UIBarButtonItemStylePlain target:self action:nil]];
+//    }
+//    else
+//    {
+//        [self.navigationItem setRightBarButtonItem:nil];
+//    }
+//    /*END-CASE*/
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController

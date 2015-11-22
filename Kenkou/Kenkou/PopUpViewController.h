@@ -16,6 +16,12 @@
 
 @end
 
+@protocol enableTapping <NSObject>
+
+- (void)enableTapping;
+
+@end
+
 @interface PopUpViewController : UIViewController
 
 // Outlets
@@ -33,14 +39,17 @@
 
 
 // Properties
-@property (nonatomic, strong) id <enableScrolling> delegate;
+@property (nonatomic, strong) id <enableScrolling> scrollingDelegate;
+@property (nonatomic, strong) id <enableTapping> tappingDelegate;
+@property CGRect cgrectViewFrame;
 
 // Action methods
-- (IBAction)closePopUpView:(id)sender;
+- (IBAction)closePopUpView:(UIButton *)sender;
 - (void)showInView:(UIView *)View image:(UIImage *)image title:(NSString *)title message:(NSString *)message animated:(BOOL)animated;
 - (void)showHelpFoodInView:(UIView *)View animated:(BOOL)animated;
 - (void)showHelpSleepInView:(UIView *)View animated:(BOOL)animated;
-- (void)assignDelegate:(id)delegate;
+- (void)assignScrollingDelegate:(id)delegate;
+- (void)assignTappingDelegate:(id)delegate;
 - (void)placePopUpInY:(CGFloat)yPosition;
 
 @end

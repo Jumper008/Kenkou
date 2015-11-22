@@ -38,5 +38,4 @@
 - (IBAction)helpEatingResponsibly1:(UIButton *)sender;
 - (IBAction)helpEatingResponsibly2:(UIButton *)sender;
 - (IBAction)helpEatingResponsibly3:(UIButton *)sender;
-
 @end

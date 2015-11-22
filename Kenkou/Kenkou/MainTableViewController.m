@@ -147,10 +147,13 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
+    NSLog(@"Number of recorded dates: %li", nsArrayMatchedObject.count);
+    
     if (
         [self checkForDateExistenceInArray:nsArrayMatchedObject]
         )
     {
+        NSLog(@"Date already recorded");
         // Does nothing
     }
     else
@@ -160,6 +163,8 @@
         [NSEntityDescription insertNewObjectForEntityForName:@"Records" inManagedObjectContext:nsManagedObjectContext];
         
         // Assigns the values to the new managed object
+        [nsmanagedobjectNewRecord setValue:[NSDate date] forKey:@"date"];
+        
         NSInteger nsintDefaultFoodCategoryValue = 1;
         [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultFoodCategoryValue] forKey:@"fruitsAndVegetables"];
         [nsmanagedobjectNewRecord setValue:[NSNumber numberWithInteger:nsintDefaultFoodCategoryValue] forKey:@"cereals"];
@@ -201,6 +206,8 @@
 
 - (BOOL)checkForDateExistenceInArray:(NSArray *)array
 {
+    NSLog(@"Checking date existence.");
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.timeStyle = NSDateFormatterNoStyle;
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
@@ -211,16 +218,14 @@
     for (int intNSManagedObject = 0; intNSManagedObject < array.count; intNSManagedObject++)
     {
         NSManagedObject *nsmanagedobjectDate = array[intNSManagedObject];
-        NSDate *nsdateComparisonDate = [[nsmanagedobjectDate valueForKey:@"date"] date];
-        
-        NSLog(@"%@", [dateFormatter stringFromDate:nsdateCurrentDate]);
-        NSLog(@"%@", [dateFormatter stringFromDate:nsdateComparisonDate]);
+        NSDate *nsdateComparisonDate = [nsmanagedobjectDate valueForKey:@"date"];
         
         if (
             [[dateFormatter stringFromDate:nsdateCurrentDate] isEqualToString:[dateFormatter stringFromDate:nsdateComparisonDate]]
             )
         {
             boolIsDateAlreadyRecorded = YES;
+            
         }
     }
     

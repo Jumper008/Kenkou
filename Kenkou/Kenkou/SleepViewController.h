@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Timer.h"
+#import "PopUpViewController.h"
 
-@interface SleepViewController : UIViewController
+@interface SleepViewController : UIViewController <enableTapping>
 
 // Outlets
 @property (weak, nonatomic) IBOutlet UILabel *uilabelTitle;
@@ -30,6 +31,8 @@
 @property (nonatomic, strong) NSString *strReactionTime;
 @property (nonatomic, strong) NSString *strAverageReactionTime;
 @property (nonatomic, strong) NSString *strNumberOfTriesTaken;
+@property (nonatomic, strong) PopUpViewController *popUpHelp;
+@property (nonatomic, strong) UITapGestureRecognizer *uitapgesturerecognizerUserTap;
 typedef enum {
     Start_Screen, Wait, Tap, Tapped_Too_Soon, Results, Partial_Results
 } gameStates;

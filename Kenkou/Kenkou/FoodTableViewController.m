@@ -35,6 +35,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIBarButtonItem *uibarbuttonitemRightButton =
+    [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info"] style:UIBarButtonItemStylePlain target:self action:@selector(showInfoPopUp)];
+    self.tabBarController.navigationItem.rightBarButtonItem = uibarbuttonitemRightButton;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -121,7 +130,7 @@
     
     [self.popUpHelp showInView:self.view image:sender.currentBackgroundImage title:strTitle message:strBody animated:YES];
     
-    [self.popUpHelp assignDelegate:self];
+    [self.popUpHelp assignScrollingDelegate:self];
     
     self.tableView.scrollEnabled = NO;
 }
@@ -134,7 +143,7 @@
     
     [self.popUpHelp showInView:self.view image:sender.currentBackgroundImage title:strTitle message:strBody animated:YES];
     
-    [self.popUpHelp assignDelegate:self];
+    [self.popUpHelp assignScrollingDelegate:self];
     
     self.tableView.scrollEnabled = NO;
 }
@@ -147,7 +156,7 @@
     
     [self.popUpHelp showInView:self.view image:sender.currentBackgroundImage title:strTitle message:strBody animated:YES];
     
-    [self.popUpHelp assignDelegate:self];
+    [self.popUpHelp assignScrollingDelegate:self];
     
     self.tableView.scrollEnabled = NO;
 }
@@ -160,7 +169,7 @@
     
     [self.popUpHelp showInView:self.view image:sender.currentBackgroundImage title:strTitle message:strBody animated:YES];
     
-    [self.popUpHelp assignDelegate:self];
+    [self.popUpHelp assignScrollingDelegate:self];
     
     self.tableView.scrollEnabled = NO;
 }
@@ -173,7 +182,7 @@
     
     [self.popUpHelp showInView:self.view image:sender.currentBackgroundImage title:strTitle message:strBody animated:YES];
     
-    [self.popUpHelp assignDelegate:self];
+    [self.popUpHelp assignScrollingDelegate:self];
     
     self.tableView.scrollEnabled = NO;
 }
@@ -186,7 +195,7 @@
     
     [self.popUpHelp showInView:self.view image:sender.currentBackgroundImage title:strTitle message:strBody animated:YES];
     
-    [self.popUpHelp assignDelegate:self];
+    [self.popUpHelp assignScrollingDelegate:self];
     
     self.tableView.scrollEnabled = NO;
 }
@@ -199,7 +208,7 @@
     
     [self.popUpHelp showInView:self.view image:sender.currentBackgroundImage title:strTitle message:strBody animated:YES];
     
-    [self.popUpHelp assignDelegate:self];
+    [self.popUpHelp assignScrollingDelegate:self];
     
     self.tableView.scrollEnabled = NO;
 }
@@ -212,7 +221,7 @@
     
     [self.popUpHelp showInView:self.view image:sender.currentBackgroundImage title:strTitle message:strBody animated:YES];
     
-    [self.popUpHelp assignDelegate:self];
+    [self.popUpHelp assignScrollingDelegate:self];
     
     self.tableView.scrollEnabled = NO;
 }
@@ -225,7 +234,7 @@
     
     [self.popUpHelp showInView:self.view image:sender.currentBackgroundImage title:strTitle message:strBody animated:YES];
     
-    [self.popUpHelp assignDelegate:self];
+    [self.popUpHelp assignScrollingDelegate:self];
     
     self.tableView.scrollEnabled = NO;
 }
@@ -237,7 +246,7 @@
     NSString *strBody = @"Tener un horario establecido de comidas, evitar el ayuno o saltar tiempos de comida. Designar un lugar y tiempo especifico para ello.";
      
     [self.popUpHelp showInView:self.view image:sender.currentBackgroundImage title:strTitle message:strBody animated:YES];
-    [self.popUpHelp assignDelegate:self];
+    [self.popUpHelp assignScrollingDelegate:self];
     
     self.tableView.scrollEnabled = NO;
 }
@@ -245,6 +254,13 @@
 - (void)enableScrolling
 {
     self.tableView.scrollEnabled = YES;
+}
+
+- (void)showInfoPopUp
+{
+    [self.popUpHelp showHelpFoodInView:self.view animated:YES];
+    [self.popUpHelp assignScrollingDelegate:self];
+    self.tableView.scrollEnabled = NO;
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity
