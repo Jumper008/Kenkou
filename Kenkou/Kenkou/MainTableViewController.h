@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SettingsTableViewController.h"
 #import "AppDelegate.h"
+#import "PopUpViewController.h"
 
 @interface MainTableViewController : UITableViewController <saveSettings>
 
@@ -19,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *uibuttonFoodClassification;
 
 // Properties
+@property (nonatomic, strong) PopUpViewController *popUpUnderDevelopment;
 
 // Action methods
+- (IBAction)showUnderDevelopmentPopUp:(id)sender;
 
 @end

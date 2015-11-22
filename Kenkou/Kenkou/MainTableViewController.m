@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.popUpUnderDevelopment = [[PopUpViewController alloc] init];
+    
     //Cambia el color de la barra.
     [self.navigationController.navigationBar setBarTintColor:[self colorWithHexString:@"FF7160"]];
     
@@ -284,4 +286,7 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (IBAction)showUnderDevelopmentPopUp:(id)sender {
+    [self.popUpUnderDevelopment showUnderDevelopmentInView:self.view animated:YES];
+}
 @end

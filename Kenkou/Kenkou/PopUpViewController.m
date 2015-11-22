@@ -17,9 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.uitextfieldName.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
-    self.uitextfieldVolume.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
-    self.uitextfieldAcoholPercentage.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+    self.uitextfieldName.layer.borderColor=[[UIColor orangeColor]CGColor];
+    self.uitextfieldVolume.layer.borderColor = [[UIColor orangeColor] CGColor];
+    self.uitextfieldAcoholPercentage.layer.borderColor = [[UIColor orangeColor] CGColor];
     
     // Hide views all views (Unhide the one you wish to see)
     self.uiviewPopUpView.hidden = YES;
@@ -27,6 +27,7 @@
     self.uiviewPopUpViewHelpSleep.hidden = YES;
     self.uiviewPopUpViewHelpAlcohol.hidden = YES;
     self.uiviewPopUpViewAlcoholAddAlcoholicDrink.hidden = YES;
+    self.uiviewPopUpViewUnderDevelopment.hidden = YES;
     
     // Make it look like the screen is darkened
     self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.6];
@@ -61,6 +62,12 @@
     self.uiviewPopUpViewAlcoholAddAlcoholicDrink.layer.cornerRadius = 5.0f;
     self.uiviewPopUpViewAlcoholAddAlcoholicDrink.layer.shadowOpacity = 0.8f;
     self.uiviewPopUpViewAlcoholAddAlcoholicDrink.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    
+    // Make the PopUpViewUnderDevelopment pretty
+    self.uibuttonClosePopUpUnderDevelopment.layer.cornerRadius = 15.0f;
+    self.uiviewPopUpViewUnderDevelopment.layer.cornerRadius = 5.0f;
+    self.uiviewPopUpViewUnderDevelopment.layer.shadowOpacity = 0.8f;
+    self.uiviewPopUpViewUnderDevelopment.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
 
     
     self.cgrectViewFrame = self.view.frame;
@@ -185,6 +192,19 @@
     }
 }
 
+- (void)showUnderDevelopmentInView:(UIView *)View animated:(BOOL)animated
+{
+    [View addSubview:self.view];
+    self.uiviewPopUpViewUnderDevelopment.hidden = NO;
+    
+    if (
+        animated
+        )
+    {
+        [self showAnimated];
+    }
+}
+
 - (void)assignScrollingDelegate:(id)delegate
 {
     self.scrollingDelegate = delegate;
@@ -207,6 +227,7 @@
     self.uiviewPopUpViewHelpSleep.hidden = YES;
     self.uiviewPopUpViewHelpAlcohol.hidden = YES;
     self.uiviewPopUpViewAlcoholAddAlcoholicDrink.hidden = YES;
+    self.uiviewPopUpViewUnderDevelopment.hidden = YES;
     
     [self removeAnimated];
     
@@ -242,15 +263,15 @@
         self.uitextfieldVolume.layer.borderWidth = 0;
         self.uitextfieldAcoholPercentage.layer.borderWidth = 0;
         [self.scrollingDelegate enableScrolling];
+    } else if (
+        sender == self.uibuttonClosePopUpUnderDevelopment
+        )
+    {   // No special actions required for now
     }
 }
 
 - (IBAction)saveAlcoholicDrinkAndClosePopUp:(id)sender
 {
-    self.uitextfieldName.layer.borderWidth = 0;
-    self.uitextfieldVolume.layer.borderWidth = 0;
-    self.uitextfieldAcoholPercentage.layer.borderWidth = 0;
-    
     if (
         ![self.uitextfieldName.text isEqualToString:@""]
         && ![self.uitextfieldVolume.text isEqualToString:@""]
@@ -273,10 +294,10 @@
     }
     else    // Remind user to add values
     {
-        // Regresar los botones a su color original (falta en el showInView)
-//        self.uitextfieldName.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
-//        self.uitextfieldVolume.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
-//        self.uitextfieldAcoholPercentage.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+        // Return buttons to their original color before checking them again
+        self.uitextfieldName.layer.borderWidth = 0;
+        self.uitextfieldVolume.layer.borderWidth = 0;
+        self.uitextfieldAcoholPercentage.layer.borderWidth = 0;
         
         if (
             [self.uitextfieldName.text isEqualToString:@""]

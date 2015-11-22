@@ -1622,6 +1622,9 @@
                                                     <state key="normal" title="Mi progreso">
                                                         <color key="titleColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="showUnderDevelopmentPopUp:" destination="zAU-zu-wB7" eventType="touchUpInside" id="lYw-YF-5FM"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <animations/>

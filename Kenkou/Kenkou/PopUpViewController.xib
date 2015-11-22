@@ -11,6 +11,7 @@
                 <outlet property="uibuttonClosePopUpHelpAlcohol" destination="K9o-d0-cNd" id="fBE-IL-RsY"/>
                 <outlet property="uibuttonClosePopUpHelpFood" destination="puP-Th-YKv" id="8sK-nO-eae"/>
                 <outlet property="uibuttonClosePopUpHelpSleep" destination="dxk-UF-gdb" id="JSL-Rk-lkL"/>
+                <outlet property="uibuttonClosePopUpUnderDevelopment" destination="tgi-LI-8mD" id="Ihy-Vl-bS9"/>
                 <outlet property="uibuttonSaveAlcoholicDrinkAndClosePopUp" destination="jnl-m8-O18" id="IM8-E3-asN"/>
                 <outlet property="uiimageviewTopImage" destination="ZqG-pi-QZ6" id="t6U-4S-y9n"/>
                 <outlet property="uilabelBody" destination="dRh-cj-12M" id="MSo-ok-Gvg"/>
@@ -23,6 +24,7 @@
                 <outlet property="uiviewPopUpViewHelpAlcohol" destination="OrD-JP-cbk" id="l2A-Sw-Bff"/>
                 <outlet property="uiviewPopUpViewHelpFood" destination="9d5-Mj-Uz4" id="ON8-ad-xh6"/>
                 <outlet property="uiviewPopUpViewHelpSleep" destination="mGM-Se-jGc" id="8VB-az-WgZ"/>
+                <outlet property="uiviewPopUpViewUnderDevelopment" destination="sa9-tI-nky" id="keR-tV-6hX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -417,6 +419,38 @@ El volumen y la graduación vienen indicados en la etiqueta de tu bebida.</strin
                         </button>
                     </subviews>
                     <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sa9-tI-nky">
+                    <rect key="frame" x="8" y="48" width="398" height="393"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="En construcción" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiV-SV-PMB">
+                            <rect key="frame" x="76" y="8" width="246" height="23"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                            <color key="textColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lo sentimos, todavía estamos desarrollando esta página para ti." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKf-lU-iU8">
+                            <rect key="frame" x="51" y="39" width="297" height="55"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                            <color key="textColor" red="0.27058823529999998" green="0.41568627450000001" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="soC-Kx-8MD">
+                            <rect key="frame" x="79" y="95" width="240" height="240"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgi-LI-8mD">
+                            <rect key="frame" x="113" y="350" width="171" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <state key="normal" title="Cerrar">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="closePopUpView:" destination="-1" eventType="touchUpInside" id="bTk-cb-qwP"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
