@@ -62,7 +62,7 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    // Create a new Candy Object
+    // Create a new FoodItem Object
     FoodItem *fooditemFood = nil;
 
     // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
@@ -122,8 +122,67 @@
     // Remove all objects from the filtered search array
     [self.nsmutablearrayFilteredFood removeAllObjects];
     // Filter the array using NSPredicate
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.strName contains[c] %@",searchText];
-    self.nsmutablearrayFilteredFood = [NSMutableArray arrayWithArray:[self.nsarrayFoodItems filteredArrayUsingPredicate:predicate]];
+    
+    NSArray *nsarrayUnscopedFoodList = [[NSArray alloc] init];
+    
+    if (
+        [searchText isEqualToString:@""]
+        )
+    {
+        nsarrayUnscopedFoodList = self.nsarrayFoodItems;
+    }
+    else
+    {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.strName contains[c] %@",searchText];
+        
+        nsarrayUnscopedFoodList = [self.nsarrayFoodItems filteredArrayUsingPredicate:predicate];
+    }
+    
+    if (
+        ![scope isEqualToString:@"Todo"]
+        )
+    {
+        NSPredicate *nspredicateScope = [[NSPredicate alloc] init];
+        
+        // Check which scope to use
+        if (
+            [scope isEqualToString:@"Fru./Ver."]
+            )
+        {
+            nspredicateScope = [NSPredicate predicateWithFormat:@"SELF.bFruitOrVegetable == YES"];
+        }
+        else if (
+                 [scope isEqualToString:@"Cereales"]
+                 )
+        {
+            nspredicateScope = [NSPredicate predicateWithFormat:@"SELF.bCereal == YES"];
+        }
+        else if (
+                 [scope isEqualToString:@"Azucares"]
+                 )
+        {
+            nspredicateScope = [NSPredicate predicateWithFormat:@"SELF.bSugar == YES"];
+        }
+        else if (
+                 [scope isEqualToString:@"Grasas"]
+                 )
+        {
+            nspredicateScope = [NSPredicate predicateWithFormat:@"SELF.bFat == YES"];
+        }
+        else if (
+                 [scope isEqualToString:@"Calcio"]
+                 )
+        {
+            nspredicateScope = [NSPredicate predicateWithFormat:@"SELF.bCalciumRich == YES"];
+        }
+        
+        NSArray *nsarrayScopedFoodList = [nsarrayUnscopedFoodList filteredArrayUsingPredicate:nspredicateScope];
+        self.nsmutablearrayFilteredFood = [NSMutableArray arrayWithArray:nsarrayScopedFoodList];
+    }
+    else
+    {
+        self.nsmutablearrayFilteredFood = [NSMutableArray arrayWithArray:nsarrayUnscopedFoodList];
+    }
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
@@ -143,4 +202,11 @@
     return YES;
 }
 
+- (void)searchBar:(UISearchBar *)searchBar
+selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+{
+    NSLog(@"Scope changed. %@", self.searchDisplayController.searchBar.text);
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+    [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:selectedScope]];
+}
 @end

@@ -157,14 +157,6 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
-		1525C45A1BFFE90D00B0A961 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				15C96CB71BD2FB3E00B636B2 /* Kenkou */,
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
 		1525C45B1BFFEA7100B0A961 /* Recording */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,9 +218,9 @@
 		15C96CAC1BD2FB3E00B636B2 = {
 			isa = PBXGroup;
 			children = (
+				15C96CB71BD2FB3E00B636B2 /* Kenkou */,
 				15D650A51BF12EE800C18BA0 /* CoreData.framework */,
 				15CFAFDB1BD9C41D0050A1D8 /* BTSpiderPlotterView */,
-				1525C45A1BFFE90D00B0A961 /* New Group */,
 				15C96CD11BD2FB3E00B636B2 /* KenkouTests */,
 				15C96CDC1BD2FB3E00B636B2 /* KenkouUITests */,
 				15C96CB61BD2FB3E00B636B2 /* Products */,
@@ -250,10 +242,7 @@
 		15C96CB71BD2FB3E00B636B2 /* Kenkou */ = {
 			isa = PBXGroup;
 			children = (
-				50CFAD8E1C01C5B8008C0E79 /* FoodItem.h */,
-				50CFAD8F1C01C5B8008C0E79 /* FoodItem.m */,
-				50CFAD911C01C8DE008C0E79 /* FoodClassificationTableViewController.h */,
-				50CFAD921C01C8DE008C0E79 /* FoodClassificationTableViewController.m */,
+				50CFAD951C0280FD008C0E79 /* FoodClassification */,
 				1525C45E1BFFEB3F00B0A961 /* Onboarding */,
 				1525C45D1BFFEB2100B0A961 /* Results and Progress */,
 				1525C45C1BFFEAED00B0A961 /* Settings */,
@@ -305,6 +294,17 @@
 				15CFAFDD1BD9C4350050A1D8 /* BTSpiderPlotterView.m */,
 			);
 			name = BTSpiderPlotterView;
+			sourceTree = "<group>";
+		};
+		50CFAD951C0280FD008C0E79 /* FoodClassification */ = {
+			isa = PBXGroup;
+			children = (
+				50CFAD8E1C01C5B8008C0E79 /* FoodItem.h */,
+				50CFAD8F1C01C5B8008C0E79 /* FoodItem.m */,
+				50CFAD911C01C8DE008C0E79 /* FoodClassificationTableViewController.h */,
+				50CFAD921C01C8DE008C0E79 /* FoodClassificationTableViewController.m */,
+			);
+			name = FoodClassification;
 			sourceTree = "<group>";
 		};
 		F281E92EDAA932A8DAD9AE41 /* Frameworks */ = {
