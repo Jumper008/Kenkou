@@ -346,5 +346,84 @@
 
 - (IBAction)saveReactionTime:(id)sender
 {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
+    NSEntityDescription *nsEntityDescription =
+    [NSEntityDescription entityForName:@"Records" inManagedObjectContext:nsManagedObjectContext];
+    
+    // A request is created
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // The entity for the request is specified
+    [request setEntity: nsEntityDescription];
+    
+    NSError *error;
+    
+    // The request is executed
+    NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
+    
+    NSLog(@"Number of recorded dates: %li", nsArrayMatchedObject.count);
+    
+    NSManagedObject *nsmanagedobjectRecord = [self getRecordInArray:nsArrayMatchedObject];
+    
+    if (
+        nsmanagedobjectRecord
+        )
+    {
+        [nsmanagedobjectRecord setValue:[NSNumber numberWithDouble:self.doubleAverageReactionTime] forKey:@"averageReactionTime"];
+        
+        // Tries to save the context to the database
+        NSError *saveError;
+        [nsManagedObjectContext save: &saveError];
+        
+        if (
+            saveError == nil
+            )
+        {
+            NSLog(@"Record saved successfully!");
+        }
+        else
+        {
+            NSLog(@"Can't save! %@ %@", saveError, [saveError localizedDescription]);
+        }
+    }
+    else
+    {
+        NSLog(@"Record not found");
+    }
+}
+
+- (NSManagedObject *)getRecordInArray:(NSArray *)array
+{
+    NSLog(@"Retrieving record.");
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    NSDate *nsdateCurrentDate = [NSDate date];
+    
+    NSManagedObject *nsmanagedobjectSelectedRecord = nil;
+    int intNSManagedObject = 0;
+    
+    /*WHILE-DO*/
+    while (
+           (intNSManagedObject < array.count) &&
+           (nsmanagedobjectSelectedRecord == nil)
+           )
+    {
+        NSManagedObject *nsmanagedobjectDate = array[intNSManagedObject];
+        NSDate *nsdateComparisonDate = [nsmanagedobjectDate valueForKey:@"date"];
+        
+        if (
+            [[dateFormatter stringFromDate:nsdateCurrentDate] isEqualToString:[dateFormatter stringFromDate:nsdateComparisonDate]]
+            )
+        {
+            nsmanagedobjectSelectedRecord = nsmanagedobjectDate;
+        }
+        
+        intNSManagedObject = intNSManagedObject + 1;
+    }
+    
+    return nsmanagedobjectSelectedRecord;
 }
 @end

@@ -371,4 +371,5 @@
     
     return nsmanagedobjectSelectedRecord;
 }
+
 @end
