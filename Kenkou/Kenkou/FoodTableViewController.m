@@ -268,4 +268,107 @@
 {
     [self.popUpHelp placePopUpInY:targetContentOffset->y];
 }
+
+- (IBAction)saveFoodValues:(id)sender
+{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
+    NSEntityDescription *nsEntityDescription =
+    [NSEntityDescription entityForName:@"Records" inManagedObjectContext:nsManagedObjectContext];
+    
+    // A request is created
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // The entity for the request is specified
+    [request setEntity: nsEntityDescription];
+    
+    NSError *error;
+    
+    // The request is executed
+    NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
+    
+    NSLog(@"Number of recorded dates: %li", nsArrayMatchedObject.count);
+    
+    NSManagedObject *nsmanagedobjectRecord = [self getRecordInArray:nsArrayMatchedObject];
+    
+    if (
+        nsmanagedobjectRecord
+        )
+    {
+        NSInteger nsintFruitsAndVegetables = self.uisegmentedcontrolFruitsAndVegetables.selectedSegmentIndex;
+        NSInteger nsintCereals = self.uisegmentedcontrolCereals.selectedSegmentIndex;
+        NSInteger nsintSugars = self.uisegmentedcontrolSugars.selectedSegmentIndex;
+        NSInteger nsintFats = self.uisegmentedcontrolFats.selectedSegmentIndex;
+        NSInteger nsintCalcium = self.uisegmentedcontrolCalcium.selectedSegmentIndex;
+        NSInteger nsintSalts = self.uisegmentedcontrolSalts.selectedSegmentIndex;
+        NSInteger nsintWater = self.uisegmentedcontrolWater.selectedSegmentIndex;
+        NSInteger nsintEatingResponsibly1 = self.uisegmentedcontrolEatingResponsibly1.selectedSegmentIndex;
+        NSInteger nsintEatingResponsibly2 = self.uisegmentedcontrolEatingResponsibly2.selectedSegmentIndex;
+        NSInteger nsintEatingResponsibly3 = self.uisegmentedcontrolEatingResponsibly3.selectedSegmentIndex;
+        
+        [nsmanagedobjectRecord setValue:[NSNumber numberWithInteger:nsintFruitsAndVegetables] forKey:@"fruitsAndVegetables"];
+        [nsmanagedobjectRecord setValue:[NSNumber numberWithInteger:nsintCereals] forKey:@"cereals"];
+        [nsmanagedobjectRecord setValue:[NSNumber numberWithInteger:nsintSugars] forKey:@"sugars"];
+        [nsmanagedobjectRecord setValue:[NSNumber numberWithInteger:nsintFats] forKey:@"fats"];
+        [nsmanagedobjectRecord setValue:[NSNumber numberWithInteger:nsintCalcium] forKey:@"calcium"];
+        [nsmanagedobjectRecord setValue:[NSNumber numberWithInteger:nsintSalts] forKey:@"salts"];
+        [nsmanagedobjectRecord setValue:[NSNumber numberWithInteger:nsintWater] forKey:@"water"];
+        [nsmanagedobjectRecord setValue:[NSNumber numberWithInteger:nsintEatingResponsibly1] forKey:@"eatingResponsibly1"];
+        [nsmanagedobjectRecord setValue:[NSNumber numberWithInteger:nsintEatingResponsibly2] forKey:@"eatingResponsibly2"];
+        [nsmanagedobjectRecord setValue:[NSNumber numberWithInteger:nsintEatingResponsibly3] forKey:@"eatingResponsibly3"];
+        
+        // Tries to save the context to the database
+        NSError *saveError;
+        [nsManagedObjectContext save: &saveError];
+        
+        if (
+            saveError == nil
+            )
+        {
+            NSLog(@"Record saved successfully!");
+        }
+        else
+        {
+            NSLog(@"Can't save! %@ %@", saveError, [saveError localizedDescription]);
+        }
+    }
+    else
+    {
+        NSLog(@"Record not found");
+    }
+}
+
+- (NSManagedObject *)getRecordInArray:(NSArray *)array
+{
+    NSLog(@"Retrieving record.");
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    NSDate *nsdateCurrentDate = [NSDate date];
+    
+    NSManagedObject *nsmanagedobjectSelectedRecord = nil;
+    int intNSManagedObject = 0;
+    
+    /*WHILE-DO*/
+    while (
+        (intNSManagedObject < array.count) &&
+        (nsmanagedobjectSelectedRecord == nil)
+        )
+    {
+        NSManagedObject *nsmanagedobjectDate = array[intNSManagedObject];
+        NSDate *nsdateComparisonDate = [nsmanagedobjectDate valueForKey:@"date"];
+        
+        if (
+            [[dateFormatter stringFromDate:nsdateCurrentDate] isEqualToString:[dateFormatter stringFromDate:nsdateComparisonDate]]
+            )
+        {
+            nsmanagedobjectSelectedRecord = nsmanagedobjectDate;
+        }
+        
+        intNSManagedObject = intNSManagedObject + 1;
+    }
+    
+    return nsmanagedobjectSelectedRecord;
+}
 @end

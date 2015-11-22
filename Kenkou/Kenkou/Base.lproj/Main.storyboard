@@ -427,6 +427,9 @@
                                                     <state key="normal" title="Guardar">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="saveFoodValues:" destination="mdW-LW-hKG" eventType="touchUpInside" id="IfA-GG-9X6"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <animations/>
