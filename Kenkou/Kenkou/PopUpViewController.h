@@ -22,6 +22,12 @@
 
 @end
 
+@protocol addAlcoholicDrink <NSObject>
+
+- (void)addAlcoholicDrinkWithName:(NSString *)name WithAlcoholPercentage:(double)percentage WithVolume:(double)volume;
+
+@end
+
 @interface PopUpViewController : UIViewController
 
 // Outlets
@@ -51,6 +57,7 @@
 // Properties
 @property (nonatomic, strong) id <enableScrolling> scrollingDelegate;
 @property (nonatomic, strong) id <enableTapping> tappingDelegate;
+@property (nonatomic, strong) id <addAlcoholicDrink> addAlcoholicDrinkDelegate;
 @property CGRect cgrectViewFrame;
 
 // Action methods
@@ -63,6 +70,7 @@
 - (void)showAlcoholAddAlcoholicDrink:(UIView *)View animated:(BOOL)animated;
 - (void)assignScrollingDelegate:(id)delegate;
 - (void)assignTappingDelegate:(id)delegate;
+- (void)assignAddAlcoholicDrinkDelegate:(id)delegate;
 - (void)placePopUpInY:(CGFloat)yPosition;
 
 @end

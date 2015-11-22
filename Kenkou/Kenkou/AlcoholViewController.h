@@ -8,14 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "AlcoholicDrinkTableViewCell.h"
+#import "PopUpViewController.h"
+#import "AppDelegate.h"
 
-@interface AlcoholViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface AlcoholViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, addAlcoholicDrink, enableScrolling>
 
 // Outlets
+@property (weak, nonatomic) IBOutlet UITableView *uitableviewAlcoholicDrinks;
 
 // Properties
 @property (nonatomic, strong) NSMutableArray *nsmutarrAlcoholicDrink;
+@property (nonatomic, strong) PopUpViewController *popUpHelp;
 
 // Action methods
+- (IBAction)addAlcoholicDrink:(id)sender;
+- (IBAction)saveRecord:(id)sender;
 
 @end

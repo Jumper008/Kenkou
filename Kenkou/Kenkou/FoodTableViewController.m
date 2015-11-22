@@ -23,6 +23,8 @@
     
     self.tableView.delegate = self;
     
+    [self loadFoodValues];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -331,6 +333,49 @@
         {
             NSLog(@"Can't save! %@ %@", saveError, [saveError localizedDescription]);
         }
+    }
+    else
+    {
+        NSLog(@"Record not found");
+    }
+}
+
+- (void)loadFoodValues
+{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
+    NSEntityDescription *nsEntityDescription =
+    [NSEntityDescription entityForName:@"Records" inManagedObjectContext:nsManagedObjectContext];
+    
+    // A request is created
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // The entity for the request is specified
+    [request setEntity: nsEntityDescription];
+    
+    NSError *error;
+    
+    // The request is executed
+    NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
+    
+    NSLog(@"Number of recorded dates: %li", nsArrayMatchedObject.count);
+    
+    NSManagedObject *nsmanagedobjectRecord = [self getRecordInArray:nsArrayMatchedObject];
+    
+    if (
+        nsmanagedobjectRecord
+        )
+    {
+        self.uisegmentedcontrolFruitsAndVegetables.selectedSegmentIndex = [[nsmanagedobjectRecord valueForKey:@"fruitsAndVegetables"] integerValue];
+        self.uisegmentedcontrolCereals.selectedSegmentIndex = [[nsmanagedobjectRecord valueForKey:@"cereals"] integerValue];
+        self.uisegmentedcontrolSugars.selectedSegmentIndex = [[nsmanagedobjectRecord valueForKey:@"sugars"] integerValue];
+        self.uisegmentedcontrolFats.selectedSegmentIndex = [[nsmanagedobjectRecord valueForKey:@"fats"] integerValue];
+        self.uisegmentedcontrolCalcium.selectedSegmentIndex = [[nsmanagedobjectRecord valueForKey:@"calcium"] integerValue];
+        self.uisegmentedcontrolSalts.selectedSegmentIndex = [[nsmanagedobjectRecord valueForKey:@"salts"] integerValue];
+        self.uisegmentedcontrolWater.selectedSegmentIndex = [[nsmanagedobjectRecord valueForKey:@"water"] integerValue];
+        self.uisegmentedcontrolEatingResponsibly1.selectedSegmentIndex = [[nsmanagedobjectRecord valueForKey:@"eatingResponsibly1"] integerValue];
+        self.uisegmentedcontrolEatingResponsibly2.selectedSegmentIndex = [[nsmanagedobjectRecord valueForKey:@"eatingResponsibly2"] integerValue];
+        self.uisegmentedcontrolEatingResponsibly3.selectedSegmentIndex = [[nsmanagedobjectRecord valueForKey:@"eatingResponsibly3"] integerValue];
     }
     else
     {

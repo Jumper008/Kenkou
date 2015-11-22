@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface ExerciseTableViewController : UITableViewController
 
@@ -26,5 +27,6 @@
 // Action methods
 - (IBAction)addMinutes:(UIButton *)sender;
 - (IBAction)substractMinutes:(UIButton *)sender;
+- (IBAction)saveRecord:(id)sender;
 
 @end

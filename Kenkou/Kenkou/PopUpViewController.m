@@ -16,6 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.uitextfieldName.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+    self.uitextfieldVolume.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+    self.uitextfieldAcoholPercentage.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+    
     // Hide views all views (Unhide the one you wish to see)
     self.uiviewPopUpView.hidden = YES;
     self.uiviewPopUpViewHelpFood.hidden = YES;
@@ -147,6 +152,8 @@
 
 - (void)showHelpAlcoholInView:(UIView *)View animated:(BOOL)animated
 {
+    [self.view setFrame:self.cgrectViewFrame];
+    [self placePopUpInY:114.0f];
     [View addSubview:self.view];
     self.uiviewPopUpViewHelpAlcohol.hidden = NO;
     
@@ -160,6 +167,8 @@
 
 - (void)showAlcoholAddAlcoholicDrink:(UIView *)View animated:(BOOL)animated
 {
+    [self.view setFrame:self.cgrectViewFrame];
+    [self placePopUpInY:114.0f];
     [View addSubview:self.view];
     self.uiviewPopUpViewAlcoholAddAlcoholicDrink.hidden = NO;
     
@@ -184,6 +193,11 @@
 - (void)assignTappingDelegate:(id)delegate
 {
     self.tappingDelegate = delegate;
+}
+
+- (void)assignAddAlcoholicDrinkDelegate:(id)delegate
+{
+    self.addAlcoholicDrinkDelegate = delegate;
 }
 
 - (IBAction)closePopUpView:(UIButton *)sender
@@ -224,20 +238,38 @@
         sender == self.uibuttonClosePopUpAlcoholAddAlcoholicDrink
         )
     {
+        self.uitextfieldName.layer.borderWidth = 0;
+        self.uitextfieldVolume.layer.borderWidth = 0;
+        self.uitextfieldAcoholPercentage.layer.borderWidth = 0;
         [self.scrollingDelegate enableScrolling];
     }
 }
 
-- (IBAction)saveAlcoholicDrinkAndClosePopUp:(id)sender {
+- (IBAction)saveAlcoholicDrinkAndClosePopUp:(id)sender
+{
+    self.uitextfieldName.layer.borderWidth = 0;
+    self.uitextfieldVolume.layer.borderWidth = 0;
+    self.uitextfieldAcoholPercentage.layer.borderWidth = 0;
+    
     if (
         ![self.uitextfieldName.text isEqualToString:@""]
         && ![self.uitextfieldVolume.text isEqualToString:@""]
         && ![self.uitextfieldAcoholPercentage.text isEqualToString:@""]
         )
     {
-        // Pass textFieldValues to delegate
+        // Deliver textFieldValues to delegate
+        NSString *strName = self.uitextfieldName.text;
+        double doubleAlcoholPercentage = [self.uitextfieldAcoholPercentage.text doubleValue];
+        double doubleVolume = [self.uitextfieldVolume.text doubleValue];
+        
+        [self.addAlcoholicDrinkDelegate
+         addAlcoholicDrinkWithName:strName WithAlcoholPercentage:doubleAlcoholPercentage WithVolume:doubleVolume];
     
         [self.scrollingDelegate enableScrolling];
+        
+        self.uiviewPopUpViewAlcoholAddAlcoholicDrink.hidden = YES;
+        
+        [self removeAnimated];
     }
     else    // Remind user to add values
     {
@@ -250,21 +282,21 @@
             [self.uitextfieldName.text isEqualToString:@""]
             )
         {
-            self.uitextfieldName.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+            self.uitextfieldName.layer.borderWidth = 1;
         }
 
         if (
             [self.uitextfieldVolume.text isEqualToString:@""]
             )
         {
-            self.uitextfieldVolume.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+            self.uitextfieldVolume.layer.borderWidth = 1;
         }
         
         if (
             [self.uitextfieldAcoholPercentage.text isEqualToString:@""]
             )
         {
-            self.uitextfieldAcoholPercentage.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+            self.uitextfieldAcoholPercentage.layer.borderWidth = 1;
         }
     }
 }

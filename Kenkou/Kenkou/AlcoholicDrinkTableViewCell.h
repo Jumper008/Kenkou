@@ -16,6 +16,8 @@
 
 // Properties
 @property NSInteger nsintConsumptionMultiplicity;
+@property double doubleAlcoholPercentage;
+@property double doubleVolume;
 
 // Action methods
 - (IBAction)addConsumptionMultiplicity:(id)sender;
