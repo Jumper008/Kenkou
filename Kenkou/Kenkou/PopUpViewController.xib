@@ -421,7 +421,7 @@ El volumen y la graduación vienen indicados en la etiqueta de tu bebida.</strin
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sa9-tI-nky">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sa9-tI-nky">
                     <rect key="frame" x="8" y="48" width="398" height="393"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="En construcción" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiV-SV-PMB">
@@ -457,11 +457,6 @@ El volumen y la graduación vienen indicados en la etiqueta de tu bebida.</strin
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="sa9-tI-nky"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="481" y="271"/>
         </view>
     </objects>
