@@ -20,6 +20,8 @@
     self.uiviewPopUpView.hidden = YES;
     self.uiviewPopUpViewHelpFood.hidden = YES;
     self.uiviewPopUpViewHelpSleep.hidden = YES;
+    self.uiviewPopUpViewHelpAlcohol.hidden = YES;
+    self.uiviewPopUpViewAlcoholAddAlcoholicDrink.hidden = YES;
     
     // Make it look like the screen is darkened
     self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.6];
@@ -41,6 +43,20 @@
     self.uiviewPopUpViewHelpSleep.layer.cornerRadius = 5.0f;
     self.uiviewPopUpViewHelpSleep.layer.shadowOpacity = 0.8f;
     self.uiviewPopUpViewHelpSleep.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    
+    // Make the PopUpViewHelpAlcohol pretty
+    self.uibuttonClosePopUpHelpAlcohol.layer.cornerRadius = 15.0f;
+    self.uiviewPopUpViewHelpAlcohol.layer.cornerRadius = 5.0f;
+    self.uiviewPopUpViewHelpAlcohol.layer.shadowOpacity = 0.8f;
+    self.uiviewPopUpViewHelpAlcohol.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    
+    // Make the PopUpViewAlcoholAddBeverage pretty
+    self.uibuttonClosePopUpAlcoholAddAlcoholicDrink.layer.cornerRadius = 15.0f;
+    self.uibuttonSaveAlcoholicDrinkAndClosePopUp.layer.cornerRadius = 15.0f;
+    self.uiviewPopUpViewAlcoholAddAlcoholicDrink.layer.cornerRadius = 5.0f;
+    self.uiviewPopUpViewAlcoholAddAlcoholicDrink.layer.shadowOpacity = 0.8f;
+    self.uiviewPopUpViewAlcoholAddAlcoholicDrink.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+
     
     self.cgrectViewFrame = self.view.frame;
 }
@@ -129,6 +145,37 @@
     }
 }
 
+- (void)showHelpAlcoholInView:(UIView *)View animated:(BOOL)animated
+{
+    [View addSubview:self.view];
+    self.uiviewPopUpViewHelpAlcohol.hidden = NO;
+    
+    if (
+        animated
+        )
+    {
+        [self showAnimated];
+    }
+}
+
+- (void)showAlcoholAddAlcoholicDrink:(UIView *)View animated:(BOOL)animated
+{
+    [View addSubview:self.view];
+    self.uiviewPopUpViewAlcoholAddAlcoholicDrink.hidden = NO;
+    
+    // Clear interface
+    self.uitextfieldName.text = @"";
+    self.uitextfieldVolume.text = @"";
+    self.uitextfieldAcoholPercentage.text = @"";
+    
+    if (
+        animated
+        )
+    {
+        [self showAnimated];
+    }
+}
+
 - (void)assignScrollingDelegate:(id)delegate
 {
     self.scrollingDelegate = delegate;
@@ -144,6 +191,8 @@
     self.uiviewPopUpView.hidden = YES;
     self.uiviewPopUpViewHelpFood.hidden = YES;
     self.uiviewPopUpViewHelpSleep.hidden = YES;
+    self.uiviewPopUpViewHelpAlcohol.hidden = YES;
+    self.uiviewPopUpViewAlcoholAddAlcoholicDrink.hidden = YES;
     
     [self removeAnimated];
     
@@ -165,6 +214,59 @@
     {
         [self.tappingDelegate enableTapping];
     }
+    else if (
+        sender == self.uibuttonClosePopUpHelpAlcohol
+        )
+    {
+        [self.scrollingDelegate enableScrolling];
+    }
+    else if (
+        sender == self.uibuttonClosePopUpAlcoholAddAlcoholicDrink
+        )
+    {
+        [self.scrollingDelegate enableScrolling];
+    }
+}
+
+- (IBAction)saveAlcoholicDrinkAndClosePopUp:(id)sender {
+    if (
+        ![self.uitextfieldName.text isEqualToString:@""]
+        && ![self.uitextfieldVolume.text isEqualToString:@""]
+        && ![self.uitextfieldAcoholPercentage.text isEqualToString:@""]
+        )
+    {
+        // Pass textFieldValues to delegate
+    
+        [self.scrollingDelegate enableScrolling];
+    }
+    else    // Remind user to add values
+    {
+        // Regresar los botones a su color original (falta en el showInView)
+//        self.uitextfieldName.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+//        self.uitextfieldVolume.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+//        self.uitextfieldAcoholPercentage.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+        
+        if (
+            [self.uitextfieldName.text isEqualToString:@""]
+            )
+        {
+            self.uitextfieldName.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+        }
+
+        if (
+            [self.uitextfieldVolume.text isEqualToString:@""]
+            )
+        {
+            self.uitextfieldVolume.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+        }
+        
+        if (
+            [self.uitextfieldAcoholPercentage.text isEqualToString:@""]
+            )
+        {
+            self.uitextfieldAcoholPercentage.layer.borderColor = [[self colorWithHexString:@"#FF7160"] CGColor];
+        }
+    }
 }
 
 - (void)placePopUpInY:(CGFloat)yPosition
@@ -173,4 +275,42 @@
     cgrectPosition.origin.y = yPosition - 50.0f;
     [self.view setFrame:cgrectPosition];
 }
+
+// Converts a string to UIColor
+-(UIColor*)colorWithHexString:(NSString*)hex
+{
+    NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return [UIColor grayColor];
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    
+    if ([cString length] != 6) return  [UIColor grayColor];
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:1.0f];
+}
+
 @end

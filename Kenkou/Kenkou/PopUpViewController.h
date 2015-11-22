@@ -37,6 +37,16 @@
 @property (weak, nonatomic) IBOutlet UIView *uiviewPopUpViewHelpSleep;
 @property (weak, nonatomic) IBOutlet UIButton *uibuttonClosePopUpHelpSleep;
 
+@property (weak, nonatomic) IBOutlet UIView *uiviewPopUpViewHelpAlcohol;
+@property (weak, nonatomic) IBOutlet UIButton *uibuttonClosePopUpHelpAlcohol;
+
+@property (weak, nonatomic) IBOutlet UIView *uiviewPopUpViewAlcoholAddAlcoholicDrink;
+@property (weak, nonatomic) IBOutlet UITextField *uitextfieldName;
+@property (weak, nonatomic) IBOutlet UITextField *uitextfieldVolume;
+@property (weak, nonatomic) IBOutlet UITextField *uitextfieldAcoholPercentage;
+@property (weak, nonatomic) IBOutlet UIButton *uibuttonClosePopUpAlcoholAddAlcoholicDrink;
+@property (weak, nonatomic) IBOutlet UIButton *uibuttonSaveAlcoholicDrinkAndClosePopUp;
+
 
 // Properties
 @property (nonatomic, strong) id <enableScrolling> scrollingDelegate;
@@ -45,9 +55,12 @@
 
 // Action methods
 - (IBAction)closePopUpView:(UIButton *)sender;
+- (IBAction)saveAlcoholicDrinkAndClosePopUp:(id)sender;
 - (void)showInView:(UIView *)View image:(UIImage *)image title:(NSString *)title message:(NSString *)message animated:(BOOL)animated;
 - (void)showHelpFoodInView:(UIView *)View animated:(BOOL)animated;
 - (void)showHelpSleepInView:(UIView *)View animated:(BOOL)animated;
+- (void)showHelpAlcoholInView:(UIView *)View animated:(BOOL)animated;
+- (void)showAlcoholAddAlcoholicDrink:(UIView *)View animated:(BOOL)animated;
 - (void)assignScrollingDelegate:(id)delegate;
 - (void)assignTappingDelegate:(id)delegate;
 - (void)placePopUpInY:(CGFloat)yPosition;
