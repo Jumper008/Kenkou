@@ -31,6 +31,8 @@
 		15D61CE71BF5820E005BB2F8 /* OnboardingSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D61CE61BF5820E005BB2F8 /* OnboardingSettingsTableViewController.m */; };
 		15D61CEA1BF5AF9E005BB2F8 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D61CE91BF5AF9E005BB2F8 /* MainTableViewController.m */; };
 		15D650A61BF12EE800C18BA0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D650A51BF12EE800C18BA0 /* CoreData.framework */; };
+		50CFAD901C01C5B8008C0E79 /* FoodItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CFAD8F1C01C5B8008C0E79 /* FoodItem.m */; };
+		50CFAD931C01C8DE008C0E79 /* FoodClassificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CFAD921C01C8DE008C0E79 /* FoodClassificationTableViewController.m */; };
 		5886C43BAB58B1AEBCB349B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96954FE2F149687639DD9BE9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,10 @@
 		15D61CE91BF5AF9E005BB2F8 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		15D650A51BF12EE800C18BA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3078E2519E48D5E33AEA697C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		50CFAD8E1C01C5B8008C0E79 /* FoodItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodItem.h; sourceTree = "<group>"; };
+		50CFAD8F1C01C5B8008C0E79 /* FoodItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodItem.m; sourceTree = "<group>"; };
+		50CFAD911C01C8DE008C0E79 /* FoodClassificationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodClassificationTableViewController.h; sourceTree = "<group>"; };
+		50CFAD921C01C8DE008C0E79 /* FoodClassificationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodClassificationTableViewController.m; sourceTree = "<group>"; };
 		96954FE2F149687639DD9BE9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -244,6 +250,10 @@
 		15C96CB71BD2FB3E00B636B2 /* Kenkou */ = {
 			isa = PBXGroup;
 			children = (
+				50CFAD8E1C01C5B8008C0E79 /* FoodItem.h */,
+				50CFAD8F1C01C5B8008C0E79 /* FoodItem.m */,
+				50CFAD911C01C8DE008C0E79 /* FoodClassificationTableViewController.h */,
+				50CFAD921C01C8DE008C0E79 /* FoodClassificationTableViewController.m */,
 				1525C45E1BFFEB3F00B0A961 /* Onboarding */,
 				1525C45D1BFFEB2100B0A961 /* Results and Progress */,
 				1525C45C1BFFEAED00B0A961 /* Settings */,
@@ -497,7 +507,9 @@
 				152725751BEBE1F200741647 /* Kenkou.xcdatamodeld in Sources */,
 				15C96CBA1BD2FB3E00B636B2 /* main.m in Sources */,
 				1525C4581BFECC8900B0A961 /* SleepViewController.m in Sources */,
+				50CFAD931C01C8DE008C0E79 /* FoodClassificationTableViewController.m in Sources */,
 				1525C44F1BFE91D800B0A961 /* AlcoholViewController.m in Sources */,
+				50CFAD901C01C5B8008C0E79 /* FoodItem.m in Sources */,
 				152556F21BFAB592006CB414 /* ExerciseTableViewController.m in Sources */,
 				152725301BE868B600741647 /* SettingsViewController.m in Sources */,
 				1525C4551BFECB5F00B0A961 /* Timer.m in Sources */,
