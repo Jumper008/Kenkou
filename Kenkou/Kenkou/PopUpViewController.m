@@ -266,12 +266,20 @@
     } else if (
         sender == self.uibuttonClosePopUpUnderDevelopment
         )
-    {   // No special actions required for now
+    {
+        self.uitextfieldName.layer.borderWidth = 0;
+        self.uitextfieldVolume.layer.borderWidth = 0;
+        self.uitextfieldAcoholPercentage.layer.borderWidth = 0;
     }
 }
 
 - (IBAction)saveAlcoholicDrinkAndClosePopUp:(id)sender
 {
+    // Return text field borders    to their original color before checking them again
+    self.uitextfieldName.layer.borderWidth = 0;
+    self.uitextfieldVolume.layer.borderWidth = 0;
+    self.uitextfieldAcoholPercentage.layer.borderWidth = 0;
+    
     if (
         ![self.uitextfieldName.text isEqualToString:@""]
         && ![self.uitextfieldVolume.text isEqualToString:@""]
@@ -294,11 +302,6 @@
     }
     else    // Remind user to add values
     {
-        // Return buttons to their original color before checking them again
-        self.uitextfieldName.layer.borderWidth = 0;
-        self.uitextfieldVolume.layer.borderWidth = 0;
-        self.uitextfieldAcoholPercentage.layer.borderWidth = 0;
-        
         if (
             [self.uitextfieldName.text isEqualToString:@""]
             )
