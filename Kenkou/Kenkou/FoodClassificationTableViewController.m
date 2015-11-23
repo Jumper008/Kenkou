@@ -45,7 +45,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Check to see whether the normal table or search results table is being displayed and return the count from the appropriate array
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if (
+        tableView == self.searchDisplayController.searchResultsTableView
+        || self.bShowFilteredArray)
+    {
         return [self.nsmutablearrayFilteredFood count];
     } else {
         return [self.nsarrayFoodItems count];
@@ -65,8 +68,12 @@
     // Create a new FoodItem Object
     FoodItem *fooditemFood = nil;
 
-    // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    // Check to see whether the normal table or search results table is being displayed and set the FoodItem object from the appropriate array
+    if (
+        tableView == self.searchDisplayController.searchResultsTableView
+        || self.bShowFilteredArray
+        )
+    {
         fooditemFood = [self.nsmutablearrayFilteredFood objectAtIndex:indexPath.row];
     } else {
         fooditemFood = [self.nsarrayFoodItems objectAtIndex:indexPath.row];
@@ -177,6 +184,9 @@
         }
         
         NSArray *nsarrayScopedFoodList = [nsarrayUnscopedFoodList filteredArrayUsingPredicate:nspredicateScope];
+        
+        
+        
         self.nsmutablearrayFilteredFood = [NSMutableArray arrayWithArray:nsarrayScopedFoodList];
     }
     else
@@ -195,6 +205,62 @@
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    // Do scope search without search text
+    if (
+        searchOption != 0
+        && [self.uisearchbarSearch.text isEqualToString:@""]
+        )
+    {
+        self.bShowFilteredArray = YES;
+        NSArray *nsarrayUnscopedFoodList = self.nsarrayFoodItems;
+        
+        NSPredicate *nspredicateScope = [[NSPredicate alloc] init];
+        
+        // Check which scope to use
+        if (
+            searchOption == 1
+            )
+        {
+            nspredicateScope = [NSPredicate predicateWithFormat:@"SELF.bFruitOrVegetable == YES"];
+        }
+        else if (
+                 searchOption == 2
+                 )
+        {
+            nspredicateScope = [NSPredicate predicateWithFormat:@"SELF.bCereal == YES"];
+        }
+        else if (
+                 searchOption == 3
+                 )
+        {
+            nspredicateScope = [NSPredicate predicateWithFormat:@"SELF.bSugar == YES"];
+        }
+        else if (
+                 searchOption == 4
+                 )
+        {
+            nspredicateScope = [NSPredicate predicateWithFormat:@"SELF.bFat == YES"];
+        }
+        else if (
+                 searchOption == 5
+                 )
+        {
+            nspredicateScope = [NSPredicate predicateWithFormat:@"SELF.bCalciumRich == YES"];
+        }
+        
+        NSArray *nsarrayScopedFoodList = [nsarrayUnscopedFoodList filteredArrayUsingPredicate:nspredicateScope];
+        
+        
+        
+        self.nsmutablearrayFilteredFood = [NSMutableArray arrayWithArray:nsarrayScopedFoodList];
+    }
+    else
+    {
+        self.bShowFilteredArray = NO;
+    }
+    
+    [self.tableView reloadData];
+    
     // Tells the table data source to reload when scope bar selection changes
     [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
      [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
@@ -202,11 +268,5 @@
     return YES;
 }
 
-- (void)searchBar:(UISearchBar *)searchBar
-selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
-{
-    NSLog(@"Scope changed. %@", self.searchDisplayController.searchBar.text);
-    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
-    [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:selectedScope]];
-}
+
 @end

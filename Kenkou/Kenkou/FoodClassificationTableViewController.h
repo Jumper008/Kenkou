@@ -11,12 +11,13 @@
 @interface FoodClassificationTableViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
 // Outlets
+@property (weak, nonatomic) IBOutlet UISearchBar *uisearchbarSearch;
 
 // Action Methods
 
 // Properties
 @property (strong,nonatomic) NSArray *nsarrayFoodItems;
 @property (strong,nonatomic) NSMutableArray *nsmutablearrayFilteredFood;
-@property IBOutlet UISearchBar *uisearchbarFoodItems;
+@property BOOL bShowFilteredArray;
 
 @end
