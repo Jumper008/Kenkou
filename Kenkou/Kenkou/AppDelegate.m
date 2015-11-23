@@ -14,7 +14,7 @@
 
 @end
 
-static NSString * const STR_HAS_USER_ONBOARDER_KEY = @"user_has_onboarded";
+static NSString * const STR_HAS_USER_ONBOARDED_KEY = @"user_has_onboarded";
 
 @implementation AppDelegate
 
@@ -26,7 +26,7 @@ static NSString * const STR_HAS_USER_ONBOARDER_KEY = @"user_has_onboarded";
     //[[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.10196078f green:0.10196078f blue:0.10196078f alpha:1]];
     
     // Print the "user_has_onboarded" key value for debugging
-    NSLog(@"%d", [[NSUserDefaults standardUserDefaults] boolForKey:STR_HAS_USER_ONBOARDER_KEY]);
+    NSLog(@"%d", [[NSUserDefaults standardUserDefaults] boolForKey:STR_HAS_USER_ONBOARDED_KEY]);
     
     [self setStoryboard];
     
@@ -74,7 +74,7 @@ static NSString * const STR_HAS_USER_ONBOARDER_KEY = @"user_has_onboarded";
     
     if (
         // Has the user onboarded?
-        [[NSUserDefaults standardUserDefaults] objectForKey:STR_HAS_USER_ONBOARDER_KEY]
+        [[NSUserDefaults standardUserDefaults] objectForKey:STR_HAS_USER_ONBOARDED_KEY]
         )
     {
         initViewController = [storyboard instantiateViewControllerWithIdentifier: @"Main"];
@@ -148,7 +148,7 @@ static NSString * const STR_HAS_USER_ONBOARDER_KEY = @"user_has_onboarded";
 - (void)handleOnboardingCompletionWithStoryboard:(UIStoryboard *)storyboard
 {
     // Once the user has onboarder, change the value so it only happens once
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STR_HAS_USER_ONBOARDER_KEY];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STR_HAS_USER_ONBOARDED_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     // Transition to the main view controller

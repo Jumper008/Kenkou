@@ -82,23 +82,50 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source and coredata
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
-        [nsManagedObjectContext deleteObject:[self.nsmutarrAlcoholicDrink objectAtIndex:indexPath.row]];
+        UIAlertController *uialertcontrollerAlert = [UIAlertController alertControllerWithTitle:@"Borrar bebida"
+                                                                       message:@"¿Deseas borrar la bebida?"
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
         
-        NSError *error = nil;
-        if (
-            ![nsManagedObjectContext save:&error]
-            )
+        UIAlertAction *uialertactionAccept = [UIAlertAction actionWithTitle:@"Si"
+        style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction *action)
         {
-            NSLog(@"Can't delete drink! %@ %@", error, [error localizedDescription]);
-            return;
-        }
+            // Delete the row from the data source and coredata
+            AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+            NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
+            [nsManagedObjectContext deleteObject:[self.nsmutarrAlcoholicDrink objectAtIndex:indexPath.row]];
+            
+            NSError *error = nil;
+            if (
+                ![nsManagedObjectContext save:&error]
+                )
+            {
+                NSLog(@"Can't delete drink! %@ %@", error, [error localizedDescription]);
+                return;
+            }
+            
+            [self.nsmutarrAlcoholicDrink removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [uialertcontrollerAlert dismissViewControllerAnimated:YES completion:nil];
+        }];
         
-        [self.nsmutarrAlcoholicDrink removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        UIAlertAction *uialertactionCancel = [UIAlertAction actionWithTitle:@"No"
+        style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction *action)
+        {
+            [uialertcontrollerAlert dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+        [uialertcontrollerAlert addAction:uialertactionAccept];
+        [uialertcontrollerAlert addAction:uialertactionCancel];
+        
+        [self presentViewController:uialertcontrollerAlert animated:YES completion:nil];
     }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"Borrar";
 }
 
 - (void)populateAlcoholicDrinkMutableArray

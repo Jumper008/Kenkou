@@ -270,6 +270,7 @@
         self.uitextfieldName.layer.borderWidth = 0;
         self.uitextfieldVolume.layer.borderWidth = 0;
         self.uitextfieldAcoholPercentage.layer.borderWidth = 0;
+        [self.scrollingDelegate enableScrolling];
     }
 }
 

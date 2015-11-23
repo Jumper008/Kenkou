@@ -18,8 +18,7 @@
     [super viewDidLoad];
     
     // Initialize aerobic and anaerobic minute counters and text fields
-    self.nsintAerobicMinutes = 0;
-    self.nsintAnaerobicMinutes = 0;
+    [self loadExerciseValues];
     
     self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAerobicMinutes];
     self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAnaerobicMinutes];
@@ -224,7 +223,7 @@
     }
 }
 
-- (void)loadFoodValues
+- (void)loadExerciseValues
 {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
@@ -250,8 +249,10 @@
         nsmanagedobjectRecord
         )
     {
-        self.uitextfieldAerobic.text = [[nsmanagedobjectRecord valueForKey:@"aerobicTime"] stringValue];
-        self.uitextfieldAnaerobic.text = [[nsmanagedobjectRecord valueForKey:@"anaerobicTime"] stringValue];
+        self.nsintAerobicMinutes = [[nsmanagedobjectRecord valueForKey:@"aerobicTime"] integerValue];
+        self.nsintAnaerobicMinutes = [[nsmanagedobjectRecord valueForKey:@"anaerobicTime"] integerValue];
+        self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAerobicMinutes];
+        self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAnaerobicMinutes];
     }
     else
     {

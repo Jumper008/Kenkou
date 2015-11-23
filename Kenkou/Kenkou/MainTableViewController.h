@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import "PopUpViewController.h"
 
-@interface MainTableViewController : UITableViewController <saveSettings>
+@interface MainTableViewController : UITableViewController <saveSettings, enableScrolling>
 
 // Outlets
 @property (weak, nonatomic) IBOutlet UIButton *uibuttonRegister;

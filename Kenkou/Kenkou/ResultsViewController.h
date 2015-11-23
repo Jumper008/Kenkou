@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BTSpiderPlotterView.h"
+#import "AppDelegate.h"
 
 @interface ResultsViewController : UIViewController
 

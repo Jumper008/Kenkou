@@ -19,13 +19,21 @@
     
     self.popUpUnderDevelopment = [[PopUpViewController alloc] init];
     
-    //Cambia el color de la barra.
+    [self setMainTitle];
+    
+    // Changes the back button item
+    UIBarButtonItem *uibarbuttonitemBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = uibarbuttonitemBackButton;
+    
+    
+    
+    // Changes the navigation bar color
     [self.navigationController.navigationBar setBarTintColor:[self colorWithHexString:@"FF7160"]];
     
-    //Cambia el color del titulo
+    // Changes the navigation bar title's color
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
     
-    //Cambia el color del back.
+    // Changes the back button item color
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     // Modifies the status bar style to light content
@@ -128,6 +136,58 @@
         )
     {
         [self registerDayRecordInCoreData];
+    }
+}
+
+- (void)setMainTitle
+{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
+    NSEntityDescription *nsEntityDescription =
+    [NSEntityDescription entityForName:@"User" inManagedObjectContext:nsManagedObjectContext];
+    
+    // A request is created
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // The entity for the request is specified
+    [request setEntity: nsEntityDescription];
+    
+    NSError *error;
+    
+    // The request is executed
+    NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
+    
+    NSLog(@"%li", nsArrayMatchedObject.count);
+    
+    if (
+        error == nil
+        )
+    {
+        NSLog(@"User record loaded successfully!");
+        
+        // Obtains user information
+        NSManagedObject *nsManagedObjectUser = nsArrayMatchedObject[0];
+        
+        NSString *strTitle;
+        
+        if (
+            [[nsManagedObjectUser valueForKey:@"sex"] integerValue] == 0
+            )
+        {
+            strTitle = @"Bienvenido, ";
+        }
+        else
+        {
+            strTitle = @"Bienvenida, ";
+        }
+        
+        strTitle = [strTitle stringByAppendingString:[nsManagedObjectUser valueForKey:@"firstName"]];
+        
+        [self setTitle:strTitle];
+    }
+    else
+    {
+        NSLog(@"Can't load! %@ %@", error, [error localizedDescription]);
     }
 }
 
@@ -284,9 +344,19 @@
     
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
+    
+    [self setMainTitle];
 }
 
-- (IBAction)showUnderDevelopmentPopUp:(id)sender {
+- (void)enableScrolling
+{
+    self.tableView.scrollEnabled = YES;
+}
+
+- (IBAction)showUnderDevelopmentPopUp:(id)sender
+{
     [self.popUpUnderDevelopment showUnderDevelopmentInView:self.view animated:YES];
+    [self.popUpUnderDevelopment assignScrollingDelegate:self];
+    self.tableView.scrollEnabled = NO;
 }
 @end

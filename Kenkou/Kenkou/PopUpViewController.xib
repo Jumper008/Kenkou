@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpViewController">
@@ -394,7 +394,7 @@ El volumen y la graduación vienen indicados en la etiqueta de tu bebida.</strin
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTo-5Z-3Rf">
-                            <rect key="frame" x="202" y="353" width="171" height="34"/>
+                            <rect key="frame" x="202" y="332" width="171" height="34"/>
                             <animations/>
                             <color key="backgroundColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
@@ -406,7 +406,7 @@ El volumen y la graduación vienen indicados en la etiqueta de tu bebida.</strin
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnl-m8-O18">
-                            <rect key="frame" x="23" y="353" width="171" height="34"/>
+                            <rect key="frame" x="23" y="332" width="171" height="34"/>
                             <animations/>
                             <color key="backgroundColor" red="0.27058823529411763" green="0.41568627450980389" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
@@ -421,26 +421,26 @@ El volumen y la graduación vienen indicados en la etiqueta de tu bebida.</strin
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sa9-tI-nky">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sa9-tI-nky">
                     <rect key="frame" x="8" y="48" width="398" height="393"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="En construcción" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiV-SV-PMB">
                             <rect key="frame" x="76" y="8" width="246" height="23"/>
+                            <animations/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                             <color key="textColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lo sentimos, todavía estamos desarrollando esta página para ti." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKf-lU-iU8">
                             <rect key="frame" x="51" y="39" width="297" height="55"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                             <color key="textColor" red="0.27058823529999998" green="0.41568627450000001" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="soC-Kx-8MD">
-                            <rect key="frame" x="79" y="95" width="240" height="240"/>
-                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgi-LI-8mD">
                             <rect key="frame" x="113" y="350" width="171" height="30"/>
+                            <animations/>
                             <color key="backgroundColor" red="1" green="0.4431372549" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <state key="normal" title="Cerrar">
@@ -450,14 +450,27 @@ El volumen y la graduación vienen indicados en la etiqueta de tu bebida.</strin
                                 <action selector="closePopUpView:" destination="-1" eventType="touchUpInside" id="bTk-cb-qwP"/>
                             </connections>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Under Construction Filled-100" translatesAutoresizingMaskIntoConstraints="NO" id="soC-Kx-8MD">
+                            <rect key="frame" x="133" y="131" width="132" height="132"/>
+                            <animations/>
+                        </imageView>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="sa9-tI-nky"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="481" y="271"/>
         </view>
     </objects>
+    <resources>
+        <image name="Under Construction Filled-100" width="100" height="100"/>
+    </resources>
 </document>
