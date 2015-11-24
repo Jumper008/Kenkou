@@ -143,6 +143,7 @@
     {
         ResultsViewController *destinationViewController = [segue destinationViewController];
         destinationViewController.strUsername = self.strUsername;
+        destinationViewController.boolIsUserFemale = self.boolIsUserFemale;
     }
 }
 
@@ -189,6 +190,7 @@
         }
         
         self.strUsername = [nsManagedObjectUser valueForKey:@"firstName"];
+        self.boolIsUserFemale = [[nsManagedObjectUser valueForKey:@"sex"] boolValue];
         
         strTitle = [strTitle stringByAppendingString:self.strUsername];
         

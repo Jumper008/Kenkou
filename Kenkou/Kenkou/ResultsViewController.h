@@ -14,9 +14,13 @@
 
 // Outlets.
 @property (nonatomic, strong) BTSpiderPlotterView *spiderView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *uisegmentedcontrolPlotFocus;
+@property (weak, nonatomic) IBOutlet UILabel *uilabelScore;
 
 // Properties
 @property (nonatomic, strong) NSString *strUsername;
+@property BOOL boolIsUserFemale;
+@property double doubleGeneralScore;
 
 // Action methods
 

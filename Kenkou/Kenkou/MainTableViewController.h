@@ -23,6 +23,7 @@
 // Properties
 @property (nonatomic, strong) PopUpViewController *popUpUnderDevelopment;
 @property (nonatomic, strong) NSString *strUsername;
+@property BOOL boolIsUserFemale;
 
 // Action methods
 - (IBAction)showUnderDevelopmentPopUp:(id)sender;

@@ -24,7 +24,7 @@
     
     // Populate a utility dictionary.
     // Data represents the ranking of a person's health.
-    NSDictionary *valueDictionary = [self populateSpiderPlotGraphWithNumberOfRecords:7];
+    NSDictionary *valueDictionary = [self populateSpiderPlotGraphWithNumberOfRecords:4];
     
     // Initiate the spiderView with its frame and values.
     _spiderView = [[BTSpiderPlotterView alloc] initWithFrame:self.view.frame valueDictionary:valueDictionary];
@@ -41,7 +41,7 @@
     
     UILabel *label = [[UILabel alloc] init];
     [label setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [label setText:@"Tap anywhere"];
+    [label setText:@"Toca para cambiar el alcance"];
     [label setTextAlignment:NSTextAlignmentCenter];
     [label setTextColor:[UIColor grayColor]];
     [self.view addSubview:label];
@@ -52,19 +52,66 @@
 
 - (void)tapped:(UITapGestureRecognizer *)sender
 {
-    NSDictionary *valueDictionary = @{@"Alimento": @(arc4random_uniform(9)+1).stringValue,
-                                      @"Sueño": @(arc4random_uniform(9)+1).stringValue,
-                                      @"Ejercicio" : @(arc4random_uniform(9)+1).stringValue,
-                                      @"Alcohol": @(arc4random_uniform(9)+1).stringValue};
+    /*CASE*/
+    if (
+        self.uisegmentedcontrolPlotFocus.selectedSegmentIndex == 0
+        )
+    {
+        self.uisegmentedcontrolPlotFocus.selectedSegmentIndex = 1;
+        [self updateSpiderPlotWithNumberOfRecords:7];
+    }
+    else if (
+             self.uisegmentedcontrolPlotFocus.selectedSegmentIndex == 1
+             )
+    {
+        self.uisegmentedcontrolPlotFocus.selectedSegmentIndex = 2;
+        [self updateSpiderPlotWithNumberOfRecords:14];
+    }
+    else if (
+             self.uisegmentedcontrolPlotFocus.selectedSegmentIndex == 2
+             )
+    {
+        self.uisegmentedcontrolPlotFocus.selectedSegmentIndex = 3;
+        [self updateSpiderPlotWithNumberOfRecords:30];
+    }
+    else
+    {
+        self.uisegmentedcontrolPlotFocus.selectedSegmentIndex = 0;
+        [self updateSpiderPlotWithNumberOfRecords:4];
+    }
+    /*END-CASE*/
+    
+}
+
+- (void)updateSpiderPlotWithNumberOfRecords:(NSInteger)records
+{
+    NSDictionary *valueDictionary = [self populateSpiderPlotGraphWithNumberOfRecords:records];
     
     NSLog(@"%@",valueDictionary);
     
     [_spiderView animateWithDuration:.3 valueDictionary:valueDictionary];
-    
 }
 
 - (NSDictionary *)populateSpiderPlotGraphWithNumberOfRecords:(NSInteger)records
 {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    NSDate *nsdateCurrentDate = [NSDate date];
+    
+    double doubleSecondsInADay = -86400.0;
+    
+    NSMutableArray *nsmutablearrayDatesRequired = [[NSMutableArray alloc] init];
+    
+    NSLog(@"Checking records for dates:");
+    
+    for (int intDate = 0; intDate < records; intDate++)
+    {
+        [nsmutablearrayDatesRequired addObject:[dateFormatter stringFromDate:[nsdateCurrentDate dateByAddingTimeInterval:intDate * doubleSecondsInADay]]];
+        
+        NSLog(@"    %@", [dateFormatter stringFromDate:[nsdateCurrentDate dateByAddingTimeInterval:intDate * doubleSecondsInADay]]);
+    }
+    
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *nsManagedObjectContext = [appDelegate managedObjectContext];
     NSEntityDescription *nsEntityDescription =
@@ -83,23 +130,156 @@
     
     NSLog(@"Number of recorded dates: %li", (unsigned long)nsArrayMatchedObject.count);
     
-    NSInteger nsintNumberOfAvailableRecords;
+    NSMutableArray *nsmutablearrayRecords = [[NSMutableArray alloc] init];
     
-    if (
-        // There are enough records
-        nsArrayMatchedObject.count >= records
-        )
+    // Getting most recent available records up to specified record number in variable "records"
+    for (int intRecord = 0; intRecord < nsArrayMatchedObject.count; intRecord++)
     {
-        nsintNumberOfAvailableRecords = records;
-    }
-    else
-    {
-        nsintNumberOfAvailableRecords = nsArrayMatchedObject.count;
+        [nsmutablearrayRecords addObject:[nsArrayMatchedObject objectAtIndex:nsArrayMatchedObject.count - 1 - intRecord]];
     }
     
+    NSMutableArray *nsmutablearrayRecordsInRange = [[NSMutableArray alloc] init];
     
+    NSLog(@"Found records in range for dates: ");
     
-    return [[NSDictionary alloc] init];
+    // Getting records in specified range
+    for (int intRecord = 0; intRecord < nsmutablearrayRecords.count; intRecord++)
+    {
+        for (int intStringDate = 0; intStringDate < nsmutablearrayDatesRequired.count; intStringDate++)
+        {
+            NSDate *nsdateRecordDate = [[nsmutablearrayRecords objectAtIndex:intRecord] valueForKey:@"date"];
+            
+            if (
+                [[dateFormatter stringFromDate:nsdateRecordDate] isEqualToString:[nsmutablearrayDatesRequired objectAtIndex:intStringDate]]
+                )
+            {
+                NSLog(@"    %@", [dateFormatter stringFromDate:nsdateRecordDate]);
+                [nsmutablearrayRecordsInRange addObject:[nsmutablearrayRecords objectAtIndex:intRecord]];
+            }
+        }
+    }
+    
+    NSDictionary *nsdictionarySpiderPlotValues = [self getSpiderPlotValuesFromArray:nsmutablearrayRecordsInRange WithNumberOfExpectedRecords:records];
+    
+    return nsdictionarySpiderPlotValues;
+}
+                                                  
+- (NSDictionary *)getSpiderPlotValuesFromArray:(NSArray *)array WithNumberOfExpectedRecords:(NSInteger)records
+{
+    int intRecords = 0;
+    double doubleFoodAverage = 0.0;
+    double doubleExerciseAverage = 0.0;
+    double doubleSleepAverage = 0.0;
+    double doubleAlcoholAverage = 0.0;
+    self.doubleGeneralScore = 0.0;
+    
+    /*WHILE-DO*/
+    while (
+           intRecords < array.count
+           )
+    {
+        // Food Average calculation
+        double doubleFoodAveragePerReport = 0.0;
+        doubleFoodAveragePerReport = doubleFoodAveragePerReport + [[[array objectAtIndex:intRecords] valueForKey:@"fruitsAndVegetables"] integerValue];
+        doubleFoodAveragePerReport = doubleFoodAveragePerReport + [[[array objectAtIndex:intRecords] valueForKey:@"cereals"] integerValue];
+        doubleFoodAveragePerReport = doubleFoodAveragePerReport + [[[array objectAtIndex:intRecords] valueForKey:@"sugars"] integerValue];
+        doubleFoodAveragePerReport = doubleFoodAveragePerReport + [[[array objectAtIndex:intRecords] valueForKey:@"fats"] integerValue];
+        doubleFoodAveragePerReport = doubleFoodAveragePerReport + [[[array objectAtIndex:intRecords] valueForKey:@"calcium"] integerValue];
+        doubleFoodAveragePerReport = doubleFoodAveragePerReport + [[[array objectAtIndex:intRecords] valueForKey:@"salts"] integerValue];
+        doubleFoodAveragePerReport = doubleFoodAveragePerReport + [[[array objectAtIndex:intRecords] valueForKey:@"water"] integerValue];
+        doubleFoodAveragePerReport = doubleFoodAveragePerReport + [[[array objectAtIndex:intRecords] valueForKey:@"eatingResponsibly1"]integerValue];
+        doubleFoodAveragePerReport = doubleFoodAveragePerReport + [[[array objectAtIndex:intRecords] valueForKey:@"eatingResponsibly2"]integerValue];
+        doubleFoodAveragePerReport = doubleFoodAveragePerReport + [[[array objectAtIndex:intRecords] valueForKey:@"eatingResponsibly3"]integerValue];
+        doubleFoodAveragePerReport = (doubleFoodAveragePerReport * 2) / 10;
+        
+        doubleFoodAverage = doubleFoodAverage + doubleFoodAveragePerReport;
+        
+        // Exercise Average calculation
+        double doubleExerciseValuePerReport = [[[array objectAtIndex:intRecords] valueForKey:@"aerobicTime"] integerValue];
+        doubleExerciseValuePerReport = doubleExerciseValuePerReport + [[[array objectAtIndex:intRecords] valueForKey:@"anaerobicTime"] integerValue];
+        doubleExerciseValuePerReport = doubleExerciseValuePerReport * (10.0/30.0);
+        
+        doubleExerciseAverage = doubleExerciseAverage + doubleExerciseValuePerReport;
+        
+        // Sleep Average calculation
+        double doubleSleepValuePerReport = [[[array objectAtIndex:intRecords] valueForKey:@"averageReactionTime"] doubleValue];
+        doubleSleepValuePerReport = 10 - ((doubleSleepValuePerReport - 250.0) * (1.0/20.0));
+        
+        if (
+            doubleSleepValuePerReport > 10.0
+            )
+        {
+            doubleSleepValuePerReport = 10.0;
+        }
+        else if (
+            doubleSleepValuePerReport < 0.0
+            )
+        {
+            doubleSleepValuePerReport = 0.0;
+        }
+        
+        doubleSleepAverage = doubleSleepAverage + doubleSleepValuePerReport;
+        
+        // Alcohol Avergae calculation
+        double doubleRecommendedConsumptionPerDay = 0.0;
+        
+        if (
+            self.boolIsUserFemale
+            )
+        {
+            doubleRecommendedConsumptionPerDay = 20.0;
+        }
+        else
+        {
+            doubleRecommendedConsumptionPerDay = 30.0;
+        }
+        
+        double doubleAlcoholValuePerReport = [[[array objectAtIndex:intRecords] valueForKey:@"alcoholGrams"] doubleValue];
+        doubleAlcoholValuePerReport = 10 - ((doubleAlcoholValuePerReport - doubleRecommendedConsumptionPerDay) * (1.0/5.0));
+        
+        if (
+            doubleAlcoholValuePerReport > 10.0
+            )
+        {
+            doubleAlcoholValuePerReport = 10.0;
+        }
+        else if (
+                 doubleAlcoholValuePerReport < 0.0
+                 )
+        {
+            doubleAlcoholValuePerReport = 0.0;
+        }
+        
+        doubleAlcoholAverage = doubleAlcoholAverage + doubleAlcoholValuePerReport;
+        
+        intRecords = intRecords + 1;
+    }
+    
+    doubleFoodAverage = doubleFoodAverage / records;
+    doubleExerciseAverage = doubleExerciseAverage / records;
+    doubleSleepAverage = doubleSleepAverage / records;
+    doubleAlcoholAverage = doubleAlcoholAverage / records;
+    
+    NSString *strFoodAverage = [[NSString alloc] initWithFormat:@"%f", doubleFoodAverage];
+    NSString *strExerciseAverage = [[NSString alloc] initWithFormat:@"%f", doubleExerciseAverage];
+    NSString *strSleepAverage = [[NSString alloc] initWithFormat:@"%f", doubleSleepAverage];
+    NSString *strAlcoholAverage = [[NSString alloc] initWithFormat:@"%f", doubleAlcoholAverage];
+    
+    NSDictionary *nsdictionaryValueDictionary = @{@"Alimentación": strFoodAverage,
+                                      @"Ejercicio": strExerciseAverage,
+                                      @"Sueño" : strSleepAverage,
+                                      @"Alcohol": strAlcoholAverage};
+    
+    self.doubleGeneralScore = self.doubleGeneralScore + doubleFoodAverage + doubleExerciseAverage + doubleSleepAverage +
+    doubleAlcoholAverage;
+    self.doubleGeneralScore = (self.doubleGeneralScore / 4) * 10;
+    
+    NSString *strGeneralScore = @"Puntaje: ";
+    strGeneralScore = [strGeneralScore stringByAppendingString:[[NSString alloc] initWithFormat:@"%0.2f", self.doubleGeneralScore]];
+    
+    self.uilabelScore.text = strGeneralScore;
+    
+    return nsdictionaryValueDictionary;
 }
 
 - (NSManagedObject *)getRecordInArray:(NSArray *)array
