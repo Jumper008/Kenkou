@@ -12,6 +12,8 @@
 
 @end
 
+static NSString * const STR_HAS_USER_SEEN_ALCOHOL_INSTRUCTIONS = @"user_has_seen_alcohol_instructions";
+
 @implementation AlcoholViewController
 
 - (void)viewDidLoad {
@@ -21,7 +23,25 @@
     [self populateAlcoholicDrinkMutableArray];
     
     self.popUpHelp = [[PopUpViewController alloc] init];
-
+    
+    // Display instructions if it is the first time the user has entered recording module
+    if (
+        [[NSUserDefaults standardUserDefaults] objectForKey:STR_HAS_USER_SEEN_ALCOHOL_INSTRUCTIONS]
+        )
+    {
+        // Does nothing
+    }
+    else
+    {
+        [self.popUpHelp showHelpAlcoholInView:self.view animated:YES];
+        [self.popUpHelp showHelpAlcoholInView:self.view animated:YES]; // Temporary popup fix issue
+        [self.popUpHelp assignScrollingDelegate:self];
+        self.uitableviewAlcoholicDrinks.scrollEnabled = NO;
+        
+        // Once the user has seen de instructions, change the value so it only happens once automatically
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STR_HAS_USER_SEEN_ALCOHOL_INSTRUCTIONS];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -146,7 +166,7 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
-    NSLog(@"Number of recorded drinks: %li", nsArrayMatchedObject.count);
+    NSLog(@"Number of recorded drinks: %li", (unsigned long)nsArrayMatchedObject.count);
     
     self.nsmutarrAlcoholicDrink = [[NSMutableArray alloc] initWithArray:nsArrayMatchedObject];
 }
@@ -224,7 +244,7 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
-    NSLog(@"Number of recorded dates: %li", nsArrayMatchedObject.count);
+    NSLog(@"Number of recorded dates: %li", (unsigned long)nsArrayMatchedObject.count);
     
     NSManagedObject *nsmanagedobjectRecord = [self getRecordInArray:nsArrayMatchedObject];
     
@@ -243,6 +263,16 @@
             )
         {
             NSLog(@"Record saved successfully!");
+            
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"¡Éxito!"
+                                                                           message:@"Tu consumo se ha guardado exitosamente."
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
         }
         else
         {

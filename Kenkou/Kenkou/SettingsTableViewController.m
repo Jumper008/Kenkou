@@ -230,7 +230,7 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
-    NSLog(@"%li", nsArrayMatchedObject.count);
+    NSLog(@"%li", (unsigned long)nsArrayMatchedObject.count);
     
     if (
         error == nil

@@ -137,6 +137,13 @@
     {
         [self registerDayRecordInCoreData];
     }
+    else if (
+        [[segue identifier] isEqualToString:@"Results"]
+        )
+    {
+        ResultsViewController *destinationViewController = [segue destinationViewController];
+        destinationViewController.strUsername = self.strUsername;
+    }
 }
 
 - (void)setMainTitle
@@ -157,7 +164,7 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
-    NSLog(@"%li", nsArrayMatchedObject.count);
+    NSLog(@"Number of recorded users: %li", (unsigned long)nsArrayMatchedObject.count);
     
     if (
         error == nil
@@ -181,7 +188,9 @@
             strTitle = @"Bienvenida, ";
         }
         
-        strTitle = [strTitle stringByAppendingString:[nsManagedObjectUser valueForKey:@"firstName"]];
+        self.strUsername = [nsManagedObjectUser valueForKey:@"firstName"];
+        
+        strTitle = [strTitle stringByAppendingString:self.strUsername];
         
         [self setTitle:strTitle];
     }
@@ -209,7 +218,7 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
-    NSLog(@"Number of recorded dates: %li", nsArrayMatchedObject.count);
+    NSLog(@"Number of recorded dates: %li", (unsigned long)nsArrayMatchedObject.count);
     
     if (
         [self checkForDateExistenceInArray:nsArrayMatchedObject]

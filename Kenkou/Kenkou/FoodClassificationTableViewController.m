@@ -19,6 +19,11 @@
 {
     [super viewDidLoad];
     
+    [self setTitle:@"Clasificación de Alimentos"];
+    
+    self.uisearchbarSearch.barTintColor = [UIColor whiteColor];
+    self.uisearchbarSearch.tintColor = [self colorWithHexString:@"FF7160"];
+    
     self.nsarrayFoodItems = [NSArray arrayWithObjects:
                              [FoodItem foodItemOfName:@"Leche" IsFruitOrVeggie:NO IsCereal:NO IsSugar:NO IsFat:YES IsCalciumRich:YES],
                              [FoodItem foodItemOfName:@"Hamburguesa" IsFruitOrVeggie:NO IsCereal:NO IsSugar:NO IsFat:YES IsCalciumRich:NO],
@@ -82,6 +87,7 @@
     // Configure the cell
     cell.textLabel.text = fooditemFood.strName;
     cell.textLabel.textColor = [self colorWithHexString:@"#939393"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
 }

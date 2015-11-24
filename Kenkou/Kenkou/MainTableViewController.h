@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsTableViewController.h"
+#import "ResultsViewController.h"
 #import "AppDelegate.h"
 #import "PopUpViewController.h"
 
@@ -21,6 +22,7 @@
 
 // Properties
 @property (nonatomic, strong) PopUpViewController *popUpUnderDevelopment;
+@property (nonatomic, strong) NSString *strUsername;
 
 // Action methods
 - (IBAction)showUnderDevelopmentPopUp:(id)sender;

@@ -23,7 +23,7 @@
 - (IBAction)addConsumptionMultiplicity:(id)sender
 {
     self.nsintConsumptionMultiplicity = self.nsintConsumptionMultiplicity + 1;
-    self.uilabelConsumptionMultiplicity.text = [[NSString alloc] initWithFormat:@"%li", self.nsintConsumptionMultiplicity];
+    self.uilabelConsumptionMultiplicity.text = [[NSString alloc] initWithFormat:@"%li", (long)self.nsintConsumptionMultiplicity];
 }
 
 - (IBAction)substractConsumptionMultiplicity:(id)sender
@@ -33,7 +33,7 @@
         )
     {
         self.nsintConsumptionMultiplicity = self.nsintConsumptionMultiplicity - 1;
-        self.uilabelConsumptionMultiplicity.text = [[NSString alloc] initWithFormat:@"%li", self.nsintConsumptionMultiplicity];
+        self.uilabelConsumptionMultiplicity.text = [[NSString alloc] initWithFormat:@"%li", (long)self.nsintConsumptionMultiplicity];
     }
     else
     {

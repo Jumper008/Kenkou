@@ -20,8 +20,8 @@
     // Initialize aerobic and anaerobic minute counters and text fields
     [self loadExerciseValues];
     
-    self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAerobicMinutes];
-    self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAnaerobicMinutes];
+    self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", (long)self.nsintAerobicMinutes];
+    self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", (long)self.nsintAnaerobicMinutes];
     
     self.uibuttonSave.layer.cornerRadius = 20.0f;
     
@@ -127,12 +127,12 @@
         )
     {
         self.nsintAerobicMinutes = self.nsintAerobicMinutes + 5;
-        self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAerobicMinutes];
+        self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", (long)self.nsintAerobicMinutes];
     }
     else
     {
         self.nsintAnaerobicMinutes = self.nsintAnaerobicMinutes + 5;
-        self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAnaerobicMinutes];
+        self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", (long)self.nsintAnaerobicMinutes];
     }
 }
 
@@ -147,7 +147,7 @@
             )
         {
             self.nsintAerobicMinutes = self.nsintAerobicMinutes - 5;
-            self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAerobicMinutes];
+            self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", (long)self.nsintAerobicMinutes];
         }
         else
         {
@@ -161,7 +161,7 @@
             )
         {
             self.nsintAnaerobicMinutes = self.nsintAnaerobicMinutes - 5;
-            self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAnaerobicMinutes];
+            self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", (long)self.nsintAnaerobicMinutes];
         }
         else
         {
@@ -188,7 +188,7 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
-    NSLog(@"Number of recorded dates: %li", nsArrayMatchedObject.count);
+    NSLog(@"Number of recorded dates: %li", (unsigned long)nsArrayMatchedObject.count);
     
     NSManagedObject *nsmanagedobjectRecord = [self getRecordInArray:nsArrayMatchedObject];
     
@@ -211,6 +211,16 @@
             )
         {
             NSLog(@"Record saved successfully!");
+            
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"¡Éxito!"
+                                                                           message:@"Los valores se han guardado exitosamente."
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
         }
         else
         {
@@ -241,7 +251,7 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
-    NSLog(@"Number of recorded dates: %li", nsArrayMatchedObject.count);
+    NSLog(@"Number of recorded dates: %li", (unsigned long)nsArrayMatchedObject.count);
     
     NSManagedObject *nsmanagedobjectRecord = [self getRecordInArray:nsArrayMatchedObject];
     
@@ -251,8 +261,8 @@
     {
         self.nsintAerobicMinutes = [[nsmanagedobjectRecord valueForKey:@"aerobicTime"] integerValue];
         self.nsintAnaerobicMinutes = [[nsmanagedobjectRecord valueForKey:@"anaerobicTime"] integerValue];
-        self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAerobicMinutes];
-        self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", self.nsintAnaerobicMinutes];
+        self.uitextfieldAerobic.text = [[NSString alloc] initWithFormat:@"%li", (long)self.nsintAerobicMinutes];
+        self.uitextfieldAnaerobic.text = [[NSString alloc] initWithFormat:@"%li", (long)self.nsintAnaerobicMinutes];
     }
     else
     {

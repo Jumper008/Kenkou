@@ -12,6 +12,8 @@
 
 @end
 
+static NSString * const STR_HAS_USER_SEEN_FOOD_INSTRUCTIONS = @"user_has_seen_food_instructions";
+
 @implementation FoodTableViewController
 
 - (void)viewDidLoad {
@@ -24,6 +26,24 @@
     self.tableView.delegate = self;
     
     [self loadFoodValues];
+    
+    // Display instructions if it is the first time the user has entered recording module
+    if (
+        [[NSUserDefaults standardUserDefaults] objectForKey:STR_HAS_USER_SEEN_FOOD_INSTRUCTIONS]
+        )
+    {
+        // Does nothing
+    }
+    else
+    {
+        [self.popUpHelp showHelpFoodInView:self.view animated:YES];
+        [self.popUpHelp assignScrollingDelegate:self];
+        self.tableView.scrollEnabled = NO;
+        
+        // Once the user has seen de instructions, change the value so it only happens once automatically
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STR_HAS_USER_SEEN_FOOD_INSTRUCTIONS];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -289,7 +309,7 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
-    NSLog(@"Number of recorded dates: %li", nsArrayMatchedObject.count);
+    NSLog(@"Number of recorded dates: %li", (unsigned long)nsArrayMatchedObject.count);
     
     NSManagedObject *nsmanagedobjectRecord = [self getRecordInArray:nsArrayMatchedObject];
     
@@ -328,6 +348,16 @@
             )
         {
             NSLog(@"Record saved successfully!");
+            
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"¡Éxito!"
+                                                                           message:@"Los valores se han guardado exitosamente."
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
         }
         else
         {
@@ -358,7 +388,7 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
-    NSLog(@"Number of recorded dates: %li", nsArrayMatchedObject.count);
+    NSLog(@"Number of recorded dates: %li", (unsigned long)nsArrayMatchedObject.count);
     
     NSManagedObject *nsmanagedobjectRecord = [self getRecordInArray:nsArrayMatchedObject];
     

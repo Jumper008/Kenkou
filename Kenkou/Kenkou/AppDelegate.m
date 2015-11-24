@@ -15,6 +15,9 @@
 @end
 
 static NSString * const STR_HAS_USER_ONBOARDED_KEY = @"user_has_onboarded";
+static NSString * const STR_HAS_USER_SEEN_FOOD_INSTRUCTIONS = @"user_has_seen_food_instructions";
+static NSString * const STR_HAS_USER_SEEN_SLEEP_INSTRUCTIONS = @"user_has_seen_sleep_instructions";
+static NSString * const STR_HAS_USER_SEEN_ALCOHOL_INSTRUCTIONS = @"user_has_seen_alcohol_instructions";
 
 @implementation AppDelegate
 
@@ -26,7 +29,16 @@ static NSString * const STR_HAS_USER_ONBOARDED_KEY = @"user_has_onboarded";
     //[[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.10196078f green:0.10196078f blue:0.10196078f alpha:1]];
     
     // Print the "user_has_onboarded" key value for debugging
-    NSLog(@"%d", [[NSUserDefaults standardUserDefaults] boolForKey:STR_HAS_USER_ONBOARDED_KEY]);
+    NSLog(@"user_has_onboarded: %d", [[NSUserDefaults standardUserDefaults] boolForKey:STR_HAS_USER_ONBOARDED_KEY]);
+    
+    // Print the "user_has_seen_food_instructions" key value for debugging
+    NSLog(@"user_has_seen_food_instructions %d", [[NSUserDefaults standardUserDefaults] boolForKey:STR_HAS_USER_SEEN_FOOD_INSTRUCTIONS]);
+    
+    // Print the "user_has_seen_sleep_instructions" key value for debugging
+    NSLog(@"user_has_seen_sleep_instructions %d", [[NSUserDefaults standardUserDefaults] boolForKey:STR_HAS_USER_SEEN_SLEEP_INSTRUCTIONS]);
+    
+    // Print the "user_has_seen_alcohol_instructions" key value for debugging
+    NSLog(@"user_has_seen_alcohol_instructions %d", [[NSUserDefaults standardUserDefaults] boolForKey:STR_HAS_USER_SEEN_ALCOHOL_INSTRUCTIONS]);
     
     [self setStoryboard];
     
@@ -147,7 +159,7 @@ static NSString * const STR_HAS_USER_ONBOARDED_KEY = @"user_has_onboarded";
 
 - (void)handleOnboardingCompletionWithStoryboard:(UIStoryboard *)storyboard
 {
-    // Once the user has onboarder, change the value so it only happens once
+    // Once the user has onboarded, change the value so it only happens once
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STR_HAS_USER_ONBOARDED_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
     

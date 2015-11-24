@@ -18,7 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setTitle:@"Resultados"];
+    NSString *strTitle = self.strUsername;
+    
+    [self setTitle:[strTitle stringByAppendingString:@", tus resultados"]];
     
     // Populate a utility dictionary.
     // Data represents the ranking of a person's health.
@@ -79,7 +81,7 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
-    NSLog(@"Number of recorded dates: %li", nsArrayMatchedObject.count);
+    NSLog(@"Number of recorded dates: %li", (unsigned long)nsArrayMatchedObject.count);
     
     NSInteger nsintNumberOfAvailableRecords;
     

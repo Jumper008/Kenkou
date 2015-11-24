@@ -21,6 +21,13 @@
     self.uitextfieldVolume.layer.borderColor = [[UIColor orangeColor] CGColor];
     self.uitextfieldAcoholPercentage.layer.borderColor = [[UIColor orangeColor] CGColor];
     
+    self.uitextfieldName.delegate = (id)self;
+    
+    // Enables tapping to remove keyboard
+    UITapGestureRecognizer *OffKeyboardtap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeKeyboard)];
+    [self.view addGestureRecognizer:OffKeyboardtap];
+    
     // Hide views all views (Unhide the one you wish to see)
     self.uiviewPopUpView.hidden = YES;
     self.uiviewPopUpViewHelpFood.hidden = YES;
@@ -69,7 +76,6 @@
     self.uiviewPopUpViewUnderDevelopment.layer.shadowOpacity = 0.8f;
     self.uiviewPopUpViewUnderDevelopment.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
 
-    
     self.cgrectViewFrame = self.view.frame;
 }
 
@@ -368,6 +374,29 @@
                            green:((float) g / 255.0f)
                             blue:((float) b / 255.0f)
                            alpha:1.0f];
+}
+
+// Returns YES if the given textfield should do something when Return button in keyboard is pressed, and NO otherwise
+// It also changes the Keyboard Focus (First Responder) depending on the textfield
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (
+        textField == self.uitextfieldName
+        )
+    {
+        [self.uitextfieldVolume becomeFirstResponder];
+    }
+    else
+    {
+        // Does nothing
+    }
+    
+    return YES;
+}
+
+- (void) removeKeyboard
+{
+    [self.view endEditing:YES];
 }
 
 @end

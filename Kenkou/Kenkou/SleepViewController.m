@@ -12,6 +12,8 @@
 
 @end
 
+static NSString * const STR_HAS_USER_SEEN_SLEEP_INSTRUCTIONS = @"user_has_seen_sleep_instructions";
+
 @implementation SleepViewController
 
 - (void)viewDidLoad {
@@ -35,6 +37,25 @@
     self.uitapgesturerecognizerUserTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userDidTap)];
     [self.view addGestureRecognizer:self.uitapgesturerecognizerUserTap];
+    
+    // Display instructions if it is the first time the user has entered recording module
+    if (
+        [[NSUserDefaults standardUserDefaults] objectForKey:STR_HAS_USER_SEEN_SLEEP_INSTRUCTIONS]
+        )
+    {
+        // Does nothing
+    }
+    else
+    {
+        [self.popUpHelp showHelpSleepInView:self.view animated:YES];
+        [self.popUpHelp showHelpSleepInView:self.view animated:YES]; // Temporary popup fix issue
+        self.uitapgesturerecognizerUserTap.enabled = NO;
+        [self.popUpHelp assignTappingDelegate:self];
+        
+        // Once the user has seen de instructions, change the value so it only happens once automatically
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STR_HAS_USER_SEEN_SLEEP_INSTRUCTIONS];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -110,8 +131,9 @@
         {
             // Changes gameState to Results
             self.gameState = Results;
+            self.uitapgesturerecognizerUserTap.enabled = NO;
             
-            self.uilabelBody.text = @"Toca para jugar de nuevo o presiona el botón para guardar tu resultado.";
+            self.uilabelBody.text = @"Presiona el botón para guardar tu resultado y toca la pantalla para jugar de nuevo si es que lo deseas.";
             self.uibuttonSave.enabled = YES;
             self.uibuttonSave.hidden = NO;
         }
@@ -229,7 +251,7 @@
     self.strAverageReactionTime = [[NSString alloc] initWithFormat:@"%0.2f", self.doubleAverageReactionTime];
     self.strAverageReactionTime = [self.strAverageReactionTime stringByAppendingString:@" ms"];
     
-    self.strNumberOfTriesTaken = [[NSString alloc] initWithFormat:@"%li", self.nsintNumberOfTriesTaken];
+    self.strNumberOfTriesTaken = [[NSString alloc] initWithFormat:@"%li", (long)self.nsintNumberOfTriesTaken];
     self.strNumberOfTriesTaken = [self.strNumberOfTriesTaken stringByAppendingString:@" de 5"];
 }
 
@@ -362,7 +384,7 @@
     // The request is executed
     NSArray *nsArrayMatchedObject = [nsManagedObjectContext executeFetchRequest: request error:&error];
     
-    NSLog(@"Number of recorded dates: %li", nsArrayMatchedObject.count);
+    NSLog(@"Number of recorded dates: %li", (unsigned long)nsArrayMatchedObject.count);
     
     NSManagedObject *nsmanagedobjectRecord = [self getRecordInArray:nsArrayMatchedObject];
     
@@ -381,6 +403,17 @@
             )
         {
             NSLog(@"Record saved successfully!");
+            
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"¡Éxito!"
+                                                                           message:@"Tu tiempo de reacción promedio se ha guardado exitosamente."
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+            self.uitapgesturerecognizerUserTap.enabled = YES;
         }
         else
         {

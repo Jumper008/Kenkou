@@ -15,4 +15,9 @@
 // Outlets.
 @property (nonatomic, strong) BTSpiderPlotterView *spiderView;
 
+// Properties
+@property (nonatomic, strong) NSString *strUsername;
+
+// Action methods
+
 @end
