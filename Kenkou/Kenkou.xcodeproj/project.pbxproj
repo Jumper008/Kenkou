@@ -33,6 +33,8 @@
 		15D650A61BF12EE800C18BA0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D650A51BF12EE800C18BA0 /* CoreData.framework */; };
 		50CFAD901C01C5B8008C0E79 /* FoodItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CFAD8F1C01C5B8008C0E79 /* FoodItem.m */; };
 		50CFAD931C01C8DE008C0E79 /* FoodClassificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CFAD921C01C8DE008C0E79 /* FoodClassificationTableViewController.m */; };
+		50E694391C03E6C80021D7B9 /* plistFoodItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50E694381C03E6C80021D7B9 /* plistFoodItems.plist */; };
+		50E6943F1C03E70D0021D7B9 /* FoodClassificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E6943E1C03E70D0021D7B9 /* FoodClassificationTableViewCell.m */; };
 		5886C43BAB58B1AEBCB349B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96954FE2F149687639DD9BE9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +108,9 @@
 		50CFAD8F1C01C5B8008C0E79 /* FoodItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodItem.m; sourceTree = "<group>"; };
 		50CFAD911C01C8DE008C0E79 /* FoodClassificationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodClassificationTableViewController.h; sourceTree = "<group>"; };
 		50CFAD921C01C8DE008C0E79 /* FoodClassificationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodClassificationTableViewController.m; sourceTree = "<group>"; };
+		50E694381C03E6C80021D7B9 /* plistFoodItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = plistFoodItems.plist; sourceTree = "<group>"; };
+		50E6943D1C03E70D0021D7B9 /* FoodClassificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodClassificationTableViewCell.h; sourceTree = "<group>"; };
+		50E6943E1C03E70D0021D7B9 /* FoodClassificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodClassificationTableViewCell.m; sourceTree = "<group>"; };
 		96954FE2F149687639DD9BE9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -303,6 +308,9 @@
 				50CFAD8F1C01C5B8008C0E79 /* FoodItem.m */,
 				50CFAD911C01C8DE008C0E79 /* FoodClassificationTableViewController.h */,
 				50CFAD921C01C8DE008C0E79 /* FoodClassificationTableViewController.m */,
+				50E6943D1C03E70D0021D7B9 /* FoodClassificationTableViewCell.h */,
+				50E6943E1C03E70D0021D7B9 /* FoodClassificationTableViewCell.m */,
+				50E694381C03E6C80021D7B9 /* plistFoodItems.plist */,
 			);
 			name = FoodClassification;
 			sourceTree = "<group>";
@@ -424,6 +432,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50E694391C03E6C80021D7B9 /* plistFoodItems.plist in Resources */,
 				15C96CC81BD2FB3E00B636B2 /* LaunchScreen.storyboard in Resources */,
 				15BF3FA11BFA89EC00BE6B9C /* Images.xcassets in Resources */,
 				15C96CC31BD2FB3E00B636B2 /* Main.storyboard in Resources */,
@@ -513,6 +522,7 @@
 				152556F21BFAB592006CB414 /* ExerciseTableViewController.m in Sources */,
 				152725301BE868B600741647 /* SettingsViewController.m in Sources */,
 				1525C4551BFECB5F00B0A961 /* Timer.m in Sources */,
+				50E6943F1C03E70D0021D7B9 /* FoodClassificationTableViewCell.m in Sources */,
 				15BF3F9F1BFA777500BE6B9C /* FoodTableViewController.m in Sources */,
 				1527252D1BE82C3E00741647 /* SettingsTableViewController.m in Sources */,
 				15D61CEA1BF5AF9E005BB2F8 /* MainTableViewController.m in Sources */,
