@@ -10,4 +10,11 @@
 
 @interface FoodClassificationTableViewCell : UITableViewCell
 
+// Outlets
+@property (weak, nonatomic) IBOutlet UILabel *uilabelName;
+
+// Properties
+
+// Action methods
+
 @end

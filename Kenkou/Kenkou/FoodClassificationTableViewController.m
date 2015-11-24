@@ -21,17 +21,25 @@
     
     [self setTitle:@"Clasificación de Alimentos"];
     
+    //[self.tableView registerClass: [FoodClassificationTableViewCell class] forCellReuseIdentifier:@"Food"];
+    
+    NSString *pathList = [[NSBundle mainBundle] pathForResource:@"plistFoodItems" ofType:@"plist"];
+    
+    self.nsarrayFoodDictionary = [[NSArray alloc] initWithContentsOfFile:pathList];
+    
+    self.nsmutablearrayFoodItems = [self getFoodItemArrayFromArray:self.nsarrayFoodDictionary];
+    
     self.uisearchbarSearch.barTintColor = [UIColor whiteColor];
     self.uisearchbarSearch.tintColor = [self colorWithHexString:@"FF7160"];
     
-    self.nsarrayFoodItems = [NSArray arrayWithObjects:
-                             [FoodItem foodItemOfName:@"Leche" IsFruitOrVeggie:NO IsCereal:NO IsSugar:NO IsFat:YES IsCalciumRich:YES],
-                             [FoodItem foodItemOfName:@"Hamburguesa" IsFruitOrVeggie:NO IsCereal:NO IsSugar:NO IsFat:YES IsCalciumRich:NO],
-                             [FoodItem foodItemOfName:@"Tomate" IsFruitOrVeggie:YES IsCereal:NO IsSugar:NO IsFat:NO IsCalciumRich:NO],
-                             [FoodItem foodItemOfName:@"Aguacate" IsFruitOrVeggie:YES IsCereal:NO IsSugar:NO IsFat:NO IsCalciumRich:NO],
-                             nil];
+//    self.nsarrayFoodItems = [NSArray arrayWithObjects:
+//                             [FoodItem foodItemOfName:@"Leche" IsFruitOrVeggie:NO IsCereal:NO IsSugar:NO IsFat:YES IsCalciumRich:YES],
+//                             [FoodItem foodItemOfName:@"Hamburguesa" IsFruitOrVeggie:NO IsCereal:NO IsSugar:NO IsFat:YES IsCalciumRich:NO],
+//                             [FoodItem foodItemOfName:@"Tomate" IsFruitOrVeggie:YES IsCereal:NO IsSugar:NO IsFat:NO IsCalciumRich:NO],
+//                             [FoodItem foodItemOfName:@"Aguacate" IsFruitOrVeggie:YES IsCereal:NO IsSugar:NO IsFat:NO IsCalciumRich:NO],
+//                             nil];
     
-    self.nsmutablearrayFilteredFood = [NSMutableArray arrayWithCapacity:[self.nsarrayFoodItems count]];
+    self.nsmutablearrayFilteredFood = [NSMutableArray arrayWithCapacity:[self.nsmutablearrayFoodItems count]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,20 +64,15 @@
     {
         return [self.nsmutablearrayFilteredFood count];
     } else {
-        return [self.nsarrayFoodItems count];
+        return [self.nsmutablearrayFoodItems count];
     }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (
-        cell == nil
-        )
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    static NSString *CellIdentifier = @"Food";
+    FoodClassificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     // Create a new FoodItem Object
     FoodItem *fooditemFood = nil;
 
@@ -81,15 +84,38 @@
     {
         fooditemFood = [self.nsmutablearrayFilteredFood objectAtIndex:indexPath.row];
     } else {
-        fooditemFood = [self.nsarrayFoodItems objectAtIndex:indexPath.row];
+        fooditemFood = [self.nsmutablearrayFoodItems objectAtIndex:indexPath.row];
     }
     
     // Configure the cell
-    cell.textLabel.text = fooditemFood.strName;
-    cell.textLabel.textColor = [self colorWithHexString:@"#939393"];
+    cell.uilabelName.text = fooditemFood.strName;
+    
+//    cell.textLabel.text = fooditemFood.strName;
+//    cell.textLabel.textColor = [self colorWithHexString:@"#939393"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+//    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
+}
+
+// Returns an array with FoodItems from an array with dictionaries
+- (NSMutableArray *)getFoodItemArrayFromArray:(NSArray *)array
+{
+    NSMutableArray *nsmutablearrayFoodItemArray = [[NSMutableArray alloc] init];
+    
+    for (int intDictionary = 0; intDictionary < array.count; intDictionary++)
+    {
+        FoodItem *fooditem = [[FoodItem alloc] init];
+        fooditem.strName = [array[intDictionary] objectForKey:@"sName"];
+        fooditem.bFruitOrVegetable = [[array[intDictionary] valueForKey:@"bFruitOrVegetable"] boolValue];
+        fooditem.bCereal = [[array[intDictionary] valueForKey:@"bCereal"] boolValue];
+        fooditem.bFat = [[array[intDictionary] valueForKey:@"bFat"] boolValue];
+        fooditem.bCalciumRich = [[array[intDictionary] valueForKey:@"bCalcium_Rich"] boolValue];
+        fooditem.bSugar = [[array[intDictionary] valueForKey:@"bSugar"] boolValue];
+        
+        [nsmutablearrayFoodItemArray addObject:fooditem];
+    }
+    
+    return nsmutablearrayFoodItemArray;
 }
 
 // Converts a string to UIColor
@@ -142,13 +168,13 @@
         [searchText isEqualToString:@""]
         )
     {
-        nsarrayUnscopedFoodList = self.nsarrayFoodItems;
+        nsarrayUnscopedFoodList = self.nsmutablearrayFoodItems;
     }
     else
     {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.strName contains[c] %@",searchText];
         
-        nsarrayUnscopedFoodList = [self.nsarrayFoodItems filteredArrayUsingPredicate:predicate];
+        nsarrayUnscopedFoodList = [self.nsmutablearrayFoodItems filteredArrayUsingPredicate:predicate];
     }
     
     if (
@@ -218,7 +244,7 @@
         )
     {
         self.bShowFilteredArray = YES;
-        NSArray *nsarrayUnscopedFoodList = self.nsarrayFoodItems;
+        NSArray *nsarrayUnscopedFoodList = self.nsmutablearrayFoodItems;
         
         NSPredicate *nspredicateScope = [[NSPredicate alloc] init];
         

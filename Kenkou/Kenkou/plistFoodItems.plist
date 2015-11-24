@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>item - 5</key>
+<array>
 	<dict>
 		<key>sName</key>
 		<string>acaraje</string>
@@ -17,7 +16,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 6</key>
 	<dict>
 		<key>sName</key>
 		<string>aceite</string>
@@ -32,7 +30,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 7</key>
 	<dict>
 		<key>sName</key>
 		<string>acelga</string>
@@ -47,7 +44,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 8</key>
 	<dict>
 		<key>sName</key>
 		<string>aguacate</string>
@@ -62,7 +58,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 9</key>
 	<dict>
 		<key>sName</key>
 		<string>alcachofa</string>
@@ -77,7 +72,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 10</key>
 	<dict>
 		<key>sName</key>
 		<string>aligot</string>
@@ -92,7 +86,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 11</key>
 	<dict>
 		<key>sName</key>
 		<string>almendra</string>
@@ -107,7 +100,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 12</key>
 	<dict>
 		<key>sName</key>
 		<string>apio</string>
@@ -122,7 +114,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 13</key>
 	<dict>
 		<key>sName</key>
 		<string>arandano</string>
@@ -137,7 +128,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 14</key>
 	<dict>
 		<key>sName</key>
 		<string>arroz</string>
@@ -152,7 +142,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 15</key>
 	<dict>
 		<key>sName</key>
 		<string>arroz integral</string>
@@ -167,7 +156,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 16</key>
 	<dict>
 		<key>sName</key>
 		<string>avellana</string>
@@ -182,7 +170,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 17</key>
 	<dict>
 		<key>sName</key>
 		<string>avena</string>
@@ -197,7 +184,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 18</key>
 	<dict>
 		<key>sName</key>
 		<string>berenjena</string>
@@ -212,7 +198,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 19</key>
 	<dict>
 		<key>sName</key>
 		<string>berro</string>
@@ -227,7 +212,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 20</key>
 	<dict>
 		<key>sName</key>
 		<string>brocoli</string>
@@ -242,7 +226,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 21</key>
 	<dict>
 		<key>sName</key>
 		<string>cacahuate</string>
@@ -257,7 +240,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 22</key>
 	<dict>
 		<key>sName</key>
 		<string>cacao en polvo</string>
@@ -272,7 +254,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 23</key>
 	<dict>
 		<key>sName</key>
 		<string>calabacin</string>
@@ -287,7 +268,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 24</key>
 	<dict>
 		<key>sName</key>
 		<string>caldo del ramen</string>
@@ -302,7 +282,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 25</key>
 	<dict>
 		<key>sName</key>
 		<string>carambola</string>
@@ -317,7 +296,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 26</key>
 	<dict>
 		<key>sName</key>
 		<string>castana</string>
@@ -332,7 +310,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 27</key>
 	<dict>
 		<key>sName</key>
 		<string>cebada</string>
@@ -347,7 +324,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 28</key>
 	<dict>
 		<key>sName</key>
 		<string>cebolla</string>
@@ -362,7 +338,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 29</key>
 	<dict>
 		<key>sName</key>
 		<string>cebollin</string>
@@ -377,7 +352,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 30</key>
 	<dict>
 		<key>sName</key>
 		<string>centeno</string>
@@ -392,7 +366,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 31</key>
 	<dict>
 		<key>sName</key>
 		<string>cereal dulce</string>
@@ -407,7 +380,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 32</key>
 	<dict>
 		<key>sName</key>
 		<string>cereza</string>
@@ -422,7 +394,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 33</key>
 	<dict>
 		<key>sName</key>
 		<string>champinon</string>
@@ -437,7 +408,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 34</key>
 	<dict>
 		<key>sName</key>
 		<string>chistorra</string>
@@ -452,7 +422,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 35</key>
 	<dict>
 		<key>sName</key>
 		<string>chocolate</string>
@@ -467,7 +436,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 36</key>
 	<dict>
 		<key>sName</key>
 		<string>chirimoya</string>
@@ -482,7 +450,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 37</key>
 	<dict>
 		<key>sName</key>
 		<string>churro</string>
@@ -497,7 +464,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 38</key>
 	<dict>
 		<key>sName</key>
 		<string>ciruela</string>
@@ -512,7 +478,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 39</key>
 	<dict>
 		<key>sName</key>
 		<string>coco</string>
@@ -527,7 +492,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 40</key>
 	<dict>
 		<key>sName</key>
 		<string>col china</string>
@@ -542,7 +506,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 41</key>
 	<dict>
 		<key>sName</key>
 		<string>col rizada</string>
@@ -557,7 +520,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 42</key>
 	<dict>
 		<key>sName</key>
 		<string>col de bruselas</string>
@@ -572,7 +534,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 43</key>
 	<dict>
 		<key>sName</key>
 		<string>colinabo</string>
@@ -587,7 +548,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 44</key>
 	<dict>
 		<key>sName</key>
 		<string>collard verde</string>
@@ -602,7 +562,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 45</key>
 	<dict>
 		<key>sName</key>
 		<string>crepa</string>
@@ -617,7 +576,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 46</key>
 	<dict>
 		<key>sName</key>
 		<string>datil</string>
@@ -632,7 +590,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 47</key>
 	<dict>
 		<key>sName</key>
 		<string>diente de leon</string>
@@ -647,7 +604,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 48</key>
 	<dict>
 		<key>sName</key>
 		<string>esparrago</string>
@@ -662,7 +618,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 49</key>
 	<dict>
 		<key>sName</key>
 		<string>foie gras</string>
@@ -677,7 +632,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 50</key>
 	<dict>
 		<key>sName</key>
 		<string>frambuesa</string>
@@ -692,7 +646,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 51</key>
 	<dict>
 		<key>sName</key>
 		<string>fresa</string>
@@ -707,7 +660,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 52</key>
 	<dict>
 		<key>sName</key>
 		<string>fruta de la pasion</string>
@@ -722,7 +674,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 53</key>
 	<dict>
 		<key>sName</key>
 		<string>galleta dulce</string>
@@ -737,7 +688,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 54</key>
 	<dict>
 		<key>sName</key>
 		<string>golosina</string>
@@ -752,7 +702,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 55</key>
 	<dict>
 		<key>sName</key>
 		<string>grosella</string>
@@ -767,7 +716,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 56</key>
 	<dict>
 		<key>sName</key>
 		<string>guisante</string>
@@ -782,7 +730,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 57</key>
 	<dict>
 		<key>sName</key>
 		<string>haba</string>
@@ -797,7 +744,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 58</key>
 	<dict>
 		<key>sName</key>
 		<string>hamburguesa</string>
@@ -812,7 +758,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 59</key>
 	<dict>
 		<key>sName</key>
 		<string>higo</string>
@@ -827,7 +772,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 60</key>
 	<dict>
 		<key>sName</key>
 		<string>jarabe de maiz</string>
@@ -842,7 +786,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 61</key>
 	<dict>
 		<key>sName</key>
 		<string>kamut</string>
@@ -857,7 +800,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 62</key>
 	<dict>
 		<key>sName</key>
 		<string>khachapuri</string>
@@ -872,7 +814,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 63</key>
 	<dict>
 		<key>sName</key>
 		<string>kiwi</string>
@@ -887,7 +828,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 64</key>
 	<dict>
 		<key>sName</key>
 		<string>leche</string>
@@ -902,7 +842,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 65</key>
 	<dict>
 		<key>sName</key>
 		<string>lechuga</string>
@@ -917,7 +856,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 66</key>
 	<dict>
 		<key>sName</key>
 		<string>limon</string>
@@ -932,7 +870,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 67</key>
 	<dict>
 		<key>sName</key>
 		<string>litchi</string>
@@ -947,7 +884,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 68</key>
 	<dict>
 		<key>sName</key>
 		<string>longaniza</string>
@@ -962,7 +898,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 69</key>
 	<dict>
 		<key>sName</key>
 		<string>maiz</string>
@@ -977,7 +912,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 70</key>
 	<dict>
 		<key>sName</key>
 		<string>malteada</string>
@@ -992,7 +926,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 71</key>
 	<dict>
 		<key>sName</key>
 		<string>mandarina</string>
@@ -1007,7 +940,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 72</key>
 	<dict>
 		<key>sName</key>
 		<string>mango</string>
@@ -1022,7 +954,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 73</key>
 	<dict>
 		<key>sName</key>
 		<string>mantequilla</string>
@@ -1037,7 +968,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 74</key>
 	<dict>
 		<key>sName</key>
 		<string>manzana</string>
@@ -1052,7 +982,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 75</key>
 	<dict>
 		<key>sName</key>
 		<string>margarina</string>
@@ -1067,7 +996,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 76</key>
 	<dict>
 		<key>sName</key>
 		<string>melocoton</string>
@@ -1082,7 +1010,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 77</key>
 	<dict>
 		<key>sName</key>
 		<string>melon</string>
@@ -1097,7 +1024,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 78</key>
 	<dict>
 		<key>sName</key>
 		<string>mermelada</string>
@@ -1112,7 +1038,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 79</key>
 	<dict>
 		<key>sName</key>
 		<string>mijo</string>
@@ -1127,7 +1052,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 80</key>
 	<dict>
 		<key>sName</key>
 		<string>nabo</string>
@@ -1142,7 +1066,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 81</key>
 	<dict>
 		<key>sName</key>
 		<string>naranja</string>
@@ -1157,7 +1080,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 82</key>
 	<dict>
 		<key>sName</key>
 		<string>nectarina</string>
@@ -1172,7 +1094,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 83</key>
 	<dict>
 		<key>sName</key>
 		<string>nuez</string>
@@ -1187,7 +1108,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 84</key>
 	<dict>
 		<key>sName</key>
 		<string>okra</string>
@@ -1202,7 +1122,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 85</key>
 	<dict>
 		<key>sName</key>
 		<string>palmito</string>
@@ -1217,7 +1136,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 86</key>
 	<dict>
 		<key>sName</key>
 		<string>pan enriquecido</string>
@@ -1232,7 +1150,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 87</key>
 	<dict>
 		<key>sName</key>
 		<string>papaya</string>
@@ -1247,7 +1164,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 88</key>
 	<dict>
 		<key>sName</key>
 		<string>pastel</string>
@@ -1262,7 +1178,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 89</key>
 	<dict>
 		<key>sName</key>
 		<string>pera</string>
@@ -1277,7 +1192,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 90</key>
 	<dict>
 		<key>sName</key>
 		<string>pimiento</string>
@@ -1292,7 +1206,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 91</key>
 	<dict>
 		<key>sName</key>
 		<string>pina</string>
@@ -1307,7 +1220,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 92</key>
 	<dict>
 		<key>sName</key>
 		<string>pistacho</string>
@@ -1322,7 +1234,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 93</key>
 	<dict>
 		<key>sName</key>
 		<string>pizza</string>
@@ -1337,7 +1248,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 94</key>
 	<dict>
 		<key>sName</key>
 		<string>platano</string>
@@ -1352,7 +1262,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 95</key>
 	<dict>
 		<key>sName</key>
 		<string>pollo frito</string>
@@ -1367,7 +1276,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 96</key>
 	<dict>
 		<key>sName</key>
 		<string>pomelo</string>
@@ -1382,7 +1290,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 97</key>
 	<dict>
 		<key>sName</key>
 		<string>postre</string>
@@ -1397,7 +1304,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 98</key>
 	<dict>
 		<key>sName</key>
 		<string>puerro</string>
@@ -1412,7 +1318,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 99</key>
 	<dict>
 		<key>sName</key>
 		<string>queso</string>
@@ -1427,7 +1332,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 100</key>
 	<dict>
 		<key>sName</key>
 		<string>rabano</string>
@@ -1442,7 +1346,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 101</key>
 	<dict>
 		<key>sName</key>
 		<string>refresco</string>
@@ -1457,7 +1360,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 102</key>
 	<dict>
 		<key>sName</key>
 		<string>salami</string>
@@ -1472,7 +1374,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 103</key>
 	<dict>
 		<key>sName</key>
 		<string>salchicha</string>
@@ -1487,7 +1388,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 104</key>
 	<dict>
 		<key>sName</key>
 		<string>sandia</string>
@@ -1502,7 +1402,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 105</key>
 	<dict>
 		<key>sName</key>
 		<string>sardina</string>
@@ -1517,7 +1416,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 106</key>
 	<dict>
 		<key>sName</key>
 		<string>sorgo</string>
@@ -1532,7 +1430,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 107</key>
 	<dict>
 		<key>sName</key>
 		<string>sorgo</string>
@@ -1547,7 +1444,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 108</key>
 	<dict>
 		<key>sName</key>
 		<string>soya fortificada</string>
@@ -1562,7 +1458,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 109</key>
 	<dict>
 		<key>sName</key>
 		<string>tocino</string>
@@ -1577,7 +1472,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 110</key>
 	<dict>
 		<key>sName</key>
 		<string>tomate</string>
@@ -1592,7 +1486,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 111</key>
 	<dict>
 		<key>sName</key>
 		<string>trigo</string>
@@ -1607,7 +1500,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 112</key>
 	<dict>
 		<key>sName</key>
 		<string>uva</string>
@@ -1622,7 +1514,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 113</key>
 	<dict>
 		<key>sName</key>
 		<string>yogur</string>
@@ -1637,7 +1528,6 @@
 		<key>bCalcium_Rich</key>
 		<true/>
 	</dict>
-	<key>item - 114</key>
 	<dict>
 		<key>sName</key>
 		<string>zanahoria</string>
@@ -1652,7 +1542,6 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-	<key>item - 115</key>
 	<dict>
 		<key>sName</key>
 		<string>zarzamora</string>
@@ -1667,5 +1556,5 @@
 		<key>bCalcium_Rich</key>
 		<false/>
 	</dict>
-</dict>
+</array>
 </plist>

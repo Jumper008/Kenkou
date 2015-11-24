@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FoodClassificationTableViewCell.h"
 
 @interface FoodClassificationTableViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
@@ -16,8 +17,9 @@
 // Action Methods
 
 // Properties
-@property (strong,nonatomic) NSArray *nsarrayFoodItems;
-@property (strong,nonatomic) NSMutableArray *nsmutablearrayFilteredFood;
+@property (strong, nonatomic) NSArray *nsarrayFoodDictionary;
+@property (strong, nonatomic) NSMutableArray *nsmutablearrayFoodItems;
+@property (strong, nonatomic) NSMutableArray *nsmutablearrayFilteredFood;
 @property BOOL bShowFilteredArray;
 
 @end
