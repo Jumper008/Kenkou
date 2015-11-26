@@ -21,6 +21,9 @@
 @property (nonatomic, strong) NSString *strUsername;
 @property BOOL boolIsUserFemale;
 @property double doubleGeneralScore;
+@property (nonatomic, strong) UIColor *uicolorRedColor;
+@property (nonatomic, strong) UIColor *uicolorGreenColor;
+@property (nonatomic, strong) UIColor *uicolorYellowColor;
 
 // Action methods
 

@@ -32,13 +32,6 @@
     self.uisearchbarSearch.barTintColor = [UIColor whiteColor];
     self.uisearchbarSearch.tintColor = [self colorWithHexString:@"FF7160"];
     
-//    self.nsarrayFoodItems = [NSArray arrayWithObjects:
-//                             [FoodItem foodItemOfName:@"Leche" IsFruitOrVeggie:NO IsCereal:NO IsSugar:NO IsFat:YES IsCalciumRich:YES],
-//                             [FoodItem foodItemOfName:@"Hamburguesa" IsFruitOrVeggie:NO IsCereal:NO IsSugar:NO IsFat:YES IsCalciumRich:NO],
-//                             [FoodItem foodItemOfName:@"Tomate" IsFruitOrVeggie:YES IsCereal:NO IsSugar:NO IsFat:NO IsCalciumRich:NO],
-//                             [FoodItem foodItemOfName:@"Aguacate" IsFruitOrVeggie:YES IsCereal:NO IsSugar:NO IsFat:NO IsCalciumRich:NO],
-//                             nil];
-    
     self.nsmutablearrayFilteredFood = [NSMutableArray arrayWithCapacity:[self.nsmutablearrayFoodItems count]];
 }
 
@@ -70,8 +63,11 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Food";
-    FoodClassificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if ( cell == nil ) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     // Create a new FoodItem Object
     FoodItem *fooditemFood = nil;
@@ -88,10 +84,8 @@
     }
     
     // Configure the cell
-    cell.uilabelName.text = fooditemFood.strName;
-    
-//    cell.textLabel.text = fooditemFood.strName;
-//    cell.textLabel.textColor = [self colorWithHexString:@"#939393"];
+    cell.textLabel.text = fooditemFood.strName;
+    cell.textLabel.textColor = [self colorWithHexString:@"#939393"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;

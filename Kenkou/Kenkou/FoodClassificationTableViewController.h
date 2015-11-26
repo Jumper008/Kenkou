@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FoodClassificationTableViewCell.h"
 
 @interface FoodClassificationTableViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 

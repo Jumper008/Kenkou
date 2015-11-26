@@ -18,6 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.uicolorRedColor = [self colorWithHexString:@"C03936"];
+    self.uicolorYellowColor = [self colorWithHexString:@"FFF563"];
+    self.uicolorGreenColor = [self colorWithHexString:@"4BA85C"];
+    
     NSString *strTitle = self.strUsername;
     
     [self setTitle:[strTitle stringByAppendingString:@", tus resultados"]];
@@ -29,10 +33,26 @@
     // Initiate the spiderView with its frame and values.
     _spiderView = [[BTSpiderPlotterView alloc] initWithFrame:self.view.frame valueDictionary:valueDictionary];
     
+    if (
+        self.doubleGeneralScore < 33.33
+        )
+    {
+        self.spiderView.plotColor = self.uicolorRedColor;
+    }
+    else if (
+             self.doubleGeneralScore < 66.66
+             )
+    {
+        self.spiderView.plotColor = self.uicolorYellowColor;
+    }
+    else
+    {
+        self.spiderView.plotColor = self.uicolorGreenColor;
+    }
+    
     // Set a maximum value for plotting.
     [_spiderView setMaxValue:10];
     
-    self.spiderView.plotColor = [UIColor colorWithRed:1.0f green:0.44313725f blue:0.37647059f alpha:0.7];
     [self.view addSubview:_spiderView];
     
     //here on is flavoring - non essentials
@@ -274,6 +294,23 @@
     doubleAlcoholAverage;
     self.doubleGeneralScore = (self.doubleGeneralScore / 4) * 10;
     
+    if (
+        self.doubleGeneralScore < 33.33
+        )
+    {
+        self.spiderView.plotColor = self.uicolorRedColor;
+    }
+    else if (
+        self.doubleGeneralScore < 66.66
+        )
+    {
+        self.spiderView.plotColor = self.uicolorYellowColor;
+    }
+    else
+    {
+        self.spiderView.plotColor = self.uicolorGreenColor;
+    }
+    
     NSString *strGeneralScore = @"Puntaje: ";
     strGeneralScore = [strGeneralScore stringByAppendingString:[[NSString alloc] initWithFormat:@"%0.2f", self.doubleGeneralScore]];
     
@@ -320,6 +357,44 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+// Converts a string to UIColor
+-(UIColor*)colorWithHexString:(NSString*)hex
+{
+    NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return [UIColor grayColor];
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    
+    if ([cString length] != 6) return  [UIColor grayColor];
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:1.0f];
+}
+
 
 /*
 #pragma mark - Navigation
