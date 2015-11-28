@@ -21,6 +21,10 @@
     
     [self setTitle:@"Configuración"];
     
+    // Changes the back button item
+    UIBarButtonItem *uibarbuttonitemBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Atrás" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = uibarbuttonitemBackButton;
+    
     [self loadSettings];
     
 //    // Modifies navigation bar back button

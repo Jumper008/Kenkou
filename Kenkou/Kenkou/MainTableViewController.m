@@ -22,10 +22,8 @@
     [self setMainTitle];
     
     // Changes the back button item
-    UIBarButtonItem *uibarbuttonitemBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    UIBarButtonItem *uibarbuttonitemBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Atrás" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = uibarbuttonitemBackButton;
-    
-    
     
     // Changes the navigation bar color
     [self.navigationController.navigationBar setBarTintColor:[self colorWithHexString:@"FF7160"]];
