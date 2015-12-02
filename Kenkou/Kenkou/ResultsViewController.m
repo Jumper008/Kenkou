@@ -409,4 +409,89 @@
 }
 */
 
+- (IBAction)postResultsOnFacebook:(UIBarButtonItem *)sender
+{
+    NSLog(@"User wants to post results!");
+    
+    if (
+        [SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]
+        )
+    {
+        SLComposeViewController *fbComposer = [SLComposeViewController composeViewControllerForServiceType: SLServiceTypeFacebook];
+        
+        // Set the initial text message
+        //[fbComposer setInitialText:@""];
+        
+        [fbComposer addImage: [self returnScreenshot]];
+        
+        [fbComposer setCompletionHandler:^(SLComposeViewControllerResult result) {
+            
+            switch (result) {
+                case SLComposeViewControllerResultCancelled:
+                    NSLog(@"Post Canceled");
+                    break;
+                case SLComposeViewControllerResultDone:
+                {
+                    NSLog(@"Post Sucessful");
+                    
+                    if (
+                        self.presentedViewController == nil
+                        )
+                    {
+                        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"¡Éxito!"
+                                                                      message:@"Tus resultados se han publicado."
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+                        
+                        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                                style:UIAlertActionStyleDefault
+                                                                              handler:^(UIAlertAction * action) {}];
+                        
+                        [alert addAction:defaultAction];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }];
+        
+        // Present the composer to the user
+        [self presentViewController:fbComposer animated:YES completion:nil];
+        
+    }
+    else
+    {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"¡Ojo!"
+                                                      message:@"No tienes configurado tu servicio de facebook en tu dispositivo o no estás conectado a internet."
+                                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action)
+                                                              {
+                                                                  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                                                              }];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+// Returns an image capture of a portion of the screen
+-(UIImage *) returnScreenshot
+{
+    
+    CGRect cgrect;
+    cgrect = CGRectMake(self.uiviewSpiderPlotView.frame.origin.x, self.uiviewSpiderPlotView.frame.origin.y, self.uiviewSpiderPlotView.frame.size.width, self.uiviewSpiderPlotView.frame.size.height);
+    UIGraphicsBeginImageContext(cgrect.size);
+    
+    CGContextRef cgcontextref = UIGraphicsGetCurrentContext();
+    [self.uiviewSpiderPlotView.layer renderInContext:cgcontextref];
+    
+    UIImage *uiimage=UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return uiimage;
+}
 @end

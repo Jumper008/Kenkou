@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BTSpiderPlotterView.h"
 #import "AppDelegate.h"
+#import <Social/Social.h>
 
 @interface ResultsViewController : UIViewController
 
@@ -27,5 +28,6 @@
 @property (nonatomic, strong) UIColor *uicolorYellowColor;
 
 // Action methods
+- (IBAction)postResultsOnFacebook:(UIBarButtonItem *)sender;
 
 @end

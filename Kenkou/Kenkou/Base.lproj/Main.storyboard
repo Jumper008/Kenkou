@@ -642,7 +642,7 @@
                                         <rect key="frame" x="0.0" y="99" width="414" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o1G-2i-aoY" id="csH-fJ-HYL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="159.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Regular Biking Filled-100" translatesAutoresizingMaskIntoConstraints="NO" id="ncP-cv-ofi">
@@ -731,7 +731,7 @@
                                         <rect key="frame" x="0.0" y="259" width="414" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2zv-pj-iyB" id="3tI-RN-tSC">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="159.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Weightlifting-100" translatesAutoresizingMaskIntoConstraints="NO" id="TFZ-za-qRH">
@@ -943,6 +943,9 @@
                     <navigationItem key="navigationItem" title="Title" id="Vgp-Wj-v6T">
                         <barButtonItem key="rightBarButtonItem" image="Facebook-32" id="6PO-j9-BNA">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="postResultsOnFacebook:" destination="F7M-ep-lZo" id="dsi-2y-1qJ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
