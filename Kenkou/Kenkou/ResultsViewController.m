@@ -31,7 +31,10 @@
     NSDictionary *valueDictionary = [self populateSpiderPlotGraphWithNumberOfRecords:4];
     
     // Initiate the spiderView with its frame and values.
-    _spiderView = [[BTSpiderPlotterView alloc] initWithFrame:self.view.frame valueDictionary:valueDictionary];
+    CGRect cgrectSpiderPlotFrame = self.uiviewSpiderPlotView.frame;
+    cgrectSpiderPlotFrame.origin.y = 0.0;
+    
+    _spiderView = [[BTSpiderPlotterView alloc] initWithFrame:cgrectSpiderPlotFrame valueDictionary:valueDictionary];
     
     if (
         self.doubleGeneralScore < 33.33
@@ -53,7 +56,7 @@
     // Set a maximum value for plotting.
     [_spiderView setMaxValue:10];
     
-    [self.view addSubview:_spiderView];
+    [self.uiviewSpiderPlotView addSubview:_spiderView];
     
     //here on is flavoring - non essentials
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];

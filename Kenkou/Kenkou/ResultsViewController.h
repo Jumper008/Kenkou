@@ -13,11 +13,12 @@
 @interface ResultsViewController : UIViewController
 
 // Outlets.
-@property (nonatomic, strong) BTSpiderPlotterView *spiderView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *uisegmentedcontrolPlotFocus;
 @property (weak, nonatomic) IBOutlet UILabel *uilabelScore;
+@property (weak, nonatomic) IBOutlet UIView *uiviewSpiderPlotView;
 
 // Properties
+@property (nonatomic, strong) BTSpiderPlotterView *spiderView;
 @property (nonatomic, strong) NSString *strUsername;
 @property BOOL boolIsUserFemale;
 @property double doubleGeneralScore;

@@ -48,7 +48,8 @@
 
 - (IBAction)saveFieldData:(id)sender
 {
-    BOOL boolIsTextViewDataCorrect;
+    BOOL boolIsTextViewDataCorrect = NO;
+    BOOL boolIsTextViewDataCredits = NO;
     
     /*CASE*/
     if (
@@ -146,6 +147,10 @@
             boolIsTextViewDataCorrect = YES;
         }
     }
+    else
+    {
+        boolIsTextViewDataCredits = YES;
+    }
     /*END-CASE*/
     
     if (
@@ -158,6 +163,13 @@
     else
     {
         // Does nothing
+    }
+    
+    if (
+        boolIsTextViewDataCredits
+        )
+    {
+        [self.delegate removeViewController];
     }
 }
 

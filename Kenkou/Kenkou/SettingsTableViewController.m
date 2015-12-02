@@ -49,12 +49,24 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    NSInteger nsintNumberOfRows;
+    if (
+        section == 0
+        )
+    {
+        nsintNumberOfRows = 7;
+    }
+    else
+    {
+        nsintNumberOfRows = 2;
+    }
+    
+    return nsintNumberOfRows;
 }
 
 /*
@@ -112,6 +124,7 @@
     SettingsViewController *settingsViewController = [segue destinationViewController];
     settingsViewController.delegate = self;
     
+    /*CASE*/
     if (
         [[segue identifier] isEqualToString:@"nombre"]
         )
@@ -148,13 +161,23 @@
         settingsViewController.keyboardType = UIKeyboardTypeDecimalPad;
         settingsViewController.nsintIdentifier = 4;
     }
-    else
+    else if (
+             [[segue identifier] isEqualToString:@"peso"]
+             )
     {
         settingsViewController.strViewControllerTitle = @"Peso";
         settingsViewController.strTextViewPlaceholder = [[NSString alloc] initWithFormat:@"%0.2f", self.flWeight];
         settingsViewController.keyboardType = UIKeyboardTypeDecimalPad;
         settingsViewController.nsintIdentifier = 5;
     }
+    else
+    {
+        settingsViewController.strViewControllerTitle = @"Créditos";
+        settingsViewController.strTextViewPlaceholder = @"Kenkou ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Agosto Diciembre de 2015 como parte del curso Proyecto de Desarrollo de Dispositivos Móviles y asesorados por la Maestra Yolanda Martínez Treviño.\n\nDesarrolladores:\nAlejandro Zamudio Guajardo\nYahaire Salazar Mireles\nJuan Carlos Olvera Uribe\n\nKenkou se distribuye como está, de manera gratuita y se prohíbe su distribución y uso con fines de lucro.";
+        settingsViewController.uitextviewDataField.editable = NO;
+        settingsViewController.nsintIdentifier = 6;
+    }
+    /*END-CASE*/
 }
 
 #pragma mark - Protocol: saveSettingFieldData methods
